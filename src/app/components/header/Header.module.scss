@@ -1,0 +1,47 @@
+@import '../../page.module.scss';
+
+#header {
+    position: fixed;
+    width: 100vw;
+    height: 90px;
+
+    background-color: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.25);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    
+
+    .middleHeader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 150px;
+            height: fit-content;
+            object-fit: cover;
+        }
+    }
+}
+
+// Responsividade
+
+@media #{$mobile} {
+    #header {
+        height: 75px;
+        
+        .leftHeader {
+            display: none;
+        }
+
+        .middleHeader {
+
+            img {
+                width: 110px;
+            }
+        }
+    }
+}
