@@ -1,2 +1,44 @@
 // Variáveis
+$laptop: '(max-width: 1280px)';
+$tablet: '(max-width: 768px)';
 $mobile: '(max-width: 480px)';
+
+// Mixings
+
+@mixin title-primary() {
+    font-size: 44px;
+    font-weight: 500;
+    font-family: inherit;
+
+    @media #{$laptop} {
+        font-size: 38px;
+    }
+
+    @media #{$tablet} {
+        font-size: 36px;
+    }
+
+    @media #{$mobile} {
+        font-size: 34px;
+    }
+}
+
+@mixin text-primary() {
+    font-size: 20px;
+    font-family: inherit;
+
+    @media #{$laptop} {
+        font-size: 18px;
+    }
+}
+
+.main {
+
+    &::before {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: aqua;
+        z-index: 999;
+    }
+}

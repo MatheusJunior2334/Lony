@@ -1,0 +1,118 @@
+@import '../../page.module.scss';
+
+$imageCarouselDefaultWidth: 480px;
+$imageCarouselWidthLaptop: 400px;
+$imageCarouselWidth1000px: 370px;
+
+// Estilização Principal
+
+#carousel {
+    width: $imageCarouselDefaultWidth;
+    display: flex;
+    overflow: hidden;
+  
+    .imageWrapper {
+        position: relative;
+        width: 100%;
+        
+        display: flex;
+        transition: transform 0.5s ease;
+
+        .image {
+            flex: 0 0 auto;
+            transition: transform 0.5s ease;
+            
+            img {
+                width: $imageCarouselDefaultWidth;
+                height: auto;
+                object-fit: cover;
+            }
+        }
+
+        .active {
+            transform: translateX(0%);
+        }
+
+        button {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #CCC;
+
+            border: none;
+            border-radius: 100%;
+            cursor: pointer;
+            z-index: 1;
+
+            svg {               
+                width: 100%;
+                height: 100%;
+            }
+        
+            &.leftBtn {
+                left: 5px;
+
+                svg {
+                    transform: rotate(180deg);
+                }
+            }
+        
+            &.rightBtn {
+                right: 5px;
+            }
+        }
+    }
+}
+
+// Responsividade
+
+@media #{$laptop} {
+    #carousel {
+        width: $imageCarouselWidthLaptop;
+
+        .imageWrapper {
+
+            .image {
+
+                img {
+                    width: $imageCarouselWidthLaptop;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    #carousel {
+        width: $imageCarouselWidth1000px;
+
+        .imageWrapper {
+
+            .image {
+
+                img {
+                    width: $imageCarouselWidth1000px;
+                }
+            }
+        }
+    }
+}
+
+@media #{$tablet} {
+    #carousel {
+        width: 100%;
+
+        .imageWrapper {
+            
+            .image {
+                width: 100%;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

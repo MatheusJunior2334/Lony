@@ -1,0 +1,25 @@
+@import '../../page.module.scss';
+
+#btnPrimary {
+    font-size: 22px;
+    font-family: inherit;
+    color: #fff;
+    background-color: #000;
+    transition: all 0.3s;
+
+    padding: 8px 24px;
+    border-radius: 40px;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    @media #{$laptop} {
+        font-size: 20px;
+    }
+
+    @media #{$mobile} {
+        font-size: 18px;
+    }
+}

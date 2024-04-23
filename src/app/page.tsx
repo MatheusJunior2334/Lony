@@ -1,12 +1,17 @@
-import Image from "next/image";
-import styles from "./page.module.scss";
+'use client'
 
-import { Header } from "./components/header/Header";
+import { useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <Header />
-    </main>
-  );
+  const router = useRouter();
+  const path = usePathname();
+
+  useEffect(() => {
+    if (path === '/') {
+      router.push('/home')
+    } else if (path === '/about') {
+      router.push('/about');
+    }
+  }, [path, router])
 }
