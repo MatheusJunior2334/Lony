@@ -28,7 +28,7 @@ export const AboutSection = () => {
                 <LadiesAboutLogo />
 
                 <div className={styles.aboutText}>
-                    <p>"Lony", pronunciado "Luni", é o resultado de um sonho compartilhado por Estefany, Isabela, Ester, Larissa e Bianka. Somos um grupo de garotas apaixonadas pela moda, unidas por um propósito ousado: criar nossa própria marca e conquistar o coração do Brasil.</p>
+                    <p>&quot;Lony&quot;, pronunciado &quot;Luni&quot;, é o resultado de um sonho compartilhado por Estefany, Isabela, Ester, Larissa e Bianka. Somos um grupo de garotas apaixonadas pela moda, unidas por um propósito ousado: criar nossa própria marca e conquistar o coração do Brasil.</p>
                     <p>Com visão internacional, almejamos levar nosso estilo único e inovador para além das fronteiras, com o objetivo final de brilhar nos palcos globais, quem sabe até mesmo nas ruas movimentadas de Nova Iorque. Juntas, estamos determinadas a deixar nossa marca no mundo da moda, e a jornada rumo ao sucesso é apenas o começo da nossa emocionante história.</p>
                 </div>
 
