@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import styles from './Header.module.scss';
+import styles from './header.module.scss';
 import { LonyLogoHeader } from '../../../../../public/assets/images/LonyLogoHeader';
 import { HamburgerMenuIcon } from '../../../../../public/assets/icons/HamburgerMenuIcon';
 import { SideMenu } from './sideMenu';
