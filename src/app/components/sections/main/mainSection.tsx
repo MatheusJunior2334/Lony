@@ -2,7 +2,7 @@ import Image from 'next/image';
 import styles from '../../../styles/mainSection.module.scss';
 import { Carousel } from '../../UI/carousel';
 import { ButtonPrimary } from '../../UI/buttonPrimary';
-import { DressIcon } from '../../../../../public/assets/icons/dressIcon';
+import { HeartDressIcon } from '../../../../../public/assets/icons/heartDressIcon';
 import seatedWoman from '../../../../../public/assets/images/SeatedWoman.png';
 import { useLanguage } from '../../../../app/contexts/languageContext';
 
@@ -19,7 +19,7 @@ export const MainSection = () => {
 
                         <span>
                             Ladies of New York
-                            <DressIcon />
+                            <HeartDressIcon />
                         </span>
 
                         <h1>{translations['home.mainSection.fashionIsOurPassage']} <br /> {translations['home.mainSection.toTheWorldOfDreams']}</h1>

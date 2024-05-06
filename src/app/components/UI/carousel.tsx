@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import styles from '../../styles/carousel.module.scss';
 import Image from "next/image";
 
-import { CarouselArrowIcon } from "../../../../public/assets/icons/carouselArrowIcon";
+import { ArrowCarouselIcon } from "../../../../public/assets/icons/arrowCarouselIcon";
 import { PauseIcon } from "../../../../public/assets/icons/pauseIcon";
 import { PlayIcon } from "../../../../public/assets/icons/playIcon";
 
@@ -103,11 +103,11 @@ export const Carousel: React.FC = () => {
                 ))}
 
                 <button className={styles.leftBtn} onClick={goToPrevImage}>
-                    <CarouselArrowIcon />
+                    <ArrowCarouselIcon />
                 </button>
 
                 <button className={styles.rightBtn} onClick={goToNextImage}>
-                    <CarouselArrowIcon />
+                    <ArrowCarouselIcon />
                 </button>
 
                 <button className={styles.pauseBtn} onClick={handlePause}>

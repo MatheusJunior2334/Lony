@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../../../styles/footer.module.scss';
+import styles from '../../../styles/footerHome.module.scss';
 import { useLanguage } from '../../../../app/contexts/languageContext';
 
 import LonyLogo from '../../../../../public/assets/images/LonyFooterLogo.png';
@@ -10,7 +10,7 @@ import { InstagramIcon } from '../../../../../public/assets/icons/instagramIcon'
 import { LinktreeIcon } from '../../../../../public/assets/icons/linktreeIcon';
 import { LinkedinIcon } from '../../../../../public/assets/icons/linkedinIcon';
 
-export const Footer = () => {
+export const FooterHome = () => {
     const { translations } = useLanguage();
 
     return (

@@ -1,16 +1,15 @@
 'use client'
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import { Header } from "../components/layout/header/header";
 import { MainSection } from "../components/sections/main/mainSection";
 import { OurWorkSection } from "../components/sections/our-work/ourWork";
 import { AboutSection } from "../components/sections/about/about";
 import { Section4 } from "../components/sections/section4/section4";
-import { Footer } from "../components/layout/footer/footer";
+import { FooterHome } from "../components/layout/footer-home/footerHome";
 
 import { LanguageProvider } from "../contexts/languageContext";
-import LoadingPage from "../loading";
 
 export default function HomePage() {
     return (
@@ -21,7 +20,7 @@ export default function HomePage() {
                 <OurWorkSection />
                 <AboutSection />
                 <Section4 />
-                <Footer />
+                <FooterHome />
             </main>
         </LanguageProvider>
     )
