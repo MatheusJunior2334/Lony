@@ -3,9 +3,11 @@ $laptop: '(max-width: 1280px)';
 $tablet: '(max-width: 768px)';
 $mobile: '(max-width: 480px)';
 
+$marginSection: 18px;
+
 // Mixings
 
-@mixin title-primary() {
+@mixin h1-text() {
     font-size: 44px;
     font-weight: 500;
     font-family: inherit;
@@ -23,22 +25,29 @@ $mobile: '(max-width: 480px)';
     }
 }
 
+@mixin title-primary() {
+    font-size: 42px;
+    font-weight: 500;
+    font-family: inherit;
+
+    @media #{$laptop} {
+        font-size: 36px;
+    }
+
+    @media #{$tablet} {
+        font-size: 34px;
+    }
+
+    @media #{$mobile} {
+        font-size: 32px;
+    }
+}
+
 @mixin text-primary() {
     font-size: 20px;
     font-family: inherit;
 
     @media #{$laptop} {
         font-size: 18px;
-    }
-}
-
-.main {
-
-    &::before {
-        position: absolute;
-        width: 100vw;
-        height: 100vh;
-        background-color: aqua;
-        z-index: 999;
     }
 }

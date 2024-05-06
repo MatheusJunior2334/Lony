@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import styles from './carousel.module.scss';
+import styles from '../../styles/carousel.module.scss';
 import Image from "next/image";
 
-import { CarouselArrowIcon } from "../../../../public/assets/icons/CarouselArrowIcon";
+import { CarouselArrowIcon } from "../../../../public/assets/icons/carouselArrowIcon";
+import { PauseIcon } from "../../../../public/assets/icons/pauseIcon";
+import { PlayIcon } from "../../../../public/assets/icons/playIcon";
 
 const images = [
     '/assets/images/BiankaPrimary.jpg',
@@ -12,9 +14,18 @@ const images = [
     '/assets/images/LarissaPrimary.jpg'
 ]
 
+const girlNames = [
+    'Bianka',
+    'Estefany',
+    'Ester',
+    'Isabela',
+    'Larissa'
+]
+
 export const Carousel: React.FC = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
     const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
+    const [isPaused, setisPaused] = useState<boolean>(false);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
@@ -23,11 +34,11 @@ export const Carousel: React.FC = () => {
         return () => {
             stopCarousel()
         }
-    }, []);
+    }, [isPaused]);
 
     const startCarousel = () => {
         intervalRef.current = setInterval(() => {
-            goToNextImage();
+            if (!isPaused) goToNextImage();
         }, 5000)
     }
 
@@ -64,6 +75,20 @@ export const Carousel: React.FC = () => {
         }
     }
 
+    const handlePause = () => {
+        setisPaused(!isPaused);
+    }
+
+    const handleDotClick = (index: number) => {
+        if (!isTransitioning) {
+            setIsTransitioning(true);
+            setCurrentImageIndex(index);
+            setTimeout(() => {
+                setIsTransitioning(false);
+            }, 500)
+        }
+    }
+
     return (
         <div id={styles.carousel}>
             <div className={styles.imageWrapper}>
@@ -73,7 +98,7 @@ export const Carousel: React.FC = () => {
                         className={`${styles.image} ${index === currentImageIndex ? styles.active : ''}`}
                         style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
                     >
-                        <Image src={image} alt={`Image ${index}`} width={970} height={1080} priority />
+                        <Image src={image} alt={`${girlNames[index]}`} title={`${girlNames[index]}`} width={970} height={1080} priority />
                     </div>
                 ))}
 
@@ -84,6 +109,20 @@ export const Carousel: React.FC = () => {
                 <button className={styles.rightBtn} onClick={goToNextImage}>
                     <CarouselArrowIcon />
                 </button>
+
+                <button className={styles.pauseBtn} onClick={handlePause}>
+                    {isPaused ? <PlayIcon /> : <PauseIcon />}
+                </button>
+
+                <div className={styles.dots}>
+                    {images.map((_, index) => (
+                        <div
+                            key={index}
+                            className={`${styles.dot} ${index === currentImageIndex ? styles.active : ''}`}
+                            onClick={() => handleDotClick(index)}
+                        ></div>
+                    ))}
+                </div>
             </div>
         </div>
     )

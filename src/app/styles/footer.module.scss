@@ -1,0 +1,252 @@
+@import '../page.module.scss';
+
+#footer {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 0px 40px;
+    box-shadow: 2px 2px 6px #000;
+    overflow: hidden;
+
+    .topFooter {
+        padding: 20px 0 10px 0;
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+
+            .footerLogoDiv {
+                img {
+                    width: 250px;
+                    height: auto;
+                }
+            }
+
+            .footerOurWorksDiv,
+            .footerAboutDiv,
+            .footerSocialMediaDiv {
+                width: 300px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                row-gap: 10px;
+
+                a {
+                    text-decoration: none;
+                    opacity: 0.5;
+                    transition: opacity 0.3s ease-in-out;
+
+                    .topArrow {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                        column-gap: 20px;
+                        transition: column-gap 0.3s ease-in-out;
+
+                        svg {
+                            width: 50px;
+                        }
+                    }
+
+                    &:hover {
+                        opacity: 1;
+                        .topArrow {
+                            column-gap: 40px;
+                        }
+                    }
+                }
+
+                h3 {
+                    font-size: 24px;
+                    color: #000;
+                }
+
+                span {
+                    font-size: 18px;
+                }
+            }
+
+            .footerSocialMediaDiv {
+                div {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    column-gap: 10px;
+                    margin-top: 14px;
+
+                    a {
+                        width: 35px;
+                        height: 35px;
+                        transition: transform 0.2s ease-in-out;
+                        opacity: 1;
+
+                        svg {
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        &:hover {
+                            transform: scale(1.05);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    hr {
+        width: 100%;
+        height: 1px;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .bottomFooter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 0;
+
+        h6 {
+            font-weight: normal;
+            font-size: 14px;
+            text-align: center;
+        }
+    }
+
+    .sideLane {
+        position: absolute;
+        width: 350px;
+        height: 200px;
+        background-color: #e2e2e2;
+        bottom: -110px;
+        left: -180px;
+        z-index: -1;
+        transform: rotate(45deg);
+    }
+}
+
+// Responsividade
+
+@media #{$laptop} {
+    #footer {
+        padding: 0 8px;
+        .topFooter {
+            nav {
+                .footerOurWorksDiv,
+                .footerAboutDiv,
+                .footerSocialMediaDiv {
+                    width: 260px;
+
+                    a {
+                        .topArrow {
+                            column-gap: 10px;
+                            svg {
+                                width: 40px;
+                            }
+                        }
+
+                        &:hover {
+                            .topArrow {
+                                column-gap: 20px;
+                            }
+                        }
+                    }
+
+                    h3 {
+                        font-size: 22px;
+                    }
+
+                    span {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    #footer {
+        padding: 0 20px;
+        .topFooter {
+            padding: 10px 0 20px 0;
+            nav {
+                display: grid;
+                grid-template-areas:
+                    "logo media"
+                    "about works";
+                grid-template-columns: 50% 50%;
+                grid-row-gap: 10px;
+
+                .footerLogoDiv {
+                    grid-area: logo;
+                }
+
+                .footerOurWorksDiv {
+                    grid-area: works;
+                }
+
+                .footerAboutDiv {
+                    grid-area: about;
+                }
+
+                .footerSocialMediaDiv {
+                    grid-area: media;
+                }
+
+                .footerOurWorksDiv,
+                .footerAboutDiv,
+                .footerSocialMediaDiv {
+                    width: 100%;
+
+                    a {
+                        .topArrow {
+                            column-gap: 20px;
+                        }
+                    }
+
+                    &:hover {
+                        .topArrow {
+                            column-gap: 40px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media #{$tablet} {
+    #footer {
+        .topFooter {
+            padding: 10px 0;
+            nav {
+                grid-template-areas:
+                    "media"
+                    "about"
+                    "works"
+                    "logo";
+                grid-template-columns: 100%;
+                justify-items: center;
+                grid-row-gap: 30px;
+
+                .footerOurWorksDiv,
+                .footerAboutDiv,
+                .footerSocialMediaDiv {
+                    align-items: center;
+                }
+
+                .footerSocialMediaDiv {
+                    div {
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+        .sideLane {
+            left: -200px;
+        }
+    }
+}

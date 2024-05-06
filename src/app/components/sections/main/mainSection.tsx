@@ -1,30 +1,49 @@
 import Image from 'next/image';
-import { LonyLogo } from '../../../../../public/assets/images/LonyLogo';
-import styles from './mainSection.module.scss';
+import styles from '../../../styles/mainSection.module.scss';
 import { Carousel } from '../../UI/carousel';
 import { ButtonPrimary } from '../../UI/buttonPrimary';
-import { DressIcon } from '../../../../../public/assets/icons/DressIcon';
+import { DressIcon } from '../../../../../public/assets/icons/dressIcon';
+import seatedWoman from '../../../../../public/assets/images/SeatedWoman.png';
+import { useLanguage } from '../../../../app/contexts/languageContext';
+
+import { AnimatedComponent } from '../../animations/animatedComponent';
 
 export const MainSection = () => {
+    const { translations } = useLanguage();
+
     return (
         <section id={styles.mainSection}>
             <div className={styles.leftSide}>
                 <div className={styles.leftSideContent}>
                     <div className={styles.topText}>
+
                         <span>
                             Ladies of New York
                             <DressIcon />
                         </span>
 
-                        <h1>A moda é nossa passagem <br /> para o mundo dos sonhos.</h1>
+                        <h1>{translations['home.mainSection.fashionIsOurPassage']} <br /> {translations['home.mainSection.toTheWorldOfDreams']}</h1>
 
                     </div>
 
-                    <ButtonPrimary pageUrl='/' text='Conheça o nosso trabalho' />
+                    <div className={styles.buttonDiv}>
+                        <Image
+                            src={seatedWoman}
+                            alt='Imagem de mulher sentada'
+                            width={172}
+                            height={380}
+                            quality={50}
+                            priority
+                            className={styles.seatedWomanImage}
+                        />
+                        <ButtonPrimary pageUrl='/' text={`${translations['home.mainSection.seeOurWork']}`} />
+                    </div>
                 </div>
             </div>
             <div className={styles.rightSide}>
-                <Carousel />
+                <AnimatedComponent initialTranslateX={50} transitionDuration={2} opacity={0} animateOnce>
+                    <Carousel />
+                </AnimatedComponent>
             </div>
         </section>
     )

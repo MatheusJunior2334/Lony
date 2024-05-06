@@ -1,0 +1,27 @@
+{
+    "header.menu": "Menu",
+    "header.sideMenu.closeMenu": "Close",
+    "header.sideMenu.home": "Home",
+    "header.sideMenu.ourWorks": "Our Works",
+    "header.sideMenu.about": "About Us",
+
+    "home.mainSection.fashionIsOurPassage": "Fashion is our passage",
+    "home.mainSection.toTheWorldOfDreams": " to the world of dreams.",
+    "home.mainSection.seeOurWork": "Get to know our work",
+
+    "home.ourWorks.designsTitle": "Our designs",
+
+    "home.about.whoWeAre": "Who we are?",
+    "home.about.aboutFirstLine": "\"Lony\", pronounced \"Luni\", is the result of a dream shared by Estefany, Isabela, Ester, Larissa and Bianka. We are a group of girls with a passion for fashion, united by a daring purpose: to create our own brand and conquer the heart of Brazil.",
+    "home.about.aboutSecondLine": "With an international outlook, we aim to take our unique and innovative style beyond borders, with the ultimate goal of shining on global stages, perhaps even on the bustling streets of New York. Together, we are determined to make our mark on the fashion world, and the journey to success is just the beginning of our exciting story.",
+    "home.about.learnMore": "Learn more",
+
+    "home.footer.ourWorksTitle": "Our Works",
+    "home.footer.ourWorksText": "Discover the sketches we create for our clothes.",
+    "home.footer.aboutTitle": "About Us",
+    "home.footer.aboutText": "Find out more about who makes this dream come true.",
+    "home.footer.socialMediaTitle": "Social Media",
+    "home.footer.socialMediaText": "Follow us on all our social media.",
+    "home.footer.developedByMatheus": "Developed with 🖤 by",
+    "home.footer.andBianka": "and"
+}

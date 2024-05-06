@@ -1,9 +1,10 @@
-@import '../../../page.module.scss';
+@import '../page.module.scss';
 
 #aboutSection {
     position: relative;
     width: 100%;
     display: flex;
+    margin: $marginSection 0;
 
     .leftSide {
         width: 48%;
@@ -12,10 +13,16 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        
-        img {
-            width: 90%;
-            height: auto;
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 90%;
+                height: auto;
+            }
         }
     }
 
@@ -85,9 +92,13 @@
         }
 
         .leftSide {
+            padding: 0 0 16px 0;
 
-            img {
-                width: 100%;
+            div {
+
+                img {
+                    width: 100%;
+                }
             }
         }
 

@@ -1,9 +1,10 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import styles from './buttonPrimary.module.scss';
+import styles from '../../styles/buttonPrimary.module.scss';
 
 interface ButtonPrimaryProps {
     pageUrl: string;
-    text: string
+    text: string;
 }
 
 export const ButtonPrimary = ({ pageUrl, text }: ButtonPrimaryProps) => {

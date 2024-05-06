@@ -1,0 +1,38 @@
+#languagesSwitch {
+    height: auto;
+
+    display: flex;
+    justify-content: space-around;
+    border-radius: 8px;
+    background-color: rgb(0, 0, 0);
+    padding: 2px;
+    cursor: pointer;
+
+    div {
+        transition: 0.5s all;
+
+        &:first-child {
+            border-radius: 4px 0 0 4px;
+        }
+
+        &:last-child {
+            border-radius: 0 4px 4px 0;
+        }
+
+        svg {
+            width: 40px;
+            height: 40px;
+            padding: 0px 6px;
+            box-sizing: content-box;
+            opacity: 0.5;
+        }
+    }
+
+    .selected {
+        background-color: #fff;
+
+        svg {
+            opacity: 1;
+        }
+    }
+}

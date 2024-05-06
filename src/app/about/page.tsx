@@ -1,18 +1,17 @@
 'use client'
 
-import Head from "next/head";
+import Link from "next/link";
 import { AboutSection } from "../components/sections/about/about";
+import { LanguageProvider } from "../contexts/languageContext";
 
 export default function AboutPage() {
     return (
-        <>
-            <Head>
-                <title>Lony - Quem Somos?</title>
-                <meta name="description" content="Conheça mais sobre as integrantes da Lony" />
-                <meta property="og:title" content="Lony - Quem Somos?" />
-                <meta property="og:description" content="Conheça mais sobre as integrantes da Lony" />
-            </Head>
-            <AboutSection />
-        </>
+        <LanguageProvider>
+            <main>
+                <h2>Página em Desenvolvimento</h2>
+                <p>Volte mais tarde :)</p>
+                <Link href="/home"><button>Clique aqui para voltar para a tela inicial</button></Link>
+            </main>
+        </LanguageProvider>
     )
 }

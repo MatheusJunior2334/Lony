@@ -1,4 +1,4 @@
-@import '../../page.module.scss';
+@import '../page.module.scss';
 
 #btnPrimary {
     font-size: 22px;
@@ -10,9 +10,10 @@
     padding: 8px 24px;
     border-radius: 40px;
     cursor: pointer;
+    z-index: 1;
 
     &:hover {
-        transform: scale(1.05);
+        background-color: #000000aa;
     }
 
     @media #{$laptop} {

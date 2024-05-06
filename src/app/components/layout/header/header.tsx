@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
-import styles from './header.module.scss';
+import styles from '../../../styles/header.module.scss';
 import { LonyLogoHeader } from '../../../../../public/assets/images/LonyLogoHeader';
-import { HamburgerMenuIcon } from '../../../../../public/assets/icons/HamburgerMenuIcon';
+import { HamburgerMenuIcon } from '../../../../../public/assets/icons/hamburgerMenuIcon';
 import { SideMenu } from './sideMenu';
+
+import { useLanguage } from '../../../contexts/languageContext';
 
 export const Header = () => {
     const [addClassMenu, setAddClassMenu] = useState<boolean>(false);
     const [visibleMenu, setVisibleMenu] = useState<boolean>(false);
+    const { translations } = useLanguage();
 
     const openMenu = () => {
         setAddClassMenu(true);
@@ -33,12 +36,12 @@ export const Header = () => {
     return (
         <header id={styles.header}>
 
-            { visibleMenu ? <SideMenu closeMenu={closeMenu} translateStyle={addClassMenu} visibleMenu={visibleMenu} /> : null }
+            { visibleMenu ? <SideMenu closeMenu={closeMenu} translateStyle={addClassMenu} /> : null }
 
             <div className={styles.leftHeader}>
                 <div className={styles.burgerMenu} onClick={openMenu}>
                     <HamburgerMenuIcon />
-                    <span>Menu</span>
+                    <span>{translations['header.menu']}</span>
                 </div>
             </div>
 

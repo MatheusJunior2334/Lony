@@ -1,10 +1,11 @@
-@import '../../../page.module.scss';
+@import '../page.module.scss';
 
 // Estilização Principal
 
 #mainSection {
-    padding: 104px 0 18px 0;
+    margin: 104px 0 $marginSection 0;
     display: flex;
+    overflow-x: hidden;
 
     .leftSide {
         width: 55%;
@@ -40,7 +41,28 @@
                 }
     
                 h1 {
-                    @include title-primary();
+                    @include h1-text();
+                }
+            }
+
+            .buttonDiv {
+                position: relative;
+                width: auto;
+                height: auto;
+
+                .seatedWomanImage {
+                    position: absolute;
+                    width: 64px;
+                    height: auto;
+                    bottom: -14px;
+                    right: 0;
+                    z-index: 2;
+
+                    pointer-events: none;
+                }
+
+                button {
+                    padding: 8px 30px;
                 }
             }
         }
@@ -64,6 +86,14 @@
 
             .leftSideContent {
                 width: 90%;
+
+                .buttonDiv {
+    
+                    .seatedWomanImage {
+                        width: 50px;
+                        bottom: -4px;
+                    }
+                }
             }
         }
 
@@ -75,6 +105,7 @@
 
 @media #{$tablet} {
     #mainSection {
+        margin: 95px 0 $marginSection 0;
         flex-direction: column;
         align-items: center;
         row-gap: 30px;
@@ -98,6 +129,17 @@
                         br {
                             display: none;
                         }
+                    }
+                }
+
+                .buttonDiv {
+
+                    .seatedWomanImage {
+                        display: none;
+                    }
+
+                    button {
+                        padding: 8px 24px;
                     }
                 }
             }

@@ -1,0 +1,239 @@
+@import '../page.module.scss';
+
+// Animações
+
+@keyframes slide-in-default {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-devices {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-out-default {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slide-out-devices {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes enterBackground {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes exitBackground {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+// Variáveis
+$paddingNav: 8px;
+
+// Estilização Principal
+
+#sideMenu {
+    position: absolute;
+    width: 100vw;
+    height: 100dvh;
+    z-index: 11;
+
+    display: flex;
+    left: 0;
+    top: 0;
+
+    .leftSide {
+        width: 450px;
+        height: auto;
+        background-color: rgb(255, 255, 255);
+        z-index: 2;
+
+        .exitButtonDiv {
+            position: fixed;
+            width: 450px;
+            height: 84px;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            border-bottom: 1px solid #00000050;
+
+            button {
+                width: 40px;
+                height: 40px;
+                background-color: #000;
+                border-radius: 100%;
+                padding: 8px;
+                transition: ease-in 0.3s;
+                margin-left: $paddingNav;;
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        .navBar {
+            height: calc(100% - 84px);
+            margin-top: 84px;
+            padding: $paddingNav;
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            overflow-y: auto;
+
+            .pagePaths {
+                height: auto;
+                padding: 8px 0 0 40px;
+                list-style: none;
+
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                row-gap: 4px;
+                
+                a {
+                    text-decoration: none;
+                    
+                    li {
+                        font-family: inherit;
+                        font-size: 24px;
+                        color: #000;
+                    }
+
+                    &:hover {
+                        text-decoration: underline;
+                        text-decoration-color: #000;
+                        text-underline-offset: 0.4rem;
+                        text-decoration-thickness: 1.2px;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .rightSide {
+        position: absolute;
+        width: 100vw;
+        height: 100%;
+        backdrop-filter: blur(10px);
+        background-color: #00000080;
+        right: 0;
+        top: 0;
+        z-index: 1;
+    }
+
+    .open {
+
+        &.leftSide {
+            animation: slide-in-default 0.3s ease-in-out;
+        }
+
+        &.rightSide {
+            animation: enterBackground 0.3s forwards ease-in-out;
+        }
+    }
+
+    .close {
+
+        &.leftSide {
+            animation: slide-out-default 0.3s ease-in-out forwards;
+        }
+
+        &.rightSide {
+            animation: exitBackground 0.3s forwards ease-in-out;
+        }
+    }
+}
+
+
+// Responsividade
+
+@media #{$tablet} {
+    #sideMenu {
+
+        .leftSide {
+            width: 100vw;
+
+            .exitButtonDiv {
+                width: 100%;
+                height: 75px;
+                justify-content: flex-end;
+
+                button {
+                    margin-right: 24px;
+                }
+            }
+
+            .navBar {
+                margin-top: 75px;
+
+                .pagePaths {
+                    padding: 0px;
+                }
+            }
+        }
+
+        .rightSide {
+            display: none;
+        }
+
+        .open {
+
+            &.leftSide {
+                animation: slide-in-devices 0.3s ease-in-out;
+            }
+        }
+    
+        .close {
+    
+            &.leftSide {
+                animation: slide-out-devices 0.3s ease-in-out forwards;
+            }
+        }
+    }
+}
