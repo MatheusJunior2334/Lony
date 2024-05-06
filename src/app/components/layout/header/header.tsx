@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import styles from '../../../styles/header.module.scss';
 import { LonyLogoHeader } from '../../../../../public/assets/images/LonyLogoHeader';
-import { HamburgerMenuIcon } from '../../../../../public/assets/icons/hamburgerMenuIcon';
+import { BurgerMenuIcon } from '../../../../../public/assets/icons/burgerMenuIcon';
 import { SideMenu } from './sideMenu';
 
 import { useLanguage } from '../../../contexts/languageContext';
@@ -40,7 +40,7 @@ export const Header = () => {
 
             <div className={styles.leftHeader}>
                 <div className={styles.burgerMenu} onClick={openMenu}>
-                    <HamburgerMenuIcon />
+                    <BurgerMenuIcon />
                     <span>{translations['header.menu']}</span>
                 </div>
             </div>

@@ -23,7 +23,7 @@ export const Footer = () => {
 
                     <div className={styles.footerOurWorksDiv}>
 
-                        <Link href='/'>
+                        <Link href='/home'>
                             <div className={styles.topArrow}>
                                 <h3>{translations['home.footer.ourWorksTitle']}</h3>
                                 <ArrowIcon />
