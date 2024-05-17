@@ -254,6 +254,11 @@
 
 @media #{$mobile} {
     #corePrinciples {
+        .pageTitle {
+            hr {
+                width: 80px;
+            }
+        }
 
         .valuesDiv {
             grid-template-areas:

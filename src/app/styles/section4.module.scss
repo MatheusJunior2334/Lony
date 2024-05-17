@@ -9,21 +9,8 @@
     background-size: 40%;
     background-attachment: fixed;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     margin: $marginSection 0 0 0;
     padding: $marginSection 5%;
-
-    h2 {
-        @include title-primary();
-        font-size: 40px;
-    }
-
-    p {
-        font-size: 22px;
-    }
 }
 
 @media #{$tablet} {

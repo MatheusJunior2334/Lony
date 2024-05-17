@@ -53,6 +53,7 @@
     backdrop-filter: blur(4px);
     left: 0;
     top: 0;
+    cursor: zoom-out;
 
     &.backdropOpen {
         animation: backdropOpenAnimation 0.3s ease-in-out forwards;

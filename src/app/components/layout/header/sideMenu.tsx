@@ -81,8 +81,8 @@ export const SideMenu: React.FC<SideMenuProps> = ({ closeMenu, translateStyle })
                         <Image
                             src={SideMenuWoman}
                             alt='Side menu woman draw'
-                            width={290}
-                            height={600}
+                            width={192}
+                            height={400}
                             priority
                         />
                     </div>
