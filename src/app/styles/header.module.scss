@@ -8,7 +8,7 @@
     top: 0;
 
     background-color: #ffffff;
-    box-shadow: 2px 2px 4px #00000050;
+    box-shadow: 1px 1px 2px rgba($pageBlackColour, 0.31);
    
     display: flex;
     justify-content: space-between;
@@ -30,10 +30,15 @@
 
             svg {
                 width: 24px;
+
+                line {
+                    stroke: $pageBlackColour;
+                }
             }
     
             span{ 
                 font-size: 18px;
+                color: $pageBlackColour;
             }
         }
     }
@@ -48,10 +53,8 @@
         svg {
             width: 140px;
             height: auto;
-            fill: black; 
-
-            stroke-dasharray: 0;
-            stroke-dashoffset: 11667px;
+            fill: $pageBlackColour;
+            cursor: pointer;
         }
 
     }

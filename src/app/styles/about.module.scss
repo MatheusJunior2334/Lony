@@ -51,9 +51,9 @@
         }
 
         .aboutText {
+            @include gap-text-measures();
             display: flex;
             flex-direction: column;
-            row-gap: 25px;
 
             p {
                 @include text-primary();
@@ -73,10 +73,6 @@
 
         .rightSide {
             width: 50%;
-
-            .aboutText {
-                row-gap: 20px;
-            }
         }
     }
 }

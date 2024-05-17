@@ -71,7 +71,7 @@ $paddingNav: 8px;
     position: absolute;
     width: 100vw;
     height: 100dvh;
-    z-index: 11;
+    z-index: 12;
 
     display: flex;
     left: 0;
@@ -89,28 +89,34 @@ $paddingNav: 8px;
             height: 84px;
 
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #00000050;
+            border-bottom: 1px solid rgba($pageBlackColour, 0.5);
 
             button {
+                @include close-menu-button();
                 width: 40px;
                 height: 40px;
-                background-color: #000;
-                border-radius: 100%;
-                padding: 8px;
-                transition: ease-in 0.3s;
-                margin-left: $paddingNav;;
-                cursor: pointer;
+                background-color: $pageBlackColour;
+                margin-left: $paddingNav;
+            }
 
-                &:hover {
-                    transform: scale(1.1);
-                }
+            div {
+                display: flex;
+                align-items: center;
+                height: 100%;
 
                 svg {
-                    width: 100%;
-                    height: 100%;
+                    width: 140px;
+                    height: auto;
+                    fill: $pageBlackColour;
+                    cursor: pointer;
                 }
+            }
+
+            span {
+                width: 40px;
+                margin-right: $paddingNav;
             }
         }
 
@@ -127,7 +133,7 @@ $paddingNav: 8px;
 
             .pagePaths {
                 height: auto;
-                padding: 8px 0 0 40px;
+                padding: 8px 0 0 2px;
                 list-style: none;
 
                 display: flex;
@@ -139,19 +145,34 @@ $paddingNav: 8px;
                     text-decoration: none;
                     
                     li {
-                        font-family: inherit;
-                        font-size: 24px;
-                        color: #000;
-                    }
+                        @include side-menu-text();
+                        display: flex;
+                        align-items: flex-end;
+                        padding: 4px 8px;
 
-                    &:hover {
-                        text-decoration: underline;
-                        text-decoration-color: #000;
-                        text-underline-offset: 0.4rem;
-                        text-decoration-thickness: 1.2px;
+                        &.activeLine {
+                            background-color: rgb(33 33 33 / 0.1);
+                            font-weight: 600;
+
+                            svg {
+                                fill: $pageBlackColour;
+                                stroke: none;
+                            }
+                        }
                     }
                 }
+            }
 
+            .sideMenuWoman {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+
+                img {
+                    width: 40%;
+                    height: 100%;
+                    transform: rotateY(180deg);
+                }
             }
         }
     }
@@ -161,7 +182,7 @@ $paddingNav: 8px;
         width: 100vw;
         height: 100%;
         backdrop-filter: blur(10px);
-        background-color: #00000080;
+        background-color: rgba($pageBlackColour, 0.56);
         right: 0;
         top: 0;
         z-index: 1;
@@ -202,10 +223,14 @@ $paddingNav: 8px;
             .exitButtonDiv {
                 width: 100%;
                 height: 75px;
-                justify-content: flex-end;
+                flex-direction: row-reverse;
 
                 button {
                     margin-right: 24px;
+                }
+
+                span {
+                    display: none;
                 }
             }
 

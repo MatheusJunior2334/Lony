@@ -5,7 +5,7 @@
     width: 100%;
     height: auto;
     padding: 0px 40px;
-    box-shadow: 2px 2px 6px #000;
+    border-top: 30px solid $pageBlackColour;
     overflow: hidden;
 
     .topFooter {
@@ -22,6 +22,7 @@
                 }
             }
 
+            .footerHomeDiv,
             .footerOurWorksDiv,
             .footerAboutDiv,
             .footerSocialMediaDiv {
@@ -46,6 +47,10 @@
 
                         svg {
                             width: 50px;
+                            
+                            path {
+                                fill: $pageBlackColour;
+                            }
                         }
                     }
 
@@ -59,11 +64,12 @@
 
                 h3 {
                     font-size: 24px;
-                    color: #000;
+                    color: $pageBlackColour;
                 }
 
                 span {
                     font-size: 18px;
+                    color: $pageBlackColour;
                 }
             }
 
@@ -77,14 +83,18 @@
                     margin-top: 14px;
 
                     a {
-                        width: 35px;
-                        height: 35px;
+                        width: 36px;
+                        height: 36px;
                         transition: transform 0.2s ease-in-out;
                         opacity: 1;
 
                         svg {
                             width: 100%;
                             height: 100%;
+                            fill: #ffffff;
+                            background-color: $pageBlackColour;
+                            padding: 2px;
+                            border-radius: 4px;
                         }
 
                         &:hover {
@@ -99,7 +109,7 @@
     hr {
         width: 100%;
         height: 1px;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba($pageBlackColour, 0.2);
     }
 
     .bottomFooter {
@@ -112,6 +122,7 @@
             font-weight: normal;
             font-size: 14px;
             text-align: center;
+            color: $pageBlackColour;
         }
     }
 
@@ -119,7 +130,7 @@
         position: absolute;
         width: 350px;
         height: 200px;
-        background-color: #e2e2e2;
+        background-color: rgba($pageBlackColour, 0.1);
         bottom: -110px;
         left: -180px;
         z-index: -1;
@@ -134,6 +145,13 @@
         padding: 0 8px;
         .topFooter {
             nav {
+                .footerLogoDiv {
+                    img {
+                        width: 240px;
+                        height: auto;
+                    }
+                }
+                .footerHomeDiv,
                 .footerOurWorksDiv,
                 .footerAboutDiv,
                 .footerSocialMediaDiv {
@@ -174,14 +192,34 @@
             padding: 10px 0 20px 0;
             nav {
                 display: grid;
-                grid-template-areas:
-                    "logo media"
-                    "about works";
+                align-items: center;
                 grid-template-columns: 50% 50%;
                 grid-row-gap: 10px;
 
+                &.pageHomeClass {
+                    grid-template-areas:
+                    "logo media"
+                    "works about";
+                }
+
+                &.pageWorksClass {
+                    grid-template-areas: 
+                    "logo media"
+                    "home about";
+                }
+
+                &.pageAboutClass {
+                    grid-template-areas: 
+                    "logo media"
+                    "home works";
+                }
+
                 .footerLogoDiv {
                     grid-area: logo;
+                }
+
+                .footerHomeDiv {
+                    grid-area: home;
                 }
 
                 .footerOurWorksDiv {
@@ -196,6 +234,7 @@
                     grid-area: media;
                 }
 
+                .footerHomeDiv,
                 .footerOurWorksDiv,
                 .footerAboutDiv,
                 .footerSocialMediaDiv {
@@ -225,13 +264,38 @@
             nav {
                 grid-template-areas:
                     "media"
-                    "about"
                     "works"
+                    "about"
                     "logo";
                 grid-template-columns: 100%;
                 justify-items: center;
                 grid-row-gap: 30px;
 
+                &.pageHomeClass {
+                    grid-template-areas:
+                    "media"
+                    "works"
+                    "about"
+                    "logo";
+                }
+
+                &.pageWorksClass {
+                    grid-template-areas: 
+                    "media"
+                    "home"
+                    "about"
+                    "logo";
+                }
+
+                &.pageAboutClass {
+                    grid-template-areas: 
+                    "media"
+                    "home"
+                    "works"
+                    "logo";
+                }
+
+                .footerHomeDiv,
                 .footerOurWorksDiv,
                 .footerAboutDiv,
                 .footerSocialMediaDiv {

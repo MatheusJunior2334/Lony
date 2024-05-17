@@ -2,8 +2,8 @@
 
 #section4 {
     width: 100%;
-    min-height: 500px;
-    background: url('../../../public/assets/images/LonyBackgroundLogo.png') #000;
+    height: 500px;
+    background: url('../../../public/assets/images/LonyBackgroundLogo.png') #EEE;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -13,15 +13,26 @@
     align-items: center;
     justify-content: center;
     margin: $marginSection 0 0 0;
+    padding: $marginSection 5%;
 
     h2 {
         @include title-primary();
-        color: #fff;
         font-size: 40px;
     }
 
     p {
-        color: #fff;
         font-size: 22px;
     }
+
+   div {
+    position: sticky;
+    top: 104px;
+    display: none;
+
+    video {
+        width: auto;
+        height: 500px;
+        float: right;
+    }
+   }
 }

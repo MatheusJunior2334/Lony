@@ -4,7 +4,7 @@
     font-size: 22px;
     font-family: inherit;
     color: #fff;
-    background-color: #000;
+    background-color: $pageBlackColour;
     transition: all 0.3s;
 
     padding: 8px 24px;
@@ -13,7 +13,7 @@
     z-index: 1;
 
     &:hover {
-        background-color: #000000aa;
+        background-color: $pageBlackColour + aa;
     }
 
     @media #{$laptop} {

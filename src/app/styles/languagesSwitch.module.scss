@@ -1,10 +1,12 @@
+@import '../page.module.scss';
+
 #languagesSwitch {
     height: auto;
 
     display: flex;
     justify-content: space-around;
     border-radius: 8px;
-    background-color: rgb(0, 0, 0);
+    background-color: $pageBlackColour;
     padding: 2px;
     cursor: pointer;
 

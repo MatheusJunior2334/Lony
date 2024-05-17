@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import styles from './styles/loading.module.scss';
-
-import model from '../../public/assets/gifs/Fashion Model GIF by JLYNYC - Find & Share on GIPHY.gif';
+import model from '../../public/assets/gifs/FashionModelWalking.gif';
 
 export default function LoadingPage() {
     const dots = '...';
@@ -18,6 +17,6 @@ export default function LoadingPage() {
             <p>
                 {spans}
             </p>
-        </div>   
+        </div>
     )
 }

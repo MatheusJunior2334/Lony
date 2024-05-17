@@ -24,7 +24,7 @@ $imageCarouselWidth1000px: 370px;
             
             img {
                 width: $imageCarouselDefaultWidth;
-                height: auto;
+                height: 100%;
                 object-fit: cover;
             }
         }
@@ -34,22 +34,12 @@ $imageCarouselWidth1000px: 370px;
         }
 
         button {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            top: 50%;
-            transform: translateY(-50%);
+            @include arrows-left-right-styles();
             background-color: #ffffff;
-
-            border: none;
-            border-radius: 100%;
-            cursor: pointer;
             z-index: 1;
 
             svg {               
-                width: 100%;
-                height: 100%;
-                fill: #000000;
+                fill: $pageBlackColour;
             }
         
             &.leftBtn {
@@ -75,7 +65,7 @@ $imageCarouselWidth1000px: 370px;
                 padding: 8px;
 
                 svg {
-                    fill: #000;
+                    fill: $pageBlackColour;
                 }
             }
         }
@@ -96,7 +86,7 @@ $imageCarouselWidth1000px: 370px;
                 cursor: pointer;
 
                 &.active {
-                    background-color: #000;
+                    background-color: $pageBlackColour;
                 }
             }
         }

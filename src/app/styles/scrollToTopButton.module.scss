@@ -1,0 +1,33 @@
+#scrollToTopButton {
+    position: fixed;
+    width: 45px;
+    height: 45px;
+
+    display: none;
+    right: 18px;
+    bottom: 18px;
+    padding: 0;
+    background-color: transparent;
+
+    z-index: 9;
+    cursor: pointer;
+
+    svg {
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        border-radius: 50%;
+    }
+
+    &:hover {
+
+        svg {
+            fill: #fff;
+            background-color: #000;
+        }
+    }
+
+    &.show {
+        display: block;
+    }
+}

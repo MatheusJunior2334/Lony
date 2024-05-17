@@ -15,7 +15,7 @@ export const AboutSection = () => {
     return(
         <section id={styles.aboutSection}>
             <div className={styles.leftSide}>
-                <AnimatedComponent opacity={0} transitionDuration={2} animateOnce>
+                <AnimatedComponent opacity={0} transitionDuration={2}>
                     <Image
                         src={LadiesPhoto}
                         alt='Lony members photograph'
@@ -27,7 +27,7 @@ export const AboutSection = () => {
             </div>
 
             <div className={styles.rightSide}>
-                <h2>{translations['home.about.whoWeAre']}</h2>
+                <h2>{translations['home.about.whoWeAreTitle']}</h2>
 
                 <LadiesAboutLogo />
 

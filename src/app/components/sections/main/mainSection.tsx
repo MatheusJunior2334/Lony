@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image';
 import styles from '../../../styles/mainSection.module.scss';
 import { Carousel } from '../../UI/carousel';

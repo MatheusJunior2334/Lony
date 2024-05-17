@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, useEffect, ReactNode } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -11,6 +13,8 @@ interface AnimatedComponentProps {
     opacity?: number;
     transitionDuration?: number;
     delayDuration?: number;
+
+    className?: string;
 }
 
 export const AnimatedComponent = ({
@@ -21,7 +25,8 @@ export const AnimatedComponent = ({
     initialTranslateY,
     opacity = 1,
     transitionDuration = 0,
-    delayDuration = 0
+    delayDuration = 0,
+    className = ''
 }: AnimatedComponentProps) => {
 
     const [isAnimated, setIsAnimated] = useState<boolean>(false);
@@ -41,6 +46,7 @@ export const AnimatedComponent = ({
             initial={animateOnce ? { scale: initialScale, x: initialTranslateX, y: initialTranslateY, opacity: opacity } : {}}
             animate={isAnimated ? { scale: 1, x: 0, y: 0, opacity: 1 } : {}}
             transition={{ duration: transitionDuration, delay: delayDuration }}
+            className={className}
         >
             {children}
         </motion.div>

@@ -1,12 +1,12 @@
 @import '../page.module.scss';
 
-#ourWorksSection {
+#ourWorkSection {
     display: flex;
     flex-direction: column;
 
     width: 100%;
     height: auto;
-    background: url("../../../public/assets/images/LonyBackgroundLogo.png") #000;
+    background: url("../../../public/assets/images/LonyBackgroundLogo.png") $pageBlackColour;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -28,6 +28,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        column-gap: 120px;
 
         .images {
             display: grid;
@@ -41,7 +42,12 @@
                 position: relative;
                 width: 100%;
                 height: 100%;
+                transition: 0.3s all ease-in-out;
                 cursor: pointer;
+
+                &:hover {
+                    opacity: 0.6;
+                }
 
                 img {
                     width: 100%;
@@ -54,7 +60,7 @@
                     height: 22px;
                     right: 2px;
                     bottom: 2px;
-                    background-color: #00000080;
+                    background-color: $pageBlackColour;
 
                     display: flex;
                     align-items: center;
@@ -85,17 +91,17 @@
             }
 
             .image4 {
-                grid-column: 10;
+                grid-column: 3;
                 grid-row: span 2;
             }
 
             .image5 {
-                grid-column: 11;
+                grid-column: 4;
                 grid-row: 1;
             }
 
             .image6 {
-                grid-column: 11;
+                grid-column: 4;
                 grid-row: 2;
             }
         }
@@ -105,25 +111,41 @@
 // Responsividade
 
 @media #{$laptop} {
-    #ourWorksSection {
+    #ourWorkSection {
 
         .container {
+            column-gap: 20px;
 
             .images {
                 grid-auto-rows: 20vw;
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    #ourWorkSection {
+
+        .container {
+            flex-direction: column;
+            column-gap: 0px;
+            row-gap: 20px;
+
+            .images {
+                grid-auto-rows: 40vw;
 
                 .image4 {
-                    grid-column: 5;
+                    grid-column: 1;
                     grid-row: span 2;
                 }
 
                 .image5 {
-                    grid-column: 6;
+                    grid-column: 2;
                     grid-row: 1;
                 }
 
                 .image6 {
-                    grid-column: 6;
+                    grid-column: 2;
                     grid-row: 2;
                 }
             }
@@ -131,49 +153,11 @@
     }
 }
 
-@media (max-width: 1000px) {
-    #ourWorksSection {
-
-        .container {
-
-            .images {
-                grid-auto-rows: 40vw;
-
-                .image4 {
-                    grid-column: 2;
-                    grid-row: span 2;
-                }
-
-                .image5 {
-                    grid-column: 1;
-                    grid-row: 3;
-                }
-
-                .image6 {
-                    grid-column: 1;
-                    grid-row: 4;
-                }
-            }
-        }
-    }
-}
-
-@media #{$tablet} {
-    #ourWorksSection {
-
-        .container {
-
-            .images {
-                grid-auto-rows: 40vw;
-            }
-        }
-    }
-}
-
 @media #{$mobile} {
-    #ourWorksSection {
+    #ourWorkSection {
 
         .container {
+            row-gap: 12px;
 
             .images {
                 grid-gap: 12px;

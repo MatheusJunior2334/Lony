@@ -4,6 +4,7 @@ $tablet: '(max-width: 768px)';
 $mobile: '(max-width: 480px)';
 
 $marginSection: 18px;
+$pageBlackColour: #111111;
 
 // Mixings
 
@@ -11,6 +12,7 @@ $marginSection: 18px;
     font-size: 44px;
     font-weight: 500;
     font-family: inherit;
+    color: $pageBlackColour;
 
     @media #{$laptop} {
         font-size: 38px;
@@ -29,6 +31,7 @@ $marginSection: 18px;
     font-size: 42px;
     font-weight: 500;
     font-family: inherit;
+    color: $pageBlackColour;
 
     @media #{$laptop} {
         font-size: 36px;
@@ -46,8 +49,95 @@ $marginSection: 18px;
 @mixin text-primary() {
     font-size: 20px;
     font-family: inherit;
+    color: $pageBlackColour;
 
     @media #{$laptop} {
         font-size: 18px;
+    }
+}
+
+@mixin side-menu-text() {
+    font-size: 22px;
+    font-family: inherit;
+    color: $pageBlackColour;
+    border-radius: 8px;
+    transition: all 0.1s ease-in;
+
+    svg {
+        width: 36px;
+        height: 36px;
+        margin-right: 20px;
+        fill: transparent;
+        stroke: $pageBlackColour;
+        stroke-width: 20px;
+    }
+
+    &:hover {
+        background-color: rgb(0 0 0 / 0.05);
+    }
+}
+
+@mixin testimonials-text() {
+    font-size: 18px;
+    font-family: inherit;
+    color: $pageBlackColour;
+
+    @media #{$laptop} {
+        font-size: 16px;
+    }
+}
+
+@mixin testimonials-user-name() {
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 600;
+    color: $pageBlackColour;
+
+    @media #{$mobile} {
+        font-size: 14px;
+    }
+}
+
+@mixin gap-text-measures() {
+    row-gap: 20px;
+
+    @media #{$laptop} and (min-width: 999px) {
+        row-gap: 12px;
+    }
+}
+
+@mixin close-menu-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 8px;
+    transition: ease-in 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.1);
+        background-color: rgb(183, 0, 0);
+    }
+
+    svg {
+        width: 100%;
+        height: 100%;
+    } 
+}
+
+@mixin arrows-left-right-styles() {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+
+    svg {
+        width: 100%;
+        height: 100%;
     }
 }

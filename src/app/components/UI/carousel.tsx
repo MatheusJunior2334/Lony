@@ -26,6 +26,9 @@ export const Carousel: React.FC = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
     const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
     const [isPaused, setisPaused] = useState<boolean>(false);
+    const [touchStart, setTouchStart] = useState<number>(0);
+    const [touchEnd, setTouchEnd] = useState<number>(0);
+
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
@@ -58,7 +61,8 @@ export const Carousel: React.FC = () => {
                     setIsTransitioning(false);
                 }, 500)
                 return nextIndex;
-            })
+            });
+            resetCarouselTimer();
         }
     }
 
@@ -72,11 +76,31 @@ export const Carousel: React.FC = () => {
                 }, 500)
                 return nextIndex;
             })
+            resetCarouselTimer();
         }
+    }
+
+    const resetCarouselTimer = () => {
+        stopCarousel();
+        startCarousel();
     }
 
     const handlePause = () => {
         setisPaused(!isPaused);
+    }
+
+    const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+        setTouchStart(event.touches[0].clientX);
+    }
+
+    const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+        setTouchEnd(event.changedTouches[0].clientX);
+        if (touchEnd - touchStart > 50) {
+            goToPrevImage();
+        } else if (touchEnd - touchStart < -50) {
+            goToNextImage();
+        }
+        resetCarouselTimer();
     }
 
     const handleDotClick = (index: number) => {
@@ -97,6 +121,8 @@ export const Carousel: React.FC = () => {
                         key={index}
                         className={`${styles.image} ${index === currentImageIndex ? styles.active : ''}`}
                         style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+                        onTouchStart={handleTouchStart}
+                        onTouchEnd={handleTouchEnd}
                     >
                         <Image src={image} alt={`${girlNames[index]}`} title={`${girlNames[index]}`} width={970} height={1080} priority />
                     </div>
