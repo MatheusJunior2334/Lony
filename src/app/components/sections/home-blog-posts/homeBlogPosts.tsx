@@ -96,7 +96,7 @@ const PostsList = () => {
         },
         {
             thumbnail: AssembleWardrobeThumbnail,
-            creator: 'Isabela Lima',
+            creator: 'Larissa',
             postMonth: translations['home.homeBlogPosts.article.postMonth.may'],
             postYear: '2024',
             postTitle: translations['home.homeBlogPosts.article3.postTitle'],
