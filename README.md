@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[NEXT__BADGE]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[TYPESCRIPT__BADGE]: https://img.shields.io/badge/typescript-000000?style=for-the-badge&logo=typescript
+[SASS__BADGE]: https://img.shields.io/badge/sass-000000?style=for-the-badge&logo=sass
+[PROJECT__BADGE]: https://img.shields.io/badge/📱Visit_this_project-000?style=for-the-badge&logo=project
+[PROJECT__URL]: https://lony-pink.vercel.app/
 
-## Getting Started
+# Lony - Ladies of New York (Front-end)💻
 
-First, run the development server:
+![next][NEXT__BADGE]
+![typescript][TYPESCRIPT__BADGE]
+![sass][SASS__BADGE]
+
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+### English 🇬🇧 | [Português 🇧🇷](README_pt-br.md) | [Deutsch 🇩🇪](README_de.md)
+
+[<img src="./public/LonyPageImage_en.png" alt="Lony website" width="800px" />](./public/LonyPageImage_en.png)
+
+## 📌 About
+
+Lony (Ladies of New York) is a project about women's fashion with the initial aim of improving engagement and publicising the work of the girls who make up the group.
+
+In this project you can access their information, their designs and a little of their vision and purpose for the Lony brand, which aims to become one of the best producers of fashion styles on the market.
+
+This project was build in `Next.js` version `14.1.4` using `App Router` render mode.
+
+[![project][PROJECT__BADGE]][PROJECT__URL]
+
+## 🤔 How to run the project in your device?
+
+To clone and run this project in your device, you will need to have [Git](https://git-scm.com/) and [Node.js](https://nodejs.org/en/download/package-manager) installed in your computer. Then, follow these steps from your command line:
 
 ```bash
-npm run dev
+# Clone this repository
+$ git clone https://github.com/MatheusJunior2334/Lony.git
+
+# Navigate to the project directory
+$ cd lony
+
+# Install the dependencies
+$ npm install
+
+# Run the project
+$ npm run dev
+# Alternatively, you can use:
+$ yarn dev
 # or
-yarn dev
+$ pnpm dev
 # or
-pnpm dev
-# or
-bun dev
+$ bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) or [http://localhost:3000/home](http://localhost:3000/home) in your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📖 Libraries used
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This project uses the following React.js (Next.js) libraries:
 
-## Learn More
+- [Swiper.js](https://swiperjs.com/): used to create swiper components and structures
+- [Framer Motion](https://www.framer.com/motion/introduction/): utilized for building animations
+- [React Intersection Observer](https://www.npmjs.com/package/react-intersection-observer): employed to detect when elements enter or leave the viewport, which works in conjunction with Frame Motion to enhance animations
 
-To learn more about Next.js, take a look at the following resources:
+## ✍ Credits
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project incorporates images and icons from the following sources:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- [Freepik](https://br.freepik.com/): for images
+- [Icons8](https://icons8.com/) and [Flaticon](https://www.flaticon.com/): for icons
+- [Giphy](https://giphy.com/): for gifs
 
-## Deploy on Vercel
+## 🎨 Creators
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/matheus-júnior">
+        <img src="./public/assets/images/MatheusJuniorImage.png" width="100px" alt="Matheus Júnior picture"/><br>
+        <sub>
+          <b>Matheus Júnior</b>
+          <br />
+          <a href="#" title="Code">💻</a>
+          <a href="#" title="Design">🎨</a>
+        </sub>
+      </a>
+    </td>
+    <td align="center" valign="top">
+      <a href="#">
+        <img src="./public/assets/images/BiankaImage.png" width="100px" alt="Bianka Araújo picture"/><br>
+        <sub>
+          <b>Bianka Araújo</b>
+          <br />
+          <a href="#" title="Design">🎨</a>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 📝 License
+
+This project is licensed under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International](https://creativecommons.org/licenses/by-nc-nd/4.0/) Licence
