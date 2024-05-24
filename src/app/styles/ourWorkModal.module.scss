@@ -143,6 +143,8 @@
 // Responsividade
 
 @media (max-width: 1000px) {
+    .modalBackdrop { backdrop-filter: none; background-color: #ffffff80; }
+
     #ourWorkModal {
         width: 95%;
         height: 95%;
@@ -151,7 +153,7 @@
     }
 }
 
-@media #{$mobile} {
+@media #{$tablet} {
     #ourWorkModal {
         width: 96%;
         height: 96%;

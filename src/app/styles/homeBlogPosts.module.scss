@@ -48,6 +48,7 @@
                 h5 {
                     font-size: 16px;
                     font-weight: normal;
+                    color: #888;
                 }
 
                 .postDate {
@@ -76,7 +77,8 @@
 
                 .postTitle {
                     @include text-primary();
-                    font-weight: normal;
+                    font-size: 22px;
+                    font-weight: 500;
                     margin: 30px 0;
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
@@ -86,7 +88,7 @@
 
                 .postTheme {
                     box-sizing: content-box;
-                    padding: 5px 10px;
+                    padding: 4px 10px;
                     border-radius: 2px;
 
                     p {
@@ -139,7 +141,7 @@
 
                 .postInfo {
                     .postDate {
-                        right: 20px;
+                        right: 14px;
                     }
                 }
             }
@@ -150,7 +152,8 @@
 @media (max-width: 1000px) {
     #homeBlogPosts {
         .blogPosts {
-            gap: 10px;
+            column-gap: 10px;
+            row-gap: 20px;
         }
     }
 }
@@ -166,13 +169,13 @@
 @media #{$mobile} {
     #homeBlogPosts {
         .blogPosts {
-            row-gap: 20px;
             article {
+                widt: 280px;
                 max-width: 84vw;
 
                 .postInfo {
-                    h5 {
-                        font-size: 14px;
+                    .postTitle {
+                        margin: 22px 0;
                     }
                 }
             }
