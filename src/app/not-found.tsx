@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { AboutSection } from "./components/sections/about/about"
+import styles from './styles/layout/loading.module.scss'
 
 export default function Error404() {
     return (

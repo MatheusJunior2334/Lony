@@ -1,0 +1,145 @@
+@import '../../page.module.scss';
+
+$imageCarouselDefaultWidth: 480px;
+$imageCarouselWidthLaptop: 400px;
+$imageCarouselWidth1000px: 370px;
+
+// Estilização Principal
+
+#carousel {
+    width: $imageCarouselDefaultWidth;
+    display: flex;
+    overflow: hidden;
+  
+    .imageWrapper {
+        position: relative;
+        width: 100%;
+        
+        display: flex;
+        transition: transform 0.5s ease;
+
+        .image {
+            flex: 0 0 auto;
+            transition: transform 0.5s ease;
+            
+            img {
+                width: $imageCarouselDefaultWidth;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .active {
+            transform: translateX(0%);
+        }
+
+        button {
+            @include arrows-left-right-styles();
+            background-color: #ffffff;
+            z-index: 1;
+
+            svg {               
+                fill: $pageBlackColour;
+            }
+        
+            &.leftBtn {
+                left: 5px;
+
+                svg {
+                    transform: rotate(-90deg);
+                }
+            }
+        
+            &.rightBtn {
+                right: 5px;
+
+                svg {
+                    transform: rotate(90deg);
+                }
+            }
+
+            &.pauseBtn {
+                right: 5px;
+                top: 20px;
+                background: #FFF;
+                padding: 8px;
+
+                svg {
+                    fill: $pageBlackColour;
+                }
+            }
+        }
+
+        .dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+
+            .dot {
+                width: 8px;
+                height: 8px;
+                background-color: #ffffff;
+                border-radius: 50%;
+                cursor: pointer;
+
+                &.active {
+                    background-color: $pageBlackColour;
+                }
+            }
+        }
+    }
+}
+
+// Responsividade
+
+@media #{$laptop} {
+    #carousel {
+        width: $imageCarouselWidthLaptop;
+
+        .imageWrapper {
+
+            .image {
+
+                img {
+                    width: $imageCarouselWidthLaptop;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    #carousel {
+        width: $imageCarouselWidth1000px;
+
+        .imageWrapper {
+
+            .image {
+
+                img {
+                    width: $imageCarouselWidth1000px;
+                }
+            }
+        }
+    }
+}
+
+@media #{$tablet} {
+    #carousel {
+        width: 100%;
+
+        .imageWrapper {
+            
+            .image {
+                width: 100%;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

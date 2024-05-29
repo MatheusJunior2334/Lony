@@ -1,0 +1,52 @@
+@import '../../page.module.scss';
+
+// Animações
+$wave-amplitude: 14px;
+
+@keyframes wave {
+    to {
+        transform: translateY(-#{$wave-amplitude});
+    }
+}
+
+@for $i from 1 through 3 {
+    #loadingPage p span:nth-child(#{$i}) {
+        animation-delay: #{0.1s * $i};
+    }
+} 
+
+
+// Estilização Principal
+
+#loadingPage {
+    position: fixed;
+    width: 100%;
+    height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+    overflow: hidden;
+
+    top: 0;
+    left: 0;
+    z-index: 13;
+    cursor: progress;
+
+    img {
+        max-width: 400px;
+        width: 90%;
+        height: auto;
+    }
+
+    p {
+
+        span {
+            @include h1-text();
+            display: inline-block;
+            animation: wave 1s infinite alternate;
+        }
+    }
+}

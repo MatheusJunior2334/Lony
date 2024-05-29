@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from './styles/loading.module.scss';
+import styles from './styles/layout/loading.module.scss';
 import model from '../../public/assets/gifs/FashionModelWalking.gif';
 
 export default function LoadingPage() {
