@@ -111,6 +111,10 @@ $paddingNav: 8px;
                     height: auto;
                     fill: $pageBlackColour;
                     cursor: pointer;
+
+                    path {
+                        stroke: $pageBlackColour;
+                    }
                 }
             }
 

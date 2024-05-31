@@ -6,7 +6,7 @@
     height: 84px;
     left: 0;
     top: 0;
-    scroll-padding: 0;
+    transition: transform 0.3s ease-in-out;
 
     background-color: #ffffff;
     box-shadow: 1px 1px 2px rgba($pageBlackColour, 0.31);
@@ -15,6 +15,10 @@
     justify-content: space-between;
     align-items: center;
     z-index: 10;
+
+    &.hidden {
+        transform: translateY(-100%);
+    }
 
     .leftHeader {
         width: 10%;
@@ -56,6 +60,10 @@
             height: auto;
             fill: $pageBlackColour;
             cursor: pointer;
+
+            path {
+                stroke: $pageBlackColour;
+            }
         }
 
     }

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../../styles/layout/footerHome.module.scss';
+import styles from '../../styles/layout/footerMain.module.scss';
 
 import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/app/contexts/languageContext';

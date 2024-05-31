@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css'
+import 'swiper/css/navigation'
+import { Navigation } from 'swiper/modules';
 import styles from '../../styles/home/ourWorkModal.module.scss';
 
 import { useLanguage } from '@/app/contexts/languageContext';
@@ -17,28 +21,33 @@ interface OurWorkModalProps {
 
 export const OurWorkModal = ({ images, addClass, selectedImageIndex, setSelectedImageIndex, onClose }: OurWorkModalProps) => {
     const { translations } = useLanguage();
-    const [touchStart, setTouchStart] = useState<number>(0);
-    const [touchEnd, setTouchEnd] = useState<number>(0);
-
-    const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
-        setTouchStart(event.touches[0].clientX);
-    }
-
-    const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
-        setTouchEnd(event.changedTouches[0].clientX);
-        if (touchEnd - touchStart > 50) {
-            handlePrev();
-        } else if (touchEnd - touchStart < -50) {
-            handleNext();
-        }
+    const swiperRef = useRef<any>(null);
+    const [isNavigating, setIsNavigating] = useState<boolean>(false);
+ 
+    const handleSlideChange = (swiper: any) => {
+        setSelectedImageIndex(swiper.activeIndex);
     }
 
     const handleNext = () => {
-        setSelectedImageIndex(selectedImageIndex === images.length - 1 ? 0 : selectedImageIndex + 1);
+        if (!isNavigating) {
+            setIsNavigating(true);
+            if (swiperRef.current && swiperRef.current.swiper) {
+                swiperRef.current.swiper.slideNext();
+            }
+        }
     };
 
     const handlePrev = () => {
-        setSelectedImageIndex(selectedImageIndex === 0 ? images.length - 1 : selectedImageIndex - 1)
+        if (!isNavigating) {
+            setIsNavigating(true);
+            if (swiperRef.current && swiperRef.current.swiper) {
+                swiperRef.current.swiper.slidePrev();
+            }
+        }
+    };
+
+    const handleTransitionEnd = () => {
+        setIsNavigating(false);
     };
 
     return (
@@ -50,23 +59,36 @@ export const OurWorkModal = ({ images, addClass, selectedImageIndex, setSelected
                     <button className={styles.exitButton} title={translations['header.sideMenu.closeMenu']} onClick={onClose}>
                         <XIcon />
                     </button>
-                    <div className={styles.modalImage} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
-                        <Image
-                            src={images[selectedImageIndex]}
-                            alt={`Draw ${selectedImageIndex + 1}`}
-                            width={500}
-                            height={722}
-                            priority
-                        />
-                    </div>
+                    <Swiper
+                        ref={swiperRef}
+                        initialSlide={selectedImageIndex}
+                        onSlideChange={handleSlideChange}
+                        onTransitionEnd={handleTransitionEnd}
+                        modules={[Navigation]}
+                        className={styles.swiperContainer}
+                    >
+                        {images.map((image, index) => (
+                            <SwiperSlide key={index}>
+                                <div className={styles.modalImage}>
+                                    <Image
+                                        src={image}
+                                        alt={`Draw ${index + 1}`}
+                                        width={500}
+                                        height={722}
+                                        priority
+                                    />
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
 
                     {selectedImageIndex !== 0 &&
-                        <button className={styles.leftTopButton} onClick={handlePrev}>
+                        <button className={styles.leftButton} onClick={handlePrev} disabled={isNavigating}>
                             <ArrowCarouselIcon />
                         </button>
                     }
                     {selectedImageIndex !== images.length - 1 &&
-                        <button className={styles.rightTopButton} onClick={handleNext}>
+                        <button className={styles.rightButton} onClick={handleNext} disabled={isNavigating}>
                             <ArrowCarouselIcon />
                         </button>
                     }

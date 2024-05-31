@@ -33,7 +33,7 @@ interface DesignImagesProps {
     images: StaticImageData[];
 }
 
-export const DesignImages = ({ images } : DesignImagesProps) => {
+const DesignImages = ({ images } : DesignImagesProps) => {
     const [addClass, setAddClass] = useState<boolean>(false);
     const [modalOpen, setModalOpen] = useState<boolean>(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);

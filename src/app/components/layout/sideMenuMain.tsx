@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import styles from '../../styles/layout/sideMenu.module.scss';
+import styles from '../../styles/layout/sideMenuMain.module.scss';
 
 import { useLanguage } from '../../../app/contexts/languageContext';
 import { XIcon } from '../../../../public/assets/icons/xIcon';

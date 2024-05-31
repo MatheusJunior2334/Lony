@@ -83,6 +83,7 @@
     }
 
     .modalContent {
+        position: relative;
         width: 100%;
         height: 100%;
 
@@ -92,36 +93,43 @@
             left: 8px;
             top: 8px;
             background-color: #ffffff;
+            z-index: 2;
 
             svg {
                 filter: invert(1);
             }
         }
 
-        .modalImage {
+        .swiperContainer {
             width: 100%;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
 
-            img {
-                width: auto;
-                max-width: 100%;
+            .modalImage {
+                width: 100%;
                 height: 100%;
-                object-fit: contain;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+                img {
+                    width: auto;
+                    max-width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
             }
         }
 
-        .leftTopButton, .rightTopButton {
+        .leftButton, .rightButton {
             @include arrows-left-right-styles();
             background-color: #ffffff;
+            z-index: 1;
 
             svg {
                 fill: $pageBlackColour;
             }
 
-            &.leftTopButton {
+            &.leftButton {
                 left: 5px;
 
                 svg {
@@ -129,7 +137,7 @@
                 }
             }
 
-            &.rightTopButton {
+            &.rightButton {
                 right: 5px;
 
                 svg {

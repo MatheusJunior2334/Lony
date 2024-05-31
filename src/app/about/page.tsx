@@ -3,6 +3,9 @@ import Link from "next/link";
 import { LanguageProvider } from "@/app/contexts/languageContext";
 import { MainLayout } from "../layout/mainLayout";
 
+import { TopBackgroundSection } from "../components/about/topBackgroundSection";
+import { MainSectionAbout } from "../components/about/mainSection";
+
 export const metadata: Metadata = {
     title: 'About'
 }
@@ -11,6 +14,8 @@ export default function AboutPage() {
     return (
         <LanguageProvider>
             <MainLayout>
+                <TopBackgroundSection />
+                <MainSectionAbout />
                 <h2>Página em Desenvolvimento</h2>
                 <p>Volte mais tarde :)</p>
                 <Link href="/home"><button>Clique aqui para voltar para a tela inicial</button></Link>

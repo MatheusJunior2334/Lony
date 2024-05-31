@@ -1,12 +1,49 @@
 import Link from "next/link"
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef } from "react"
+import gsap from "gsap";
 
 export const LonyLogoHeader = () => {
+  const pathsRef = useRef<(SVGPathElement | null)[]>([]);
+
+  useEffect(() => {
+    pathsRef.current.forEach((path, index) => {
+      if (path) {
+        const length = path.getTotalLength();
+        
+        gsap.set(path, {
+          strokeDasharray: length,
+          strokeDashoffset: length,
+          fill: 'none',
+          strokeWidth: 5,
+        });
+
+        gsap.to(path, {
+          strokeDashoffset: 0,
+          duration: 2,
+          delay: index * 0.5,
+          ease: 'power2.inOut',
+        })
+
+        gsap.to(path, {
+          fill: "#111",
+          strokeWidth: 0,
+          duration: 0.5,
+          delay: 2 + index * 0.5,
+          ease: 'power2.inOut',
+        })
+      }
+    })
+  }, [])
+
+  const setPathRef = (index: number) => (el: SVGPathElement | null) => {
+    pathsRef.current[index] = el
+  }
+
   return (
     <Link href="/">
       <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="469.000000pt" height="220.000000pt" viewBox="0 0 469.000000 220.000000" preserveAspectRatio="xMidYMid meet">
         <g transform="translate(0.000000,220.000000) scale(0.100000,-0.100000)" stroke="none">
-          <path d="M2195 2108 c-22 -11 -107 -88 -190 -172 l-150 -151 -75 37 c-97 47
+          <path ref={setPathRef(0)} d="M2195 2108 c-22 -11 -107 -88 -190 -172 l-150 -151 -75 37 c-97 47
           -263 102 -369 122 -96 18 -299 21 -387 5 -153 -27 -293 -94 -363 -174 -57 -65
           -76 -118 -76 -215 0 -76 3 -91 30 -139 52 -94 150 -160 302 -203 65 -19 104
           -22 228 -23 83 0 169 3 193 8 23 4 42 4 42 -1 0 -11 -237 -252 -291 -295 l-46
@@ -34,7 +71,7 @@ export const LonyLogoHeader = () => {
           158 177 6 0 18 -17 26 -37z m-1585 -229 c72 -34 74 -36 55 -51 -11 -8 -47 -28
           -80 -44 -49 -24 -73 -29 -133 -29 -70 0 -109 10 -124 34 -16 24 -7 63 21 90
           58 56 142 55 261 0z"/>
-          <path d="M3324 1202 c-75 -26 -142 -73 -225 -157 -40 -41 -74 -73 -76 -71 -5
+          <path ref={setPathRef(1)} d="M3324 1202 c-75 -26 -142 -73 -225 -157 -40 -41 -74 -73 -76 -71 -5
           4 76 167 99 199 11 15 18 31 15 33 -9 9 -91 -32 -114 -57 -24 -27 -209 -411
           -229 -478 -8 -24 -14 -56 -14 -70 0 -33 19 -101 28 -101 4 0 16 28 27 62 26
           82 97 224 160 318 97 145 275 297 338 288 47 -7 34 -50 -83 -280 -102 -200

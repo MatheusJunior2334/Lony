@@ -141,3 +141,13 @@ $pageBlackColour: #111111;
         height: 100%;
     }
 }
+
+@mixin hr-styles($color) {
+    width: 100px;
+    height: 2px;
+    background-color: $color;
+
+    @media #{$mobile} {
+        width: 80px;
+    }
+}

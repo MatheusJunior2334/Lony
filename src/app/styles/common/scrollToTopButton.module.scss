@@ -3,11 +3,12 @@
     width: 45px;
     height: 45px;
 
-    display: none;
     right: 18px;
     bottom: 18px;
     padding: 0;
     background-color: transparent;
+    transform: translateY(100px);
+    transition: transform 0.5s;
 
     z-index: 9;
     cursor: pointer;
@@ -28,6 +29,6 @@
     }
 
     &.show {
-        display: block;
+        transform: translateY(0px);
     }
 }
