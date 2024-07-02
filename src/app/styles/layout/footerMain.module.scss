@@ -91,10 +91,24 @@
                         svg {
                             width: 100%;
                             height: 100%;
-                            fill: #ffffff;
+                            fill: #fff;
                             background-color: $pageBlackColour;
-                            padding: 2px;
+                            padding: 1px;
                             border-radius: 4px;
+                        }
+
+                        &:nth-of-type(3) {
+                            svg {
+                                fill: $pageBlackColour;
+                                background-color: transparent;
+                                padding: 0px;
+                            }
+                        }
+
+                        &:nth-of-type(4) {
+                            svg {
+                                padding: 2px;
+                            }
                         }
 
                         &:hover {

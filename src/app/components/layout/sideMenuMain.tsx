@@ -13,7 +13,7 @@ import { OurWorkIcon } from '../../../../public/assets/icons/ourWorkIcon';
 import { AboutUsIcon } from '../../../../public/assets/icons/aboutUsIcon';
 import { LonyLogoHeader } from '../../../../public/assets/images/LonyLogoHeader';
 
-import SideMenuWoman from '../../../../public/assets/images/SideMenuWoman.png';
+import SideMenuWoman from '../../../../public/assets/images/home/SideMenuWoman.png';
 
 interface SideMenuProps {
     closeMenu: () => void;

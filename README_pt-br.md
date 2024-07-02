@@ -84,7 +84,7 @@ Esse projeto incorpora imagens e ícones das seguintes fontes:
       </a>
     </td>
     <td align="center" valign="top">
-      <a href="#">
+      <a href="https://www.linkedin.com/in/biankasaraujo/">
         <img src="./public/assets/images/BiankaImage.png" width="100px" alt="Retrato de Bianka Araújo"/><br>
         <sub>
           <b>Bianka Araújo</b>

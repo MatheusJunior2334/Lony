@@ -5,7 +5,7 @@ import styles from '../../styles/home/mainSection.module.scss';
 import { Carousel } from '../common/carousel';
 import { ButtonPrimary } from '../common/buttonPrimary';
 import { HeartDressIcon } from '../../../../public/assets/icons/heartDressIcon';
-import seatedWoman from '../../../../public/assets/images/SeatedWoman.png';
+import seatedWoman from '../../../../public/assets/images/home/SeatedWoman.png';
 import { useLanguage } from '@/app/contexts/languageContext';
 
 import { AnimatedComponent } from '../animations/animatedComponent';

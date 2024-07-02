@@ -3,9 +3,9 @@ import styles from '../../styles/home/corePrinciples.module.scss';
 
 import { AnimatedComponent } from '../animations/animatedComponent';
 
-import lonyMission from '../../../../public/assets/images/LonyMembersMission.png';
-import lonyVision from '../../../../public/assets/images/LonyMembersVision.png';
-import lonyValueKeys from '../../../../public/assets/images/LonyMembersValues.png';
+import lonyMission from '../../../../public/assets/images/home/LonyMembersMission.png';
+import lonyVision from '../../../../public/assets/images/home/LonyMembersVision.png';
+import lonyValueKeys from '../../../../public/assets/images/home/LonyMembersValues.png';
 
 import { ResponsibilityIcon } from '../../../../public/assets/icons/responsibilityIcon';
 import { AuthenticityIcon } from '../../../../public/assets/icons/authenticityIcon';

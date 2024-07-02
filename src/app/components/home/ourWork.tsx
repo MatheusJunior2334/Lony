@@ -7,13 +7,13 @@ import { SeeImageIcon } from "../../../../public/assets/icons/seeImageIcon";
 import { OurWorkModal } from "./ourWorkModal";
 import styles from '../../styles/home/ourWork.module.scss';
 
-import ClothingSketch1 from '../../../../public/assets/images/ClothingSketch1.jpg';
-import ClothingSketch2 from '../../../../public/assets/images/ClothingSketch2.jpg';
-import ClothingSketch3 from '../../../../public/assets/images/ClothingSketch3.jpg';
-import ClothingSketch4 from '../../../../public/assets/images/ClothingSketch4.jpg';
-import ClothingSketch5 from '../../../../public/assets/images/ClothingSketch5.jpg';
+import ClothingSketch1 from '../../../../public/assets/images/home/ClothingSketch1.jpg';
+import ClothingSketch2 from '../../../../public/assets/images/home/ClothingSketch2.jpg';
+import ClothingSketch3 from '../../../../public/assets/images/home/ClothingSketch3.jpg';
+import ClothingSketch4 from '../../../../public/assets/images/home/ClothingSketch4.jpg';
+import ClothingSketch5 from '../../../../public/assets/images/home/ClothingSketch5.jpg';
 
-import ClothingDrafts from '../../../../public/assets/images/ClothingDrafts.jpg';
+import ClothingDrafts from '../../../../public/assets/images/home/ClothingDrafts.jpg';
 
 import { useLanguage } from '@/app/contexts/languageContext';
 

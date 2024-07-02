@@ -10,9 +10,10 @@ import { useLanguage } from '@/app/contexts/languageContext';
 import LonyLogo from '../../../../public/assets/images/LonyFooterLogo.png';
 
 import { ArrowIcon } from '../../../../public/assets/icons/arrowIcon';
-import { InstagramIcon } from '../../../../public/assets/icons/instagramIcon';
-import { LinktreeIcon } from '../../../../public/assets/icons/linktreeIcon';
-import { LinkedinIcon } from '../../../../public/assets/icons/linkedinIcon';
+import { FaInstagram } from "react-icons/fa";
+import { SiLinktree } from 'react-icons/si';
+import { BsLinkedin } from 'react-icons/bs';
+import { IoLogoTiktok } from 'react-icons/io5';
 
 export const FooterMain = () => {
     const { translations } = useLanguage();
@@ -90,9 +91,10 @@ export const FooterMain = () => {
                         <span>{translations['home.footer.socialMediaText']}</span>
 
                         <div>
-                            <a href="https://instagram.com/lony.ladies/" target="_blank" rel="noopener noreferrer"><InstagramIcon /></a>
-                            <a href="#" target="_blank" rel="noopener noreferrer"><LinktreeIcon /></a>
-                            <a href="#" target="_blank" rel="noopener noreferrer"><LinkedinIcon /></a>
+                            <a href="https://instagram.com/lony.ladies/" target="_blank" rel="noopener noreferrer" title='Instagram'><FaInstagram /></a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" title='Linktree'><SiLinktree /></a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" title='LinkedIn'><BsLinkedin /></a>
+                            <a href="https://www.tiktok.com/@ladies.of.new.york" target="_blank" rel="noopener noreferrer" title='TikTok'><IoLogoTiktok /></a>
                         </div>
                     </div>
                 </nav>

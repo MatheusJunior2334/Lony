@@ -5,6 +5,8 @@ import { MainLayout } from "../layout/mainLayout";
 
 import { TopBackgroundSection } from "../components/about/topBackgroundSection";
 import { MainSectionAbout } from "../components/about/mainSection";
+import { AnaloguePhotography } from "../components/about/analoguePhotography";
+import { ProjectMembers } from "../components/about/projectMembers";
 
 export const metadata: Metadata = {
     title: 'About'
@@ -16,6 +18,8 @@ export default function AboutPage() {
             <MainLayout>
                 <TopBackgroundSection />
                 <MainSectionAbout />
+                <AnaloguePhotography />
+                <ProjectMembers />
                 <h2>Página em Desenvolvimento</h2>
                 <p>Volte mais tarde :)</p>
                 <Link href="/home"><button>Clique aqui para voltar para a tela inicial</button></Link>

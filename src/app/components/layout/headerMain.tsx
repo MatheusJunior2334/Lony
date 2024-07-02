@@ -31,10 +31,18 @@ export const HeaderMain = () => {
     }
 
     useEffect(() => {
+        const body = document.body;
+
         if (visibleMenu) {
-            document.body.style.overflow = "hidden"
+            const scrollPosition = document.documentElement.scrollTop;
+
+            body.style.top = `-${scrollPosition}px`;
+            body.classList.add(styles.noscroll);
         } else {
-            document.body.style.overflow = "auto"
+            const scrollPosition = -parseInt(body.style.top);
+            body.style.top = '';
+            body.classList.remove(styles.noscroll);
+            window.scrollTo(0, scrollPosition);
         }
     }, [visibleMenu])
 

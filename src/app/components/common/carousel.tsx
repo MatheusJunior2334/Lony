@@ -7,11 +7,11 @@ import { PauseIcon } from "../../../../public/assets/icons/pauseIcon";
 import { PlayIcon } from "../../../../public/assets/icons/playIcon";
 
 const images = [
-    '/assets/images/BiankaPrimary.jpg',
-    '/assets/images/EstefanyPrimary.jpg',
-    '/assets/images/EsterPrimary.jpg',
-    '/assets/images/IsabelaPrimary.jpg',
-    '/assets/images/LarissaPrimary.jpg'
+    '/assets/images/home/BiankaPrimary.png',
+    '/assets/images/home/EstefanyPrimary.png',
+    '/assets/images/home/EsterPrimary.png',
+    '/assets/images/home/IsabelaPrimary.png',
+    '/assets/images/home/LarissaPrimary.png'
 ]
 
 const girlNames = [
@@ -26,8 +26,6 @@ export const Carousel: React.FC = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
     const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
     const [isPaused, setisPaused] = useState<boolean>(false);
-    const [touchStart, setTouchStart] = useState<number>(0);
-    const [touchEnd, setTouchEnd] = useState<number>(0);
 
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -89,20 +87,6 @@ export const Carousel: React.FC = () => {
         setisPaused(!isPaused);
     }
 
-    const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
-        setTouchStart(event.touches[0].clientX);
-    }
-
-    const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
-        setTouchEnd(event.changedTouches[0].clientX);
-        if (touchEnd - touchStart > 50) {
-            goToPrevImage();
-        } else if (touchEnd - touchStart < -50) {
-            goToNextImage();
-        }
-        resetCarouselTimer();
-    }
-
     const handleDotClick = (index: number) => {
         if (!isTransitioning) {
             setIsTransitioning(true);
@@ -111,6 +95,7 @@ export const Carousel: React.FC = () => {
                 setIsTransitioning(false);
             }, 500)
         }
+        resetCarouselTimer();
     }
 
     return (
@@ -121,8 +106,6 @@ export const Carousel: React.FC = () => {
                         key={index}
                         className={`${styles.image} ${index === currentImageIndex ? styles.active : ''}`}
                         style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
-                        onTouchStart={handleTouchStart}
-                        onTouchEnd={handleTouchEnd}
                     >
                         <Image src={image} alt={`${girlNames[index]}`} title={`${girlNames[index]}`} width={970} height={1080} priority />
                     </div>

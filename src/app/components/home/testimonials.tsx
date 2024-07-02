@@ -10,9 +10,8 @@ import { useLanguage } from '@/app/contexts/languageContext';
 import { InvertedCommasIcon } from '../../../../public/assets/icons/invertedCommasIcon';
 import { DragIcon } from '../../../../public/assets/icons/dragIcon';
 
-import UserDefaultImage from '../../../../public/assets/images/UserDefaultImage.png';
-import BiankaImage from '../../../../public/assets/images/BiankaImage.png';
-import MatheusImage from '../../../../public/assets/images/DunbanImage.png';
+import UserDefaultImage from '../../../../public/assets/images/testimonials/UserDefaultImage.png';
+import MatheusImage from '../../../../public/assets/images/testimonials/DunbanImage.png';
 
 interface TestimonialDesignProps {
     userText: string;

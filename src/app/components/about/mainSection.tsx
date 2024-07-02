@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import styles from '../../styles/about/mainSection.module.scss';
 
-import LadiesPhoto from '../../../../public/assets/images/about/LadiesPhotographAbout.png';
+import LadiesPhoto from '../../../../public/assets/images/about/LadiesPhotographyAbout.png';
 
 import { AnimatedComponent } from '../animations/animatedComponent';
 import { useLanguage } from '@/app/contexts/languageContext';
@@ -15,7 +15,7 @@ export const MainSectionAbout = () => {
         <section id={styles.mainSectionAbout}>
              <div className={styles.leftSide}>
                 <div className={styles.aboutTitle}>
-                    <h2>Sobre nós</h2>
+                    <h2>{translations['about.mainSection.aboutTitle']}</h2>
                     <hr />
                 </div>
 
@@ -29,7 +29,7 @@ export const MainSectionAbout = () => {
                 <AnimatedComponent opacity={0} transitionDuration={2}>
                     <Image
                         src={LadiesPhoto}
-                        alt='Lony members photograph'
+                        alt='Lony members photography'
                         width={1300}
                         height={900}
                         priority

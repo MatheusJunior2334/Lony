@@ -3,7 +3,7 @@ import React from 'react';
 import styles from '../../styles/home/about.module.scss'
 import Image from 'next/image';
 
-import LadiesPhoto from '../../../../public/assets/images/LadiesPhotograph.jpg';
+import LadiesPhoto from '../../../../public/assets/images/home/LadiesPhotography.jpg';
 import { AnimatedComponent } from '../animations/animatedComponent';
 import { LadiesAboutLogo } from '../../../../public/assets/images/LadiesAboutLogo';
 import { ButtonPrimary } from '../common/buttonPrimary';
@@ -18,7 +18,7 @@ export const AboutSection = () => {
                 <AnimatedComponent opacity={0} transitionDuration={2}>
                     <Image
                         src={LadiesPhoto}
-                        alt='Lony members photograph'
+                        alt='Lony members photography'
                         width={1300}
                         height={900}
                         priority

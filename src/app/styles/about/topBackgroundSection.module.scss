@@ -1,3 +1,5 @@
+@import '../../page.module.scss';
+
 #topBackgroundSection {
     position: relative;
     width: 100%;
@@ -6,4 +8,12 @@
     background-position: center 42%;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+// Responsividade
+
+@media #{$tablet} {
+    #topBackgroundSection {
+        height: 200px;
+    }
 }
