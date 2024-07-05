@@ -81,15 +81,11 @@
 
 @media #{$laptop} {
     #mainSection {
-
         .leftSide {
             width: 50%;
-
             .leftSideContent {
                 width: 90%;
-
                 .buttonDiv {
-    
                     .seatedWomanImage {
                         width: 50px;
                         bottom: -4px;
@@ -134,7 +130,6 @@
                 }
 
                 .buttonDiv {
-
                     .seatedWomanImage {
                         display: none;
                     }
@@ -154,13 +149,9 @@
 
 @media #{$mobile} {
     #mainSection {
-        
         .leftSide {
-
             .leftSideContent {
-
                 .topText {
-
                     span {
                         font-size: 16px;
                     }

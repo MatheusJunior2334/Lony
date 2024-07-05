@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import styles from '../../styles/about/projectMembers.module.scss';
 
-import BiankaDay from '../../../../public/assets/images/about/BiankaDay.png';
-import BiankaNight from '../../../../public/assets/images/about/BiankaNight.png';
+import BiankaDay from '../../../../public/assets/images/about/BiankaDay.jpg';
+import BiankaNight from '../../../../public/assets/images/about/BiankaNight.jpg';
 
 const membersData: MembersProps[] = [
     { name: 'Bianka Araújo', dayImage: BiankaDay, nightImage: BiankaNight }
@@ -13,9 +13,6 @@ const membersData: MembersProps[] = [
 
 const getImageForTimeOfDay = (dayImage: StaticImageData, nightImage: StaticImageData) => {
     const currentHour = new Date().getHours();
-    if (currentHour) {
-        console.log(currentHour)
-    }
 
     return currentHour >= 7 && currentHour < 18 ? dayImage : nightImage;
 }

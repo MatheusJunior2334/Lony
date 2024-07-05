@@ -53,13 +53,13 @@ export const SideMenuMain: React.FC<SideMenuProps> = ({ closeMenu, translateStyl
             <div className={`${styles.leftSide} ${translateStyle ? styles.open : styles.close}`}>
 
                 <div className={styles.exitButtonDiv}>
-                    <button onClick={closeMenu} title={`${translations['header.sideMenu.closeMenu']}`}>
+                    <button tabIndex={1} onClick={closeMenu} title={`${translations['header.sideMenu.closeMenu']}`}>
                         <XIcon />
                     </button>
                     
-                    <div>
+                    <button tabIndex={2}>
                         <LonyLogoHeader />
-                    </div>
+                    </button>
 
                     <span />
                 </div>
@@ -68,12 +68,12 @@ export const SideMenuMain: React.FC<SideMenuProps> = ({ closeMenu, translateStyl
 
                     <ul className={styles.pagePaths}>
                         {lineItemsContent.map((item, index) => (
-                            <Link href={item.pagePath} key={index}>
-                                <li className={path === item.pagePath ? styles.activeLine : ''}>
+                            <li key={index} className={path === item.pagePath ? styles.activeLine : ''}>
+                                <Link href={item.pagePath} tabIndex={index + 2} >
                                     {item.icon}
                                     {getText(item.textKey)}
-                                </li>
-                            </Link>
+                                </Link>
+                            </li>
                         ))}
                     </ul>
 

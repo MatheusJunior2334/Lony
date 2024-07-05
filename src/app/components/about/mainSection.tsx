@@ -1,12 +1,14 @@
 'use client'
 
-import Image from 'next/image';
+import React, { lazy, Suspense } from 'react';
 import styles from '../../styles/about/mainSection.module.scss';
 
-import LadiesPhoto from '../../../../public/assets/images/about/LadiesPhotographyAbout.png';
+import LadiesPhoto from '../../../../public/assets/images/about/LadiesPhotographyAbout.jpg';
 
 import { AnimatedComponent } from '../animations/animatedComponent';
 import { useLanguage } from '@/app/contexts/languageContext';
+
+const Image = lazy(() => import('next/image'))
 
 export const MainSectionAbout = () => {
     const { translations } = useLanguage();
@@ -27,13 +29,15 @@ export const MainSectionAbout = () => {
 
             <div className={styles.rightSide}>
                 <AnimatedComponent opacity={0} transitionDuration={2}>
-                    <Image
-                        src={LadiesPhoto}
-                        alt='Lony members photography'
-                        width={1300}
-                        height={900}
-                        priority
-                    />
+                    <Suspense fallback={<div className={styles.loading} />}>
+                        <Image
+                            src={LadiesPhoto}
+                            alt='Lony members photography'
+                            width={1300}
+                            height={900}
+                            priority
+                        /> 
+                    </Suspense>
                 </AnimatedComponent>
             </div>
         </section>

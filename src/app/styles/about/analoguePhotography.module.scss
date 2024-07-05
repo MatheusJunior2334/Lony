@@ -44,16 +44,16 @@
 
 // Responsividade 
 
+@media #{$tablet} {
+    .analoguePhotography {
+        &:hover .backgroundImage { animation-play-state: running; }
+    }
+}
+
 @media #{$mobile} {
     .analoguePhotography {
         height: 100px;
 
-        &:hover .backgroundImage {
-            animation-play-state: running;
-        }
-
-        .backgroundImage {
-            width: calc(1685.57px * 2);
-        }
+        .backgroundImage { width: calc(1685.57px * 2); }
     }
 }

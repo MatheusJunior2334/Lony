@@ -3,9 +3,9 @@
 #btnPrimary {
     font-size: 22px;
     font-family: inherit;
-    color: #fff;
+    color: $pageWhiteColour;
     background-color: $pageBlackColour;
-    transition: all 0.3s;
+    transition: background-color 0.3s;
 
     padding: 8px 24px;
     border-radius: 40px;

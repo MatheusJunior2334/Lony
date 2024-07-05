@@ -69,10 +69,10 @@ export const HeaderMain = () => {
             { visibleMenu ? <SideMenuMain closeMenu={closeMenu} translateStyle={addClassMenu} /> : null }
 
             <div className={styles.leftHeader}>
-                <div className={styles.burgerMenu} onClick={openMenu}>
+                <button className={styles.burgerMenu} onClick={openMenu} aria-label='Abrir menu lateral'>
                     <BurgerMenuIcon />
                     <span>{translations['header.menu']}</span>
-                </div>
+                </button>
             </div>
 
             <div className={styles.middleHeader}>

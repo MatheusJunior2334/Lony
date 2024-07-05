@@ -1,8 +1,10 @@
 'use client'
 
+import React from 'react';
 import Image from 'next/image';
 import styles from '../../styles/home/mainSection.module.scss';
-import { Carousel } from '../common/carousel';
+
+import Carousel from '../common/carousel';
 import { ButtonPrimary } from '../common/buttonPrimary';
 import { HeartDressIcon } from '../../../../public/assets/icons/heartDressIcon';
 import seatedWoman from '../../../../public/assets/images/home/SeatedWoman.png';

@@ -1,4 +1,5 @@
-import Image, { StaticImageData } from 'next/image';
+import React, { lazy, Suspense } from 'react';
+import { StaticImageData } from 'next/image';
 import styles from '../../styles/home/homeBlogPosts.module.scss';
 import Link from 'next/link';
 
@@ -6,6 +7,8 @@ import FashionStyleThumbnail from '../../../../public/assets/images/blog/Fashion
 import NewTendenciesThumbnail from '../../../../public/assets/images/blog/NewTendenciesThumbnail.jpg';
 import AssembleWardrobeThumbnail  from '../../../../public/assets/images/blog/AssembleWardrobeThumbnail.jpg';
 import { useLanguage } from '@/app/contexts/languageContext';
+
+const Image = lazy(() => import('next/image'));
 
 interface PostsDesignProps {
     thumbnail: StaticImageData;
@@ -47,24 +50,24 @@ const PostsDesign = ({
                 src={thumbnail}
                 width={600}
                 height={400}
-                alt={`${postTitle}`}
+                alt={postTitle}
                 className={styles.imagePlace}
                 priority
             />
             <div className={styles.postInfo}>
-                <h5>{translations['home.homeBlogPosts.article.by']} {creator}</h5>
-                <div className={styles.postDate}>
+                <em>{translations['home.homeBlogPosts.article.by']} {creator}</em>
+                <time className={styles.postDate} dateTime={`${postYear}-${postMonth}`}>
                     <span>{postMonth}</span>
                     <span>{postYear}</span>
-                </div>
-                <h4 className={styles.postTitle} title={postTitle}>{postTitle}</h4>
+                </time>
+                <strong className={styles.postTitle} title={postTitle}>{postTitle}</strong>
                 <div className={`${styles.postTheme} ${postTheme ? styles[postTheme] : ''}`}>
-                    <p>{getText(postTheme)}</p>
+                    <span>{getText(postTheme)}</span>
                 </div>
 
                 <hr />
 
-                <Link href={postUrl}>
+                <Link href={postUrl} aria-label={`Leia mais sobre ${postTitle}`}>
                     <span>{translations['home.homeBlogPosts.article.readMore']}</span>
                 </Link>
             </div>
@@ -122,7 +125,9 @@ export const HomeBlogPosts = () => {
             <h2>{translations['home.homeBlogPosts.ourPostsTitle']}</h2>
 
             <div className={styles.blogPosts}>
-                <PostsList />
+                <Suspense fallback={<div className={styles.loading} /> }>
+                    <PostsList />
+                </Suspense>
             </div>
         </section>
     )

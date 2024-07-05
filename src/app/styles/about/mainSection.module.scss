@@ -1,5 +1,10 @@
 @import '../../page.module.scss';
 
+.loading {
+    @include load-spin-style();
+    background-color: $pageBlackColour;
+}
+
 #mainSectionAbout {
     position: relative;
     width: 100%;

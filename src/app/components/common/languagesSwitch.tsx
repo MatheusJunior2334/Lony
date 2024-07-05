@@ -8,17 +8,19 @@ import { useLanguage } from '../../contexts/languageContext';
 interface SwitchLanguagesIconProps {
     languageCode: string;
     onClick: () => void;
+    ariaLabel: string;
+    tabindex: number;
 }
 
-const SwitchLanguagesIcon = ({ languageCode, onClick } : SwitchLanguagesIconProps) => {
+const SwitchLanguagesIcon = ({ languageCode, onClick, ariaLabel, tabindex } : SwitchLanguagesIconProps) => {
     const { language } = useLanguage();
 
     return (
-        <div onClick={onClick} className={`${language === languageCode && languageCode ? styles.selected : ''}`}>
+        <button tabIndex={tabindex} aria-label={ariaLabel} onClick={onClick} className={`${language === languageCode && languageCode ? styles.selected : ''}`}>
             {languageCode === 'pt' && <BrazilFlag />}
             {languageCode === 'en' && <UKFlag />}
             {languageCode === 'de' && <GermanyFlag />}
-        </div>
+        </button>
     )
 }
 
@@ -31,10 +33,25 @@ export const LanguagesSwitch = () => {
     }
 
     return (
-        <button id={styles.languagesSwitch}>
-            <SwitchLanguagesIcon languageCode='pt' onClick={() => handleLanguageClick('pt')} />
-            <SwitchLanguagesIcon languageCode='en' onClick={() => handleLanguageClick('en')} />
-            <SwitchLanguagesIcon languageCode='de' onClick={() => handleLanguageClick('de')} />
-        </button>
+        <div id={styles.languagesSwitch}>
+            <SwitchLanguagesIcon
+                languageCode='pt'
+                onClick={() => handleLanguageClick('pt')}
+                ariaLabel='Mudar para português'
+                tabindex={6}
+            />
+            <SwitchLanguagesIcon
+                languageCode='en'
+                onClick={() => handleLanguageClick('en')}
+                ariaLabel='Mudar para inglês'
+                tabindex={7}
+            />
+            <SwitchLanguagesIcon
+                languageCode='de'
+                onClick={() => handleLanguageClick('de')}
+                ariaLabel='Mudar para alemão'
+                tabindex={8}
+            />
+        </div>
     )
 }

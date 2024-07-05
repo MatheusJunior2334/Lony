@@ -1,6 +1,9 @@
 @import '../../page.module.scss';
 
-// Variáveis
+.loading {
+    @include load-spin-style();
+    background-color: $pageBlackColour;
+}
 
 #homeBlogPosts {
     position: relative;
@@ -8,6 +11,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 20px;
+    padding: 0 5%;
 
     h2 {
         @include title-primary();
@@ -15,10 +19,9 @@
     }
 
     .blogPosts {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        padding: 0 5%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        justify-items: center;
 
         article {
             width: 350px;
@@ -45,10 +48,10 @@
                 align-items: flex-start;
                 padding: 10px 10px 0 10px;
 
-                h5 {
+                em {
                     font-size: 16px;
                     font-weight: normal;
-                    color: #888;
+                    color: $pageBlackColour;
                 }
 
                 .postDate {
@@ -63,13 +66,13 @@
                     justify-content: center;
                     align-items: center;
 
-                    border: 10px solid #fff;
+                    border: 10px solid $pageWhiteColour;
 
                     top: -47px;
                     right: 30px;
 
                     span {
-                        color: #fff;
+                        color: $pageWhiteColour;
                         font-size: 18px;
                         text-transform: uppercase;
                     }
@@ -91,24 +94,20 @@
                     padding: 4px 10px;
                     border-radius: 2px;
 
-                    p {
-                        font-size: 16px;
-                    }
+                    span { font-size: 16px; }
 
                     &.identity {
                         background-color: #9370DB;
 
-                        p {color: #fff;}
+                        span {color: $pageWhiteColour;}
                     }
 
-                    &.adaptation {
-                        background-color: #32CD32;
-                    }
+                    &.adaptation { background-color: #32CD32; }
 
                     &.practicality {
                         background-color: #1E90FF;
 
-                        p {color: #fff;}
+                        span {color: $pageWhiteColour;}
                     }
                 }
 
@@ -132,17 +131,15 @@
 @media #{$laptop} {
     #homeBlogPosts {
         .blogPosts {
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+
             article {
                 width: 290px;
 
-                .imagePlace {
-                    height: 220px;
-                }
+                .imagePlace { height: 220px; }
 
                 .postInfo {
-                    .postDate {
-                        right: 14px;
-                    }
+                    .postDate { right: 14px; }
                 }
             }
         }
@@ -152,8 +149,11 @@
 @media (max-width: 1000px) {
     #homeBlogPosts {
         .blogPosts {
-            column-gap: 10px;
-            row-gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            grid-column-gap: 10px;
+            grid-row-gap: 20px;
+
+            article { width: 330px; }
         }
     }
 }
@@ -161,7 +161,9 @@
 @media #{$tablet} {
     #homeBlogPosts {
         .blogPosts {
-            justify-content: space-around;
+            grid-template-columns: 100%;
+
+            article { width: clamp(56%, 340px, 96%); }
         }
     }
 }
@@ -170,13 +172,8 @@
     #homeBlogPosts {
         .blogPosts {
             article {
-                width: 280px;
-                max-width: 84vw;
-
                 .postInfo {
-                    .postTitle {
-                        margin: 22px 0;
-                    }
+                    .postTitle { margin: 22px 0; }
                 }
             }
         }

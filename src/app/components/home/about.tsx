@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 
 import styles from '../../styles/home/about.module.scss'
-import Image from 'next/image';
 
 import LadiesPhoto from '../../../../public/assets/images/home/LadiesPhotography.jpg';
 import { AnimatedComponent } from '../animations/animatedComponent';
 import { LadiesAboutLogo } from '../../../../public/assets/images/LadiesAboutLogo';
 import { ButtonPrimary } from '../common/buttonPrimary';
 import { useLanguage } from '@/app/contexts/languageContext';
+
+const Image = lazy(() => import('next/image'));
 
 export const AboutSection = () => {
     const { translations } = useLanguage();
@@ -16,13 +17,15 @@ export const AboutSection = () => {
         <section id={styles.aboutSection}>
             <div className={styles.leftSide}>
                 <AnimatedComponent opacity={0} transitionDuration={2}>
-                    <Image
-                        src={LadiesPhoto}
-                        alt='Lony members photography'
-                        width={1300}
-                        height={900}
-                        priority
-                    />
+                    <Suspense fallback={<div className={styles.loading} />}>
+                        <Image
+                            src={LadiesPhoto}
+                            alt='Lony members photography'
+                            width={1300}
+                            height={900}
+                            priority
+                        />
+                    </Suspense>
                 </AnimatedComponent>
             </div>
 

@@ -1,7 +1,7 @@
 'use client'
 
-import React from 'react';
-import Image, { StaticImageData } from 'next/image';
+import React, { lazy, Suspense } from 'react';
+import { StaticImageData } from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import styles from '../../styles/home/testimonials.module.scss';
@@ -12,6 +12,8 @@ import { DragIcon } from '../../../../public/assets/icons/dragIcon';
 
 import UserDefaultImage from '../../../../public/assets/images/testimonials/UserDefaultImage.png';
 import MatheusImage from '../../../../public/assets/images/testimonials/DunbanImage.png';
+
+const Image = lazy(() => import('next/image'));
 
 interface TestimonialDesignProps {
     userText: string;
@@ -29,16 +31,18 @@ const TestimonialDesign = ({ userText, userImage, userName }: TestimonialDesignP
                 <p>{userText}</p>
             </div>
             <div className={styles.userInfo}>
-                <div>
-                    <Image
-                        src={userImage || UserDefaultImage}
-                        alt={`${userName} image`}
-                        width={140}
-                        height={140}
-                        priority
-                    />
-                    <h5>{userName}</h5>
-                </div>
+                <figure>
+                    <Suspense fallback={<div className={styles.loading} />}>
+                        <Image
+                            src={userImage || UserDefaultImage}
+                            alt={`${userName} image`}
+                            width={100}
+                            height={100}
+                            loading='lazy'
+                        />
+                    </Suspense>
+                    <figcaption>{userName}</figcaption>
+                </figure>
             </div>
 
             <div className={styles.stripes} />

@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useState } from "react";
-import Image, { StaticImageData } from "next/image";
+import React, { lazy, useState, Suspense } from "react";
+import { StaticImageData } from "next/image";
 
 import { SeeImageIcon } from "../../../../public/assets/icons/seeImageIcon";
 import { OurWorkModal } from "./ourWorkModal";
@@ -17,6 +17,8 @@ import ClothingDrafts from '../../../../public/assets/images/home/ClothingDrafts
 
 import { useLanguage } from '@/app/contexts/languageContext';
 
+const Image = lazy(() => import('next/image'));
+
 export const OurWorkSection = () => {
     const { translations } = useLanguage();
 
@@ -24,7 +26,9 @@ export const OurWorkSection = () => {
         <section id={styles.ourWorkSection}>
             <h2>{translations['home.ourWorks.designsTitle']}</h2>
             <div className={styles.container}>
-                <DesignImages images={[ClothingSketch3, ClothingSketch2, ClothingSketch1, ClothingDrafts, ClothingSketch4, ClothingSketch5]} />
+                <Suspense fallback={<div className={styles.loader} />}>
+                    <DesignImages images={[ClothingSketch3, ClothingSketch2, ClothingSketch1, ClothingDrafts, ClothingSketch4, ClothingSketch5]} />
+                </Suspense>
             </div>
         </section>
     )

@@ -16,12 +16,12 @@
 
         h2 {
             @include title-primary();
-            color: #fff;
+            color: $pageWhiteColour;
             text-align: center;
         }
 
         hr {
-            @include hr-styles(#fff);
+            @include hr-styles($pageWhiteColour);
         }
     }
 
@@ -63,7 +63,7 @@
 
         .textSide {
             p {
-                color: #fff;
+                color: $pageWhiteColour;
             }
         }
 
@@ -73,7 +73,7 @@
     }
 
     .visionDiv {
-        background-color: #fff;
+        background-color: $pageWhiteColour;
         flex-direction: row-reverse;
 
         .imageSide {
@@ -104,13 +104,13 @@
                     @include text-primary();
                     display: inline-flex;
                     align-items: center;
-                    color: #fff;
+                    color: $pageWhiteColour;
                     column-gap: 10px;
     
                     svg {
                         width: 30px;
                         height: 30px;
-                        fill: #fff;
+                        fill: $pageWhiteColour;
                     }
                 }
 
@@ -118,7 +118,7 @@
                     @include text-primary();
                     position: absolute;
                     width: max-content;
-                    color: #fff;
+                    color: $pageWhiteColour;
                     background-color: $pageBlackColour;
                     left: 50%;
                     transform: translateX(-50%);

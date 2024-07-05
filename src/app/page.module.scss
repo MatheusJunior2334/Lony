@@ -4,7 +4,8 @@ $tablet: '(max-width: 768px)';
 $mobile: '(max-width: 480px)';
 
 $marginSection: 18px;
-$pageBlackColour: #111111;
+$pageBlackColour: #111;
+$pageWhiteColour: #fff;
 
 // Mixings
 
@@ -15,11 +16,11 @@ $pageBlackColour: #111111;
     color: $pageBlackColour;
 
     @media #{$laptop} {
-        font-size: 38px;
+        font-size: 36px;
     }
 
     @media #{$tablet} {
-        font-size: 36px;
+        font-size: 34px;
     }
 
     @media #{$mobile} {
@@ -28,17 +29,17 @@ $pageBlackColour: #111111;
 }
 
 @mixin title-primary() {
-    font-size: 42px;
+    font-size: 40px;
     font-weight: 500;
     font-family: inherit;
     color: $pageBlackColour;
 
     @media #{$laptop} {
-        font-size: 36px;
+        font-size: 34px;
     }
 
     @media #{$tablet} {
-        font-size: 34px;
+        font-size: 32px;
     }
 
     @media #{$mobile} {
@@ -61,9 +62,9 @@ $pageBlackColour: #111111;
     font-family: inherit;
     color: $pageBlackColour;
     border-radius: 8px;
-    transition: all 0.1s ease-in;
+    transition: background-color 0.1s ease-in;
 
-    svg {
+    a svg {
         width: 36px;
         height: 36px;
         margin-right: 20px;
@@ -149,5 +150,38 @@ $pageBlackColour: #111111;
 
     @media #{$mobile} {
         width: 80px;
+    }
+}
+
+// Loading mixin's
+
+@mixin load-spin-style() {
+    width: 50px;
+    padding: 8px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    margin: auto;
+    background: $pageWhiteColour;
+    --_m: 
+      conic-gradient(#0000 10%,#000),
+      linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+            mask: var(--_m);
+            mask-composite: subtract;
+    animation: spin-load 1s infinite linear;
+
+    @keyframes spin-load {to{transform: rotate(1turn)}}
+}
+
+@mixin load-background-style() {
+    width: 100%;
+
+    background: linear-gradient(90deg, #333 25%, #555 50%, #333 75%);
+    background-size: 200% 100%;
+    animation: background-load 1.5s infinite linear;
+
+    @keyframes background-load {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
     }
 }

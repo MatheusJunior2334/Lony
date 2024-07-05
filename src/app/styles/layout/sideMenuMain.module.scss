@@ -93,7 +93,7 @@ $paddingNav: 8px;
             align-items: center;
             box-shadow: 1px 1px 2px rgba($pageBlackColour, 0.31);
 
-            button {
+            button:nth-child(1) {
                 @include close-menu-button();
                 width: 40px;
                 height: 40px;
@@ -101,7 +101,10 @@ $paddingNav: 8px;
                 margin-left: $paddingNav;
             }
 
-            div {
+            button:nth-child(2) {
+                background: none;
+                padding: 0;
+
                 display: flex;
                 align-items: center;
                 height: 100%;
@@ -145,24 +148,26 @@ $paddingNav: 8px;
                 align-items: flex-start;
                 row-gap: 4px;
                 
-                a {
-                    text-decoration: none;
+                li {
+                    @include side-menu-text();
+                    width: 100%;
                     
-                    li {
-                        @include side-menu-text();
+                    &.activeLine {
+                        background-color: rgb(33 33 33 / 0.1);
+                        font-weight: 600;
+
+                        svg {
+                            fill: $pageBlackColour;
+                            stroke: none;
+                        }
+                    }
+
+                    a {
                         display: flex;
                         align-items: flex-end;
                         padding: 4px 8px;
-
-                        &.activeLine {
-                            background-color: rgb(33 33 33 / 0.1);
-                            font-weight: 600;
-
-                            svg {
-                                fill: $pageBlackColour;
-                                stroke: none;
-                            }
-                        }
+                        text-decoration: none;
+                        color: inherit;
                     }
                 }
             }
@@ -193,7 +198,6 @@ $paddingNav: 8px;
     }
 
     .open {
-
         &.leftSide {
             animation: slide-in-default 0.3s ease-in-out;
         }

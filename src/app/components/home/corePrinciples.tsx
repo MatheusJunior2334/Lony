@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import styles from '../../styles/home/corePrinciples.module.scss';
 
 import { AnimatedComponent } from '../animations/animatedComponent';
@@ -13,6 +12,9 @@ import { InnovationIcon } from '../../../../public/assets/icons/innovationIcon';
 import { EmpowermentIcon } from '../../../../public/assets/icons/empowermentIcon';
 import { InclusionIcon } from '../../../../public/assets/icons/inclusionIcon';
 import { useLanguage } from '@/app/contexts/languageContext';
+import { lazy } from 'react';
+
+const Image = lazy(() => import('next/image'));
 
 interface ValueKeysContentProps {
     icon: React.ReactNode;

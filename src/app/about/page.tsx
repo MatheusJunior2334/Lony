@@ -22,7 +22,7 @@ export default function AboutPage() {
                 <ProjectMembers />
                 <h2>Página em Desenvolvimento</h2>
                 <p>Volte mais tarde :)</p>
-                <Link href="/home"><button>Clique aqui para voltar para a tela inicial</button></Link>
+                <Link href="/home"><button aria-label="Página inicial">Clique aqui para voltar para a tela inicial</button></Link>
             </MainLayout>
         </LanguageProvider>
     )

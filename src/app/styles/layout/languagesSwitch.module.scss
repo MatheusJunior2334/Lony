@@ -10,8 +10,15 @@
     padding: 2px;
     cursor: pointer;
 
-    div {
-        transition: 0.5s all;
+    button {
+        background: none;
+        padding: 0;
+        transition-property: background-color, opacity;
+        transition-duration: 0.3s;
+
+        display: flex;
+
+        cursor: pointer;
 
         &:first-child {
             border-radius: 4px 0 0 4px;
@@ -31,7 +38,7 @@
     }
 
     .selected {
-        background-color: #fff;
+        background-color: $pageWhiteColour;
 
         svg {
             opacity: 1;

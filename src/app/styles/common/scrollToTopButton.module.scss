@@ -1,3 +1,5 @@
+@import '../../page.module.scss';
+
 #scrollToTopButton {
     position: fixed;
     width: 45px;
@@ -16,15 +18,14 @@
     svg {
         width: 100%;
         height: 100%;
-        background-color: #fff;
+        background-color: $pageWhiteColour;
         border-radius: 50%;
     }
 
     &:hover {
-
         svg {
-            fill: #fff;
-            background-color: #000;
+            fill: $pageWhiteColour;;
+            background-color: $pageBlackColour;
         }
     }
 

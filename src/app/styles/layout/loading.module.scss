@@ -19,7 +19,7 @@ $wave-amplitude: 14px;
 // Estilização Principal
 
 #loadingPage {
-    position: fixed;
+    position: relative;
     width: 100%;
     height: 100dvh;
 
@@ -27,12 +27,9 @@ $wave-amplitude: 14px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #FFF;
+    background-color: $pageWhiteColour;
     overflow: hidden;
-
-    top: 0;
-    left: 0;
-    z-index: 13;
+    
     cursor: progress;
 
     img {

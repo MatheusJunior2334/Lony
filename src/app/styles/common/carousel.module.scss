@@ -6,6 +6,11 @@ $imageCarouselWidth1000px: 370px;
 
 // Estilização Principal
 
+.loading {
+    @include load-background-style();
+    aspect-ratio: 960 / 1080;
+}
+
 #carousel {
     width: $imageCarouselDefaultWidth;
     display: flex;
@@ -19,7 +24,6 @@ $imageCarouselWidth1000px: 370px;
         transition: transform 0.5s ease;
 
         .image {
-            flex: 0 0 auto;
             transition: transform 0.5s ease;
             
             img {
@@ -35,7 +39,7 @@ $imageCarouselWidth1000px: 370px;
 
         button {
             @include arrows-left-right-styles();
-            background-color: #ffffff;
+            background-color: $pageWhiteColour;
             z-index: 1;
 
             svg {               
@@ -61,7 +65,7 @@ $imageCarouselWidth1000px: 370px;
             &.pauseBtn {
                 right: 5px;
                 top: 20px;
-                background: #FFF;
+                background: $pageWhiteColour;
                 padding: 8px;
 
                 svg {
@@ -81,7 +85,8 @@ $imageCarouselWidth1000px: 370px;
             .dot {
                 width: 8px;
                 height: 8px;
-                background-color: #ffffff;
+                background-color: $pageWhiteColour;
+                padding: 0;
                 border-radius: 50%;
                 cursor: pointer;
 
@@ -100,12 +105,8 @@ $imageCarouselWidth1000px: 370px;
         width: $imageCarouselWidthLaptop;
 
         .imageWrapper {
-
             .image {
-
-                img {
-                    width: $imageCarouselWidthLaptop;
-                }
+                img { width: $imageCarouselWidthLaptop; }
             }
         }
     }
@@ -116,12 +117,8 @@ $imageCarouselWidth1000px: 370px;
         width: $imageCarouselWidth1000px;
 
         .imageWrapper {
-
             .image {
-
-                img {
-                    width: $imageCarouselWidth1000px;
-                }
+                img { width: $imageCarouselWidth1000px; }
             }
         }
     }
@@ -131,14 +128,14 @@ $imageCarouselWidth1000px: 370px;
     #carousel {
         width: 100%;
 
+        .loading { width: 90vw; }
+
         .imageWrapper {
-            
             .image {
+                flex-shrink: 0;
                 width: 100%;
 
-                img {
-                    width: 100%;
-                }
+                img { width: 100%; }
             }
         }
     }

@@ -9,7 +9,7 @@ interface ButtonPrimaryProps {
 export const ButtonPrimary = ({ pageUrl, text }: ButtonPrimaryProps) => {
     return (
         <Link href={pageUrl}>
-            <button id={styles.btnPrimary} type='button'>
+            <button id={styles.btnPrimary} type='button' aria-label={text}>
                 {text}
             </button>
         </Link>

@@ -5,7 +5,7 @@ export default function Error404() {
     return (
         <>
             <h2>Página errada, volte para a tela inicial:</h2>
-            <Link href="/home"><button>clique aqui</button></Link>
+            <Link href="/home"><button aria-label="Tela inicial">clique aqui</button></Link>
         </>
     )
 }

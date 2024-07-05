@@ -1,6 +1,8 @@
-import Image from 'next/image';
+import { lazy } from 'react';
 import styles from './styles/layout/loading.module.scss';
 import model from '../../public/assets/gifs/FashionModelWalking.gif';
+
+const Image = lazy(() => import('next/image'))
 
 export default function LoadingPage() {
     const dots = '...';

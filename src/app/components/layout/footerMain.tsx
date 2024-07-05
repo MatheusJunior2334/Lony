@@ -93,7 +93,7 @@ export const FooterMain = () => {
                         <div>
                             <a href="https://instagram.com/lony.ladies/" target="_blank" rel="noopener noreferrer" title='Instagram'><FaInstagram /></a>
                             <a href="#" target="_blank" rel="noopener noreferrer" title='Linktree'><SiLinktree /></a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" title='LinkedIn'><BsLinkedin /></a>
+                            <a href="https://www.linkedin.com/company/lony-ladies-of-new-york" target="_blank" rel="noopener noreferrer" title='LinkedIn'><BsLinkedin /></a>
                             <a href="https://www.tiktok.com/@ladies.of.new.york" target="_blank" rel="noopener noreferrer" title='TikTok'><IoLogoTiktok /></a>
                         </div>
                     </div>

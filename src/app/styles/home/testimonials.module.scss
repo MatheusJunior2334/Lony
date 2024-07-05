@@ -1,5 +1,13 @@
 @import '../../page.module.scss';
 
+.loading {
+    @include load-background-style();
+
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
 #testimonials {
     position: relative;
     margin: $marginSection 0;
@@ -36,7 +44,7 @@
                     width: 560px;
                     min-height: 320px;
                     height: auto;
-                    background-color: #ffffff;
+                    background-color: $pageWhiteColour;
                     box-shadow: 0px 2px 4px rgba($pageBlackColour, 0.5);
                     border-radius: 12px;
                     border: 1px solid rgba($pageBlackColour, 0.2);
@@ -80,7 +88,7 @@
                         display: flex;
                         justify-content: flex-start;
         
-                        div {
+                        figure {
                             display: flex;
                             justify-content: flex-start;
                             align-items: center;
@@ -93,7 +101,7 @@
                                 object-fit: cover;
                             }
         
-                            h5 {
+                            figcaption {
                                 @include testimonials-user-name();
                                 text-transform: capitalize;
                             }
@@ -117,7 +125,7 @@
                             width: 100%;
                             height: 100%;
                             border-bottom-right-radius: inherit;
-                            mask-image: linear-gradient(-45deg, #fff 40%, transparent 40%);
+                            mask-image: linear-gradient(-45deg, $pageWhiteColour 40%, transparent 40%);
                         }
                     }
                 }
@@ -139,7 +147,7 @@
         svg {
             width: 30px;
             height: 30px;
-            transition: 0.5s all ease;
+            transition: 0.5s transform ease;
 
             &:hover {
                 transform: rotate(45deg);
@@ -216,9 +224,7 @@
                         padding: 5px 10px;
     
                         .userInfo {
-                            div {
-                                column-gap: 10px;
-                            }
+                            figure { column-gap: 10px; }
                         }
                     }
                 }
