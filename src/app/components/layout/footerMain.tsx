@@ -44,7 +44,7 @@ export const FooterMain = () => {
             <div className={styles.topFooter}>
                 <nav className={activeClass}>
                     <div className={styles.footerLogoDiv}>
-                        <Image src={LonyLogo} alt='Lony Logo' width={469} height={314} priority />
+                        <Image src={LonyLogo} alt='Logo do Lony' width={469} height={314} priority />
                     </div>
 
                     {footerHome && (
@@ -62,7 +62,7 @@ export const FooterMain = () => {
 
                     {footerOurWorks && (
                         <div className={styles.footerOurWorksDiv}>
-                            <Link href='/'>
+                            <Link href='/shop'>
                                 <div className={styles.topArrow}>
                                     <h3>{translations['home.footer.ourWorksTitle']}</h3>
                                     <ArrowIcon />
@@ -103,7 +103,7 @@ export const FooterMain = () => {
             <hr />
 
             <div className={styles.bottomFooter}>
-                <h6>© Lony 2024 - {translations['home.footer.developedByMatheus']} Matheus Júnior {translations['home.footer.andBianka']} Bianka Araújo</h6>
+                <h4>© Lony 2024 - {translations['home.footer.developedByMatheus']} Matheus Júnior {translations['home.footer.andBianka']} Bianka Araújo</h4>
             </div>
 
             <span className={styles.sideLane}></span>

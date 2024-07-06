@@ -33,33 +33,25 @@ $imageCarouselWidth1000px: 370px;
             }
         }
 
-        .active {
-            transform: translateX(0%);
-        }
+        .active { transform: translateX(0%); }
 
         button {
             @include arrows-left-right-styles();
             background-color: $pageWhiteColour;
             z-index: 1;
 
-            svg {               
-                fill: $pageBlackColour;
-            }
+            svg { fill: $pageBlackColour; }
         
             &.leftBtn {
                 left: 5px;
 
-                svg {
-                    transform: rotate(-90deg);
-                }
+                svg { transform: rotate(-90deg); }
             }
         
             &.rightBtn {
                 right: 5px;
 
-                svg {
-                    transform: rotate(90deg);
-                }
+                svg { transform: rotate(90deg); }
             }
 
             &.pauseBtn {
@@ -68,15 +60,13 @@ $imageCarouselWidth1000px: 370px;
                 background: $pageWhiteColour;
                 padding: 8px;
 
-                svg {
-                    fill: $pageBlackColour;
-                }
+                svg { fill: $pageBlackColour; }
             }
         }
 
         .dots {
             position: absolute;
-            bottom: 10px;
+            bottom: 5px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;

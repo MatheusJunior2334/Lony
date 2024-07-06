@@ -2,9 +2,7 @@
 
 //Estilização principal
 
-.loader {
-    @include load-spin-style();
-}
+.loader { @include load-spin-style(); }
 
 #ourWorkSection {
     display: flex;
@@ -50,9 +48,7 @@
                 transition: 0.3s opacity ease-in-out;
                 cursor: zoom-in;
 
-                &:hover {
-                    opacity: 0.65;
-                }
+                &:hover { opacity: 0.65; }
 
                 img {
                     width: 100%;

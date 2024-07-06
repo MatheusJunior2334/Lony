@@ -12,9 +12,7 @@
     cursor: pointer;
     z-index: 1;
 
-    &:hover {
-        background-color: $pageBlackColour + aa;
-    }
+    &:hover { background-color: $pageBlackColour + aa; }
 
     @media #{$laptop} {
         font-size: 20px;

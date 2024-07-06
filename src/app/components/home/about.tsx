@@ -20,9 +20,9 @@ export const AboutSection = () => {
                     <Suspense fallback={<div className={styles.loading} />}>
                         <Image
                             src={LadiesPhoto}
-                            alt='Lony members photography'
-                            width={1300}
-                            height={900}
+                            alt='Fotografia das membras do Lony'
+                            width={1392}
+                            height={928}
                             priority
                         />
                     </Suspense>

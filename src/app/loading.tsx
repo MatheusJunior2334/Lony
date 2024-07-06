@@ -15,7 +15,7 @@ export default function LoadingPage() {
 
     return (
         <div id={styles.loadingPage}>
-            <Image src={model} alt='Model Gif' width={480} height={480} unoptimized priority />
+            <Image src={model} alt='Gif de modelo' width={480} height={480} unoptimized priority />
             <p>
                 {spans}
             </p>

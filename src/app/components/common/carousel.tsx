@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, lazy, Suspense } from "react";
+import React, { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import styles from '../../styles/common/carousel.module.scss';
 
 import { ArrowCarouselIcon } from "../../../../public/assets/icons/arrowCarouselIcon";
@@ -25,78 +25,75 @@ const girlNames = [
 
 const Carousel: React.FC = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
-    const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
     const [isPaused, setisPaused] = useState<boolean>(false);
 
-    const intervalRef = useRef<NodeJS.Timeout | null>(null);
+    const intervalRef = useRef<number | null>(null);
+    const isTransitioningRef = useRef<boolean>(false);
+
+    const startCarousel = useCallback(() => {
+        if (intervalRef.current === null) {
+            intervalRef.current = window.setInterval(() => {
+                if (!isPaused) goToNextImage();
+            }, 5000)
+        }
+    }, [isPaused])
+
+    const stopCarousel = useCallback(() => {
+        if (intervalRef.current !== null) {
+            clearInterval(intervalRef.current);
+            intervalRef.current = null;
+        }
+    }, [])
 
     useEffect(() => {
         startCarousel();
 
-        return () => {
-            stopCarousel()
-        }
-    }, [isPaused]);
+        return () => stopCarousel()
+    }, [isPaused, startCarousel, stopCarousel]);
 
-    const startCarousel = () => {
-        intervalRef.current = setInterval(() => {
-            if (!isPaused) goToNextImage();
-        }, 5000)
-    }
+    const goToNextImage = useCallback(() => {
+        if (!isTransitioningRef.current) {
+            isTransitioningRef.current = true;
+            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+            window.setTimeout(() => {
+                isTransitioningRef.current = false;
+            }, 500)
 
-    const stopCarousel = () => {
-        if (intervalRef.current) {
-            clearInterval(intervalRef.current);
-            intervalRef.current = null;
-        }
-    }
-
-    const goToNextImage = () => {
-        if (!isTransitioning) {
-            setIsTransitioning(true);
-            setCurrentImageIndex((prevIndex) => {
-                const nextIndex = prevIndex === images.length - 1 ? 0 : prevIndex + 1;
-                setTimeout(() => {
-                    setIsTransitioning(false);
-                }, 500)
-                return nextIndex;
-            });
             resetCarouselTimer();
         }
-    }
+    }, [])
 
-    const goToPrevImage = () => {
-        if (!isTransitioning) {
-            setIsTransitioning(true);
-            setCurrentImageIndex((prevIndex) => {
-                const nextIndex = prevIndex === 0 ? images.length - 1 : prevIndex - 1;
-                setTimeout(() => {
-                    setIsTransitioning(false);
-                }, 500)
-                return nextIndex;
-            })
+    const goToPrevImage = useCallback(() => {
+        if (!isTransitioningRef.current) {
+            isTransitioningRef.current = true;
+            setCurrentImageIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+            window.setTimeout(() => {
+                isTransitioningRef.current = false;
+            }, 500)
+
             resetCarouselTimer();
         }
-    }
+    }, [])
+
+    const handleDotClick = useCallback((index: number) => {
+        if (!isTransitioningRef.current) {
+            isTransitioningRef.current = true;
+            setCurrentImageIndex(index);
+            window.setTimeout(() => {
+                isTransitioningRef.current = false;
+            }, 500)
+
+            resetCarouselTimer();
+        }
+    }, [])
+
+    const handlePause = useCallback(() => {
+        setisPaused((prev) => !prev);
+    }, [])
 
     const resetCarouselTimer = () => {
         stopCarousel();
         startCarousel();
-    }
-
-    const handlePause = () => {
-        setisPaused(!isPaused);
-    }
-
-    const handleDotClick = (index: number) => {
-        if (!isTransitioning) {
-            setIsTransitioning(true);
-            setCurrentImageIndex(index);
-            setTimeout(() => {
-                setIsTransitioning(false);
-            }, 500)
-        }
-        resetCarouselTimer();
     }
 
     return (
@@ -109,7 +106,7 @@ const Carousel: React.FC = () => {
                             className={`${styles.image} ${index === currentImageIndex ? styles.active : ''}`}
                             style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
                         >
-                            <Image src={image} alt={`${girlNames[index]}`} title={`${girlNames[index]}`} width={970} height={1080} priority />
+                            <Image src={image} alt={girlNames[index]} title={girlNames[index]} width={970} height={1080} priority />
                         </div>
                     ))}
 
@@ -121,17 +118,17 @@ const Carousel: React.FC = () => {
                         <ArrowCarouselIcon />
                     </button>
 
-                    <button className={styles.pauseBtn} onClick={handlePause} aria-label="Pausar carrossel">
+                    <button className={styles.pauseBtn} onClick={handlePause} aria-label={isPaused ? 'Reproduzir carrossel' : 'Pausar carrosel'} aria-pressed={!isPaused}>
                         {isPaused ? <PlayIcon /> : <PauseIcon />}
                     </button>
 
                     <div className={styles.dots}>
                         {images.map((_, index) => (
-                            <input
-                                type="button"
+                            <span
                                 key={index}
                                 className={`${styles.dot} ${index === currentImageIndex ? styles.active : ''}`}
                                 onClick={() => handleDotClick(index)}
+                                aria-label={`Selecionar imagem ${index}`}
                             />
                         ))}
                     </div>

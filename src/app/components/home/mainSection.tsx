@@ -40,7 +40,7 @@ export const MainSection = () => {
                             priority
                             className={styles.seatedWomanImage}
                         />
-                        <ButtonPrimary pageUrl='/' text={`${translations['home.mainSection.seeOurWork']}`} />
+                        <ButtonPrimary pageUrl='/shop' text={`${translations['home.mainSection.seeOurWork']}`} />
                     </div>
                 </div>
             </div>

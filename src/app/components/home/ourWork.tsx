@@ -66,7 +66,7 @@ const DesignImages = ({ images } : DesignImagesProps) => {
                     <div key={index} className={`${styles[`image${index + 1}`]} ${styles.imagesDiv}`} onClick={() => handleImageClick(index)}>
                         <Image
                             src={image}
-                            alt={`Draw ${index + 1}`}
+                            alt={`Desenho ${index + 1}`}
                             width={500}
                             height={722}
                             priority
@@ -83,7 +83,7 @@ const DesignImages = ({ images } : DesignImagesProps) => {
                     <div key={index + 3} className={`${styles[`image${index + 4}`]} ${styles.imagesDiv}`} onClick={() => handleImageClick(index + 3)}>
                         <Image
                             src={image}
-                            alt={`Draw ${index + 4}`}
+                            alt={`Desenho ${index + 4}`}
                             width={500}
                             height={722}
                             priority

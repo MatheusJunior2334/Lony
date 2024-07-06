@@ -56,7 +56,7 @@ export const OurWorkModal = ({ images, addClass, selectedImageIndex, setSelected
 
             <div id={styles.ourWorkModal} className={addClass ? styles.openModal : styles.closeModal}>
                 <div className={styles.modalContent}>
-                    <button className={styles.exitButton} title={translations['header.sideMenu.closeMenu']} onClick={onClose}>
+                    <button className={styles.exitButton} title={translations['header.sideMenu.closeMenu']} onClick={onClose} aria-label='Fechar o modal'>
                         <XIcon />
                     </button>
                     <Swiper
@@ -72,7 +72,7 @@ export const OurWorkModal = ({ images, addClass, selectedImageIndex, setSelected
                                 <div className={styles.modalImage}>
                                     <Image
                                         src={image}
-                                        alt={`Draw ${index + 1}`}
+                                        alt={`Imagem ${index + 1}`}
                                         width={500}
                                         height={722}
                                         priority
@@ -83,12 +83,12 @@ export const OurWorkModal = ({ images, addClass, selectedImageIndex, setSelected
                     </Swiper>
 
                     {selectedImageIndex !== 0 &&
-                        <button className={styles.leftButton} onClick={handlePrev} disabled={isNavigating}>
+                        <button className={styles.leftButton} aria-label='Imagem anterior' onClick={handlePrev} disabled={isNavigating}>
                             <ArrowCarouselIcon />
                         </button>
                     }
                     {selectedImageIndex !== images.length - 1 &&
-                        <button className={styles.rightButton} onClick={handleNext} disabled={isNavigating}>
+                        <button className={styles.rightButton} aria-label='Próxima imagem' onClick={handleNext} disabled={isNavigating}>
                             <ArrowCarouselIcon />
                         </button>
                     }

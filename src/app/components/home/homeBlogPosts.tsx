@@ -49,7 +49,7 @@ const PostsDesign = ({
             <Image
                 src={thumbnail}
                 width={600}
-                height={400}
+                height={399}
                 alt={postTitle}
                 className={styles.imagePlace}
                 priority

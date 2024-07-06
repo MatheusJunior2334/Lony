@@ -20,13 +20,9 @@
 
         cursor: pointer;
 
-        &:first-child {
-            border-radius: 4px 0 0 4px;
-        }
+        &:first-child { border-radius: 4px 0 0 4px; }
 
-        &:last-child {
-            border-radius: 0 4px 4px 0;
-        }
+        &:last-child { border-radius: 0 4px 4px 0; }
 
         svg {
             width: 40px;
@@ -40,8 +36,6 @@
     .selected {
         background-color: $pageWhiteColour;
 
-        svg {
-            opacity: 1;
-        }
+        svg { opacity: 1; }
     }
 }

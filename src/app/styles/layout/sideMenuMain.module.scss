@@ -3,63 +3,33 @@
 // Animações
 
 @keyframes slide-in-default {
-    from {
-        transform: translateX(-100%);
-    }
-
-    to {
-        transform: translateX(0);
-    }
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
 }
 
 @keyframes slide-in-devices {
-    from {
-        transform: translateY(-100%);
-    }
-
-    to {
-        transform: translateY(0);
-    }
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
 }
 
 @keyframes slide-out-default {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-100%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
 }
 
 @keyframes slide-out-devices {
-    from {
-        transform: translateY(0);
-    }
-
-    to {
-        transform: translateY(-100%);
-    }
+    from { transform: translateY(0); }
+    to { transform: translateY(-100%); }
 }
 
 @keyframes enterBackground {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes exitBackground {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-    }
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
 
 // Variáveis
@@ -93,7 +63,7 @@ $paddingNav: 8px;
             align-items: center;
             box-shadow: 1px 1px 2px rgba($pageBlackColour, 0.31);
 
-            button:nth-child(1) {
+            button {
                 @include close-menu-button();
                 width: 40px;
                 height: 40px;
@@ -101,7 +71,7 @@ $paddingNav: 8px;
                 margin-left: $paddingNav;
             }
 
-            button:nth-child(2) {
+            div {
                 background: none;
                 padding: 0;
 
@@ -115,9 +85,7 @@ $paddingNav: 8px;
                     fill: $pageBlackColour;
                     cursor: pointer;
 
-                    path {
-                        stroke: $pageBlackColour;
-                    }
+                    path { stroke: $pageBlackColour; }
                 }
             }
 
@@ -198,24 +166,15 @@ $paddingNav: 8px;
     }
 
     .open {
-        &.leftSide {
-            animation: slide-in-default 0.3s ease-in-out;
-        }
+        &.leftSide { animation: slide-in-default 0.3s ease-in-out; }
 
-        &.rightSide {
-            animation: enterBackground 0.3s forwards ease-in-out;
-        }
+        &.rightSide { animation: enterBackground 0.3s forwards ease-in-out; }
     }
 
     .close {
+        &.leftSide { animation: slide-out-default 0.3s ease-in-out forwards; }
 
-        &.leftSide {
-            animation: slide-out-default 0.3s ease-in-out forwards;
-        }
-
-        &.rightSide {
-            animation: exitBackground 0.3s forwards ease-in-out;
-        }
+        &.rightSide { animation: exitBackground 0.3s forwards ease-in-out; }
     }
 }
 
@@ -241,38 +200,26 @@ $paddingNav: 8px;
                 height: 75px;
                 flex-direction: row-reverse;
 
-                button {
-                    margin-right: 24px;
-                }
+                button { margin-right: 24px; }
 
-                span {
-                    display: none;
-                }
+                span { display: none; }
             }
 
             .navBar {
                 margin-top: 75px;
 
-                .pagePaths {
-                    padding: 0px;
-                }
+                .pagePaths { padding: 0px; }
             }
         }
 
-        .rightSide {
-            display: none;
-        }
+        .rightSide { display: none; }
 
         .open {
-            &.leftSide {
-                animation: slide-in-devices 0.3s ease-in-out;
-            }
+            &.leftSide { animation: slide-in-devices 0.3s ease-in-out; }
         }
     
         .close {
-            &.leftSide {
-                animation: slide-out-devices 0.3s ease-in-out forwards;
-            }
+            &.leftSide { animation: slide-out-devices 0.3s ease-in-out forwards; }
         }
     }
 }

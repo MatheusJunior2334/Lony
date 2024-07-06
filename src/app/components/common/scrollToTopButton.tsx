@@ -35,7 +35,7 @@ export const ScrollToTopButton = () => {
             id={styles.scrollToTopButton}
             className={isVisible ? styles.show : ''}
             onClick={scrollToTop}
-            aria-label="Scroll to Top"
+            aria-label="Ir para o topo"
         >
             <ArrowUpIcon />
         </button>

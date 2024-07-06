@@ -3,13 +3,8 @@
 // Animações
 
 @keyframes background-slide {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .analoguePhotography {
@@ -24,9 +19,7 @@
     display: flex;
     align-items: center;
 
-    &:hover .backgroundImage {
-        animation-play-state: paused;
-    }
+    &:hover .backgroundImage { animation-play-state: paused; }
     
     .backgroundImage {
         width: calc(2528.36px * 2);

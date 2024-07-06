@@ -16,9 +16,7 @@
     align-items: center;
     z-index: 10;
 
-    &.hidden {
-        transform: translateY(-100%);
-    }
+    &.hidden { transform: translateY(-100%); }
 
     .leftHeader {
         width: 10%;
@@ -40,12 +38,10 @@
             svg {
                 width: 24px;
 
-                line {
-                    stroke: $pageBlackColour;
-                }
+                line { stroke: $pageBlackColour; }
             }
     
-            span{ 
+            span { 
                 font-size: 18px;
                 color: $pageBlackColour;
             }
@@ -65,9 +61,7 @@
             fill: $pageBlackColour;
             cursor: pointer;
 
-            path {
-                stroke: $pageBlackColour;
-            }
+            path { stroke: $pageBlackColour; }
         }
 
     }
@@ -94,13 +88,9 @@
             justify-content: center;
         }
 
-        .middleHeader {
-            width: 68%;
-        }
+        .middleHeader { width: 68%; }
 
-        .rightHeader {
-            width: 16%;
-        }
+        .rightHeader { width: 16%; }
     }
 }
 
@@ -113,21 +103,15 @@
             width: auto;
             padding-right: 24px;
 
-            span {
-                display: none;
-            }
+            span { display: none; }
         }
 
         .middleHeader {
             width: auto;
 
-            img {
-                width: 110px;
-            }
+            img { width: 110px; }
         }
 
-        .rightHeader {
-            display: none;
-        }
+        .rightHeader { display: none; }
     }
 }

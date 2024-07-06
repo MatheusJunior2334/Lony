@@ -40,7 +40,7 @@ export const LonyLogoHeader = () => {
   }
 
   return (
-    <Link href="/">
+    <Link href="/home">
       <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="469.000000pt" height="220.000000pt" viewBox="0 0 469.000000 220.000000" preserveAspectRatio="xMidYMid meet">
         <g transform="translate(0.000000,220.000000) scale(0.100000,-0.100000)" stroke="none">
           <path ref={setPathRef(0)} d="M2195 2108 c-22 -11 -107 -88 -190 -172 l-150 -151 -75 37 c-97 47

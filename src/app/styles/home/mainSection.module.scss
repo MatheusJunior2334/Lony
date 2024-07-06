@@ -32,18 +32,16 @@
                     font-size: 20px;
                     display: flex;
                     align-items: center;
-                    color: $pageBlackColour;
-                    opacity: 0.5;
+                    color: #595959;
         
                     svg {
                         width: 20px;
                         height: auto;
+                        opacity: 0.65;
                     }
                 }
     
-                h1 {
-                    @include h1-text();
-                }
+                h1 { @include h1-text(); }
             }
 
             .buttonDiv {
@@ -62,9 +60,7 @@
                     pointer-events: none;
                 }
 
-                button {
-                    padding: 8px 30px;
-                }
+                button { padding: 8px 30px; }
             }
         }
     }
@@ -94,8 +90,24 @@
             }
         }
 
-        .rightSide {
-            width: 50%;
+        .rightSide { width: 50%; }
+    }
+}
+
+@media (max-width: 1000px) {
+    #mainSection {
+        .leftSide {
+            .leftSideContent {
+                .topText {
+                    row-gap: 8px;
+
+                    span { font-size: 18px; }
+                    
+                    h1 {
+                        br { display: none; }
+                    }
+                }
+            }
         }
     }
 }
@@ -114,36 +126,15 @@
                 width: 95%;
                 row-gap: 20px;
 
-                .topText {
-                    row-gap: 8px;
-
-                    span {
-                        font-size: 18px;
-                    }
-
-                    h1 {
-
-                        br {
-                            display: none;
-                        }
-                    }
-                }
-
                 .buttonDiv {
-                    .seatedWomanImage {
-                        display: none;
-                    }
+                    .seatedWomanImage { display: none; }
 
-                    button {
-                        padding: 8px 24px;
-                    }
+                    button { padding: 8px 24px; }
                 }
             }
         }
 
-        .rightSide {
-            width: 90%;
-        }
+        .rightSide { width: 90%; }
     }
 }
 
@@ -152,9 +143,7 @@
         .leftSide {
             .leftSideContent {
                 .topText {
-                    span {
-                        font-size: 16px;
-                    }
+                    span { font-size: 16px; }
                 }
             }
         }

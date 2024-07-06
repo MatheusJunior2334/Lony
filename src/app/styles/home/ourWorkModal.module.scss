@@ -35,13 +35,9 @@
     top: 0;
     cursor: zoom-out;
 
-    &.backdropOpen {
-        animation: backdropOpenAnimation 0.3s ease-in-out forwards;
-    }
+    &.backdropOpen { animation: backdropOpenAnimation 0.3s ease-in-out forwards; }
 
-    &.backdropClose {
-        animation: backdropCloseAnimation 0.3s ease-in-out forwards;
-    }
+    &.backdropClose { animation: backdropCloseAnimation 0.3s ease-in-out forwards; }
 }
 
 #ourWorkModal {
@@ -54,13 +50,9 @@
     top: 5%;
     border-radius: 8px;
 
-    &.openModal {
-        animation: openModalAnimation 0.3s ease-in-out forwards;
-    }
+    &.openModal { animation: openModalAnimation 0.3s ease-in-out forwards; }
 
-    &.closeModal {
-        animation: closeModalAnimation 0.3s ease-in-out forwards;
-    }
+    &.closeModal { animation: closeModalAnimation 0.3s ease-in-out forwards; }
 
     .modalContent {
         position: relative;
@@ -75,9 +67,7 @@
             background-color: $pageWhiteColour;
             z-index: 2;
 
-            svg {
-                filter: invert(1);
-            }
+            svg { filter: invert(1); }
         }
 
         .swiperContainer {

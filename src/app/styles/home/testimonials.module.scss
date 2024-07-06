@@ -29,9 +29,7 @@
             -webkit-overflow-scrolling: touch;
             overflow-x: auto;
 
-            &::-webkit-scrollbar {
-                display: none;
-            }
+            &::-webkit-scrollbar { display: none; }
 
             .testimonialElement {
                 display: flex;
@@ -76,9 +74,7 @@
                         display: flex;
                         justify-content: flex-start;
         
-                        p {
-                            @include testimonials-text();
-                        }
+                        p { @include testimonials-text(); }
                     }
         
                     .userInfo {
@@ -139,7 +135,7 @@
         align-items: center;
         column-gap: 8px;
 
-        h4 {
+        h3 {
             @include testimonials-user-name();
             text-align: center;
         }
@@ -149,9 +145,7 @@
             height: 30px;
             transition: 0.5s transform ease;
 
-            &:hover {
-                transform: rotate(45deg);
-            }
+            &:hover { transform: rotate(45deg); }
         }
     }
 }
@@ -198,9 +192,7 @@
                         max-width: 420px;
                         min-height: 230px;
         
-                        .text, .userInfo {
-                            padding: 0;
-                        }
+                        .text, .userInfo { padding: 0; }
         
                         .stripes {
                             width: 100px;

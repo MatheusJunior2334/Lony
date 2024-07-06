@@ -33,9 +33,7 @@
             }
         }
 
-        .infoSide {
-            width: 50%;
-        }
+        .infoSide { width: 50%; }
     }
 }
 
@@ -46,15 +44,11 @@
         .membersDiv {
             flex-direction: column;
 
-            .imageSide, .infoSide {
-                width: 100%;
-            }
+            .imageSide, .infoSide { width: 100%; }
 
             .imageSide {
                 figure {
-                    img {
-                        width: 100%;
-                    }
+                    img { width: 100%; }
                 }
             }
         }

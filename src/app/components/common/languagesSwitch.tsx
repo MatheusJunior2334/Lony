@@ -9,14 +9,13 @@ interface SwitchLanguagesIconProps {
     languageCode: string;
     onClick: () => void;
     ariaLabel: string;
-    tabindex: number;
 }
 
-const SwitchLanguagesIcon = ({ languageCode, onClick, ariaLabel, tabindex } : SwitchLanguagesIconProps) => {
+const SwitchLanguagesIcon = ({ languageCode, onClick, ariaLabel } : SwitchLanguagesIconProps) => {
     const { language } = useLanguage();
 
     return (
-        <button tabIndex={tabindex} aria-label={ariaLabel} onClick={onClick} className={`${language === languageCode && languageCode ? styles.selected : ''}`}>
+        <button aria-label={ariaLabel} onClick={onClick} className={`${language === languageCode && languageCode ? styles.selected : ''}`}>
             {languageCode === 'pt' && <BrazilFlag />}
             {languageCode === 'en' && <UKFlag />}
             {languageCode === 'de' && <GermanyFlag />}
@@ -38,19 +37,16 @@ export const LanguagesSwitch = () => {
                 languageCode='pt'
                 onClick={() => handleLanguageClick('pt')}
                 ariaLabel='Mudar para português'
-                tabindex={6}
             />
             <SwitchLanguagesIcon
                 languageCode='en'
                 onClick={() => handleLanguageClick('en')}
                 ariaLabel='Mudar para inglês'
-                tabindex={7}
             />
             <SwitchLanguagesIcon
                 languageCode='de'
                 onClick={() => handleLanguageClick('de')}
                 ariaLabel='Mudar para alemão'
-                tabindex={8}
             />
         </div>
     )

@@ -55,7 +55,7 @@ const Members = ({ dayImage, nightImage, name }: MembersProps) => {
         <figure>
             <Image
                 src={imageSrc}
-                alt={`${name} Image`}
+                alt={`Imagem da ${name}`}
                 width={465}
                 height={631}
                 priority

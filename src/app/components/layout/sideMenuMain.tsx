@@ -53,13 +53,13 @@ export const SideMenuMain: React.FC<SideMenuProps> = ({ closeMenu, translateStyl
             <div className={`${styles.leftSide} ${translateStyle ? styles.open : styles.close}`}>
 
                 <div className={styles.exitButtonDiv}>
-                    <button tabIndex={1} onClick={closeMenu} title={`${translations['header.sideMenu.closeMenu']}`}>
+                    <button onClick={closeMenu} title={`${translations['header.sideMenu.closeMenu']}`} aria-label='Fechar menu'>
                         <XIcon />
                     </button>
                     
-                    <button tabIndex={2}>
+                    <div>
                         <LonyLogoHeader />
-                    </button>
+                    </div>
 
                     <span />
                 </div>
@@ -69,7 +69,7 @@ export const SideMenuMain: React.FC<SideMenuProps> = ({ closeMenu, translateStyl
                     <ul className={styles.pagePaths}>
                         {lineItemsContent.map((item, index) => (
                             <li key={index} className={path === item.pagePath ? styles.activeLine : ''}>
-                                <Link href={item.pagePath} tabIndex={index + 2} >
+                                <Link href={item.pagePath} >
                                     {item.icon}
                                     {getText(item.textKey)}
                                 </Link>
@@ -80,10 +80,11 @@ export const SideMenuMain: React.FC<SideMenuProps> = ({ closeMenu, translateStyl
                     <div className={styles.sideMenuWoman}>
                         <Image
                             src={SideMenuWoman}
-                            alt='Side menu woman draw'
-                            width={192}
-                            height={400}
-                            priority
+                            alt='Desenho de Mulher em pé'
+                            width={381.75}
+                            height={792}
+                            quality={50}
+                            loading='lazy'
                         />
                     </div>
 

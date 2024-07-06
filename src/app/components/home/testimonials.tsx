@@ -35,7 +35,7 @@ const TestimonialDesign = ({ userText, userImage, userName }: TestimonialDesignP
                     <Suspense fallback={<div className={styles.loading} />}>
                         <Image
                             src={userImage || UserDefaultImage}
-                            alt={`${userName} image`}
+                            alt={`Imagem de ${userName}`}
                             width={100}
                             height={100}
                             loading='lazy'
@@ -94,7 +94,7 @@ export const Testimonials = () => {
                 <TestimonialsList />
             </div>
             <div className={styles.dragDiv}>
-                <h4>{translations['home.testimonials.dragToTheSide']}</h4>
+                <h3>{translations['home.testimonials.dragToTheSide']}</h3>
                 <DragIcon />
             </div>
         </section>

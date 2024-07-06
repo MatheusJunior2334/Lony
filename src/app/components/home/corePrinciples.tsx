@@ -67,10 +67,10 @@ export const CorePrinciples = () => {
                 <AnimatedComponent initialTranslateX={100} transitionDuration={2} className={styles.imageSide}>
                     <Image
                         src={lonyMission}
-                        alt='Lony members - Mission'
+                        alt='Equipe do Lony - Missão'
                         width={900}
                         height={600}
-                        priority
+                        loading='lazy'
                     />
                 </AnimatedComponent>
             </div>
@@ -84,10 +84,10 @@ export const CorePrinciples = () => {
                 <AnimatedComponent initialTranslateX={-100} transitionDuration={2} className={styles.imageSide}>
                     <Image
                         src={lonyVision}
-                        alt='Lony members - Vision'
+                        alt='Equipe do Lony - Visão'
                         width={900}
                         height={600}
-                        priority
+                        loading='lazy'
                     />
                 </AnimatedComponent>
             </div>
@@ -107,10 +107,10 @@ export const CorePrinciples = () => {
                 <AnimatedComponent opacity={0} transitionDuration={2} className={styles.middleSide}>
                     <Image
                         src={lonyValueKeys}
-                        alt='Lony members - Values'
+                        alt='Equipe do Lony - Valores'
                         width={900}
                         height={600}
-                        priority
+                        loading='lazy'
                     />
                 </AnimatedComponent>
                 
@@ -122,8 +122,11 @@ export const CorePrinciples = () => {
                                 {getText(value.valueKey)}
                             </li>
                         ))}
-                        <p>{translations['home.corePrinciples.valuesText']} <span>{translations['home.corePrinciples.valuesText.values']}</span></p>
                     </ul>  
+                </div>
+
+                <div className={styles.valuesText}>
+                    <p>{translations['home.corePrinciples.valuesText']} <span>{translations['home.corePrinciples.valuesText.values']}</span></p>
                 </div>
             </div>
         </section>

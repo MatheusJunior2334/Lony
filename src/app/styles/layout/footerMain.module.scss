@@ -48,17 +48,14 @@
                         svg {
                             width: 50px;
                             
-                            path {
-                                fill: $pageBlackColour;
-                            }
+                            path { fill: $pageBlackColour; }
                         }
                     }
 
                     &:hover {
                         opacity: 1;
-                        .topArrow {
-                            column-gap: 40px;
-                        }
+
+                        .topArrow { column-gap: 40px; }
                     }
                 }
 
@@ -106,14 +103,10 @@
                         }
 
                         &:nth-of-type(4) {
-                            svg {
-                                padding: 2px;
-                            }
+                            svg { padding: 2px; }
                         }
 
-                        &:hover {
-                            transform: scale(1.05);
-                        }
+                        &:hover { transform: scale(1.05); }
                     }
                 }
             }
@@ -132,7 +125,7 @@
         align-items: center;
         padding: 8px 0;
 
-        h6 {
+        h4 {
             font-weight: normal;
             font-size: 14px;
             text-align: center;
@@ -174,25 +167,17 @@
                     a {
                         .topArrow {
                             column-gap: 10px;
-                            svg {
-                                width: 40px;
-                            }
+                            svg { width: 40px;}
                         }
 
                         &:hover {
-                            .topArrow {
-                                column-gap: 20px;
-                            }
+                            .topArrow { column-gap: 20px; }
                         }
                     }
 
-                    h3 {
-                        font-size: 22px;
-                    }
+                    h3 { font-size: 22px; }
 
-                    span {
-                        font-size: 16px;
-                    }
+                    span { font-size: 16px; }
                 }
             }
         }
@@ -228,25 +213,15 @@
                     "home works";
                 }
 
-                .footerLogoDiv {
-                    grid-area: logo;
-                }
+                .footerLogoDiv { grid-area: logo; }
 
-                .footerHomeDiv {
-                    grid-area: home;
-                }
+                .footerHomeDiv { grid-area: home; }
 
-                .footerOurWorksDiv {
-                    grid-area: works;
-                }
+                .footerOurWorksDiv { grid-area: works; }
 
-                .footerAboutDiv {
-                    grid-area: about;
-                }
+                .footerAboutDiv { grid-area: about; }
 
-                .footerSocialMediaDiv {
-                    grid-area: media;
-                }
+                .footerSocialMediaDiv { grid-area: media; }
 
                 .footerHomeDiv,
                 .footerOurWorksDiv,
@@ -255,15 +230,11 @@
                     width: 100%;
 
                     a {
-                        .topArrow {
-                            column-gap: 20px;
-                        }
+                        .topArrow { column-gap: 20px; }
                     }
 
                     &:hover {
-                        .topArrow {
-                            column-gap: 40px;
-                        }
+                        .topArrow { column-gap: 40px; }
                     }
                 }
             }
@@ -317,14 +288,11 @@
                 }
 
                 .footerSocialMediaDiv {
-                    div {
-                        justify-content: center;
-                    }
+                    div { justify-content: center; }
                 }
             }
         }
-        .sideLane {
-            left: -200px;
-        }
+        
+        .sideLane { left: -200px; }
     }
 }
