@@ -7,7 +7,7 @@ import styles from '../../styles/layout/footerMain.module.scss';
 import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/app/contexts/languageContext';
 
-import LonyLogo from '../../../../public/assets/images/LonyFooterLogo.png';
+import LonyLogo from '../../../../public/assets/images/LonyFooterLogo.webp';
 
 import { ArrowIcon } from '../../../../public/assets/icons/arrowIcon';
 import { FaInstagram } from "react-icons/fa";
@@ -25,7 +25,7 @@ export const FooterMain = () => {
 
     let activeClass = '';
 
-    if(path === '/home') {
+    if (path === '/home') {
         footerOurWorks = true;
         footerAbout = true;
         activeClass = styles.pageHomeClass;
@@ -44,7 +44,14 @@ export const FooterMain = () => {
             <div className={styles.topFooter}>
                 <nav className={activeClass}>
                     <div className={styles.footerLogoDiv}>
-                        <Image src={LonyLogo} alt='Logo do Lony' width={469} height={314} priority />
+                        <Image
+                            src={LonyLogo}
+                            alt='Logo do Lony'
+                            width={0}
+                            height={0}
+                            sizes='(max-width: 1280px) 240px, 250px'
+                            loading='lazy'
+                        />
                     </div>
 
                     {footerHome && (
@@ -62,7 +69,7 @@ export const FooterMain = () => {
 
                     {footerOurWorks && (
                         <div className={styles.footerOurWorksDiv}>
-                            <Link href='/shop'>
+                            <Link href='/home'>
                                 <div className={styles.topArrow}>
                                     <h3>{translations['home.footer.ourWorksTitle']}</h3>
                                     <ArrowIcon />

@@ -146,7 +146,7 @@ $paddingNav: 8px;
                 justify-content: center;
 
                 img {
-                    width: 40%;
+                    width: 168px;
                     height: 100%;
                     transform: rotateY(180deg);
                 }
@@ -209,6 +209,10 @@ $paddingNav: 8px;
                 margin-top: 75px;
 
                 .pagePaths { padding: 0px; }
+
+                .sideMenuWoman {
+                    img { width: 40%; }
+                }
             }
         }
 

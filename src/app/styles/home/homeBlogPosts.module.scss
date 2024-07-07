@@ -34,8 +34,8 @@
             flex-direction: column;
 
             .imagePlace {
-                width: auto;
-                height: 230px;
+                width: 100%;
+                height: auto;
                 object-fit: cover;
                 border-top-left-radius: inherit;
                 border-top-right-radius: inherit;
@@ -136,8 +136,6 @@
             article {
                 width: 290px;
 
-                .imagePlace { height: 220px; }
-
                 .postInfo {
                     .postDate { right: 14px; }
                 }
@@ -164,18 +162,6 @@
             grid-template-columns: 100%;
 
             article { width: clamp(56%, 340px, 96%); }
-        }
-    }
-}
-
-@media #{$mobile} {
-    #homeBlogPosts {
-        .blogPosts {
-            article {
-                .postInfo {
-                    .postTitle { margin: 22px 0; }
-                }
-            }
         }
     }
 }

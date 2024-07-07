@@ -13,7 +13,7 @@ import { OurWorkIcon } from '../../../../public/assets/icons/ourWorkIcon';
 import { AboutUsIcon } from '../../../../public/assets/icons/aboutUsIcon';
 import { LonyLogoHeader } from '../../../../public/assets/images/LonyLogoHeader';
 
-import SideMenuWoman from '../../../../public/assets/images/home/SideMenuWoman.png';
+import SideMenuWoman from '../../../../public/assets/images/home/SideMenuWoman.webp';
 
 interface SideMenuProps {
     closeMenu: () => void;
@@ -81,9 +81,9 @@ export const SideMenuMain: React.FC<SideMenuProps> = ({ closeMenu, translateStyl
                         <Image
                             src={SideMenuWoman}
                             alt='Desenho de Mulher em pé'
-                            width={381.75}
-                            height={792}
-                            quality={50}
+                            width={0}
+                            height={0}
+                            sizes='(max-width: 768px) 40vw, 168px'
                             loading='lazy'
                         />
                     </div>

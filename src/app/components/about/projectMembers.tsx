@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import styles from '../../styles/about/projectMembers.module.scss';
 
-import BiankaDay from '../../../../public/assets/images/about/BiankaDay.jpg';
-import BiankaNight from '../../../../public/assets/images/about/BiankaNight.jpg';
+import BiankaDay from '../../../../public/assets/images/about/BiankaDay.webp';
+import BiankaNight from '../../../../public/assets/images/about/BiankaNight.webp';
 
 const membersData: MembersProps[] = [
     { name: 'Bianka Araújo', dayImage: BiankaDay, nightImage: BiankaNight }

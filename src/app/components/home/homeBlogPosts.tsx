@@ -3,9 +3,9 @@ import { StaticImageData } from 'next/image';
 import styles from '../../styles/home/homeBlogPosts.module.scss';
 import Link from 'next/link';
 
-import FashionStyleThumbnail from '../../../../public/assets/images/blog/FashionStyleThumbnail.jpg'
-import NewTendenciesThumbnail from '../../../../public/assets/images/blog/NewTendenciesThumbnail.jpg';
-import AssembleWardrobeThumbnail  from '../../../../public/assets/images/blog/AssembleWardrobeThumbnail.jpg';
+import FashionStyleThumbnail from '../../../../public/assets/images/blog/FashionStyleThumbnail.webp'
+import NewTendenciesThumbnail from '../../../../public/assets/images/blog/NewTendenciesThumbnail.webp';
+import AssembleWardrobeThumbnail  from '../../../../public/assets/images/blog/AssembleWardrobeThumbnail.webp';
 import { useLanguage } from '@/app/contexts/languageContext';
 
 const Image = lazy(() => import('next/image'));
@@ -48,11 +48,12 @@ const PostsDesign = ({
         <article>
             <Image
                 src={thumbnail}
-                width={600}
-                height={399}
                 alt={postTitle}
+                width={0}
+                height={0}
+                sizes='(max-width: 768px) 340px, (max-width: 1000px) 330px, (min-width: 1280px) 290px, 350px'
                 className={styles.imagePlace}
-                priority
+                loading='lazy'
             />
             <div className={styles.postInfo}>
                 <em>{translations['home.homeBlogPosts.article.by']} {creator}</em>
@@ -90,7 +91,7 @@ const PostsList = () => {
         },
         {
             thumbnail: NewTendenciesThumbnail,
-            creator: 'Ester',
+            creator: 'Ester Melo',
             postMonth: translations['home.homeBlogPosts.article.postMonth.may'],
             postYear: '2024',
             postTitle: translations['home.homeBlogPosts.article2.postTitle'],
@@ -99,7 +100,7 @@ const PostsList = () => {
         },
         {
             thumbnail: AssembleWardrobeThumbnail,
-            creator: 'Larissa',
+            creator: 'Larissa Ferreira',
             postMonth: translations['home.homeBlogPosts.article.postMonth.may'],
             postYear: '2024',
             postTitle: translations['home.homeBlogPosts.article3.postTitle'],

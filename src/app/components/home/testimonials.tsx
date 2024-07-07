@@ -10,8 +10,8 @@ import { useLanguage } from '@/app/contexts/languageContext';
 import { InvertedCommasIcon } from '../../../../public/assets/icons/invertedCommasIcon';
 import { DragIcon } from '../../../../public/assets/icons/dragIcon';
 
-import UserDefaultImage from '../../../../public/assets/images/testimonials/UserDefaultImage.png';
-import MatheusImage from '../../../../public/assets/images/testimonials/DunbanImage.png';
+import UserDefaultImage from '../../../../public/assets/images/testimonials/UserDefaultImage.webp';
+import MatheusImage from '../../../../public/assets/images/testimonials/DunbanImage.webp';
 
 const Image = lazy(() => import('next/image'));
 
@@ -36,8 +36,8 @@ const TestimonialDesign = ({ userText, userImage, userName }: TestimonialDesignP
                         <Image
                             src={userImage || UserDefaultImage}
                             alt={`Imagem de ${userName}`}
-                            width={100}
-                            height={100}
+                            width={70}
+                            height={70}
                             loading='lazy'
                         />
                     </Suspense>

@@ -3,7 +3,7 @@
 import React, { lazy, Suspense } from 'react';
 import styles from '../../styles/about/mainSection.module.scss';
 
-import LadiesPhoto from '../../../../public/assets/images/about/LadiesPhotographyAbout.jpg';
+import LadiesPhoto from '../../../../public/assets/images/about/LadiesPhotographyAbout.webp';
 
 import { AnimatedComponent } from '../animations/animatedComponent';
 import { useLanguage } from '@/app/contexts/languageContext';
@@ -33,8 +33,9 @@ export const MainSectionAbout = () => {
                         <Image
                             src={LadiesPhoto}
                             alt='Fotografia das membras do Lony'
-                            width={1292}
-                            height={928}
+                            width={0}
+                            height={0}
+                            sizes='(max-width: 1000px) 90vw, 48vw'
                             priority
                         /> 
                     </Suspense>

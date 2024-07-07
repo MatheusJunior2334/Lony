@@ -8,11 +8,11 @@ import { PlayIcon } from "../../../../public/assets/icons/playIcon";
 const Image = lazy(() => import('next/image'));
 
 const images = [
-    '/assets/images/home/BiankaPrimary.jpg',
-    '/assets/images/home/EstefanyPrimary.jpg',
-    '/assets/images/home/EsterPrimary.jpg',
-    '/assets/images/home/IsabelaPrimary.jpg',
-    '/assets/images/home/LarissaPrimary.jpg'
+    '/assets/images/home/BiankaPrimary.webp',
+    '/assets/images/home/EstefanyPrimary.webp',
+    '/assets/images/home/EsterPrimary.webp',
+    '/assets/images/home/IsabelaPrimary.webp',
+    '/assets/images/home/LarissaPrimary.webp'
 ]
 
 const girlNames = [
@@ -106,7 +106,15 @@ const Carousel: React.FC = () => {
                             className={`${styles.image} ${index === currentImageIndex ? styles.active : ''}`}
                             style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
                         >
-                            <Image src={image} alt={girlNames[index]} title={girlNames[index]} width={970} height={1080} priority />
+                            <Image
+                                src={image}
+                                alt={girlNames[index]}
+                                title={girlNames[index]}
+                                width={0}
+                                height={0}
+                                sizes="(max-width: 768px) 90vw, (max-width: 1000px) 370px, (max-width: 1280px) 400px, 480px"
+                                priority
+                            />
                         </div>
                     ))}
 
@@ -128,7 +136,6 @@ const Carousel: React.FC = () => {
                                 key={index}
                                 className={`${styles.dot} ${index === currentImageIndex ? styles.active : ''}`}
                                 onClick={() => handleDotClick(index)}
-                                aria-label={`Selecionar imagem ${index}`}
                             />
                         ))}
                     </div>

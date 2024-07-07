@@ -7,7 +7,7 @@ import styles from '../../styles/home/mainSection.module.scss';
 import Carousel from '../common/carousel';
 import { ButtonPrimary } from '../common/buttonPrimary';
 import { HeartDressIcon } from '../../../../public/assets/icons/heartDressIcon';
-import seatedWoman from '../../../../public/assets/images/home/SeatedWoman.png';
+import seatedWoman from '../../../../public/assets/images/home/SeatedWoman.webp';
 import { useLanguage } from '@/app/contexts/languageContext';
 
 import { AnimatedComponent } from '../animations/animatedComponent';
@@ -37,10 +37,10 @@ export const MainSection = () => {
                             width={172}
                             height={380}
                             quality={50}
-                            priority
+                            loading='lazy'
                             className={styles.seatedWomanImage}
                         />
-                        <ButtonPrimary pageUrl='/shop' text={`${translations['home.mainSection.seeOurWork']}`} />
+                        <ButtonPrimary pageUrl='/home' text={`${translations['home.mainSection.seeOurWork']}`} />
                     </div>
                 </div>
             </div>

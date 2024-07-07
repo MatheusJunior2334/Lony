@@ -7,13 +7,13 @@ import { SeeImageIcon } from "../../../../public/assets/icons/seeImageIcon";
 import { OurWorkModal } from "./ourWorkModal";
 import styles from '../../styles/home/ourWork.module.scss';
 
-import ClothingSketch1 from '../../../../public/assets/images/home/ClothingSketch1.jpg';
-import ClothingSketch2 from '../../../../public/assets/images/home/ClothingSketch2.jpg';
-import ClothingSketch3 from '../../../../public/assets/images/home/ClothingSketch3.jpg';
-import ClothingSketch4 from '../../../../public/assets/images/home/ClothingSketch4.jpg';
-import ClothingSketch5 from '../../../../public/assets/images/home/ClothingSketch5.jpg';
+import ClothingSketch1 from '../../../../public/assets/images/home/ClothingSketch1.webp';
+import ClothingSketch2 from '../../../../public/assets/images/home/ClothingSketch2.webp';
+import ClothingSketch3 from '../../../../public/assets/images/home/ClothingSketch3.webp';
+import ClothingSketch4 from '../../../../public/assets/images/home/ClothingSketch4.webp';
+import ClothingSketch5 from '../../../../public/assets/images/home/ClothingSketch5.webp';
 
-import ClothingDrafts from '../../../../public/assets/images/home/ClothingDrafts.jpg';
+import ClothingDrafts from '../../../../public/assets/images/home/ClothingDrafts.webp';
 
 import { useLanguage } from '@/app/contexts/languageContext';
 
@@ -67,8 +67,9 @@ const DesignImages = ({ images } : DesignImagesProps) => {
                         <Image
                             src={image}
                             alt={`Desenho ${index + 1}`}
-                            width={500}
-                            height={722}
+                            width={0}
+                            height={0}
+                            sizes="(max-width: 1000px) 58vw, 28vw"
                             priority
                         />
                         
@@ -84,8 +85,9 @@ const DesignImages = ({ images } : DesignImagesProps) => {
                         <Image
                             src={image}
                             alt={`Desenho ${index + 4}`}
-                            width={500}
-                            height={722}
+                            width={0}
+                            height={0}
+                            sizes="(max-width: 1000px) 55vw, (max-width: 1280px) 28vw, 30vw"
                             priority
                         />
                         

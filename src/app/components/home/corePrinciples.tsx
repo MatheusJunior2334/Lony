@@ -2,9 +2,9 @@ import styles from '../../styles/home/corePrinciples.module.scss';
 
 import { AnimatedComponent } from '../animations/animatedComponent';
 
-import lonyMission from '../../../../public/assets/images/home/LonyMembersMission.png';
-import lonyVision from '../../../../public/assets/images/home/LonyMembersVision.png';
-import lonyValueKeys from '../../../../public/assets/images/home/LonyMembersValues.png';
+import lonyMission from '../../../../public/assets/images/home/LonyMembersMission.webp';
+import lonyVision from '../../../../public/assets/images/home/LonyMembersVision.webp';
+import lonyValueKeys from '../../../../public/assets/images/home/LonyMembersValues.webp';
 
 import { ResponsibilityIcon } from '../../../../public/assets/icons/responsibilityIcon';
 import { AuthenticityIcon } from '../../../../public/assets/icons/authenticityIcon';
@@ -68,8 +68,9 @@ export const CorePrinciples = () => {
                     <Image
                         src={lonyMission}
                         alt='Equipe do Lony - Missão'
-                        width={900}
-                        height={600}
+                        width={0}
+                        height={0}
+                        sizes='(max-width: 1000px) 100vw, 38vw'
                         loading='lazy'
                     />
                 </AnimatedComponent>
@@ -85,8 +86,9 @@ export const CorePrinciples = () => {
                     <Image
                         src={lonyVision}
                         alt='Equipe do Lony - Visão'
-                        width={900}
-                        height={600}
+                        width={0}
+                        height={0}
+                        sizes='(max-width: 1000px) 100vw, 38vw'
                         loading='lazy'
                     />
                 </AnimatedComponent>
@@ -108,8 +110,9 @@ export const CorePrinciples = () => {
                     <Image
                         src={lonyValueKeys}
                         alt='Equipe do Lony - Valores'
-                        width={900}
-                        height={600}
+                        width={0}
+                        height={0}
+                        sizes='(max-width: 1000px) 100vw, (max-width: 1280px) 39.5vw, 35.5vw'
                         loading='lazy'
                     />
                 </AnimatedComponent>

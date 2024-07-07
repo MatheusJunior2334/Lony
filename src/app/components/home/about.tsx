@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react';
 
 import styles from '../../styles/home/about.module.scss'
 
-import LadiesPhoto from '../../../../public/assets/images/home/LadiesPhotography.jpg';
+import LadiesPhoto from '../../../../public/assets/images/home/LadiesPhotography.webp';
 import { AnimatedComponent } from '../animations/animatedComponent';
 import { LadiesAboutLogo } from '../../../../public/assets/images/LadiesAboutLogo';
 import { ButtonPrimary } from '../common/buttonPrimary';
@@ -21,9 +21,10 @@ export const AboutSection = () => {
                         <Image
                             src={LadiesPhoto}
                             alt='Fotografia das membras do Lony'
-                            width={1392}
-                            height={928}
-                            priority
+                            width={0}
+                            height={0}
+                            sizes='(max-width: 1000px) 90vw, 48vw'
+                            loading='lazy'
                         />
                     </Suspense>
                 </AnimatedComponent>
