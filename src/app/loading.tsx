@@ -1,8 +1,5 @@
-import { lazy } from 'react';
+import dynamic from 'next/dynamic';
 import styles from './styles/layout/loading.module.scss';
-import model from '../../public/assets/gifs/FashionModelWalking.gif';
-
-const Image = lazy(() => import('next/image'))
 
 export default function LoadingPage() {
     const dots = '...';
@@ -15,14 +12,14 @@ export default function LoadingPage() {
 
     return (
         <div id={styles.loadingPage}>
-            <Image
-                src={model}
-                alt='Gif de modelo'
-                width={0}
-                height={0}
-                sizes='(max-width: 600px) 90vw, (max-width: 1280px) 50vw, 400px'
-                unoptimized
-                priority
+            <video
+                src={'/assets/videos/FashionModelWalking.mp4'}
+                autoPlay
+                loop
+                muted
+                playsInline
+                width={400}
+                height={400}
             />
             <p>
                 {spans}

@@ -1,5 +1,16 @@
 @import '../../page.module.scss';
 
+// Animação
+
+@mixin fill-animation {
+    @keyframes fill-animation {
+        from { fill: none; }
+        to { fill: $pageBlackColour }
+    }
+}
+
+// Estilização principal
+
 #header {
     position: fixed;
     width: 100%;
@@ -58,8 +69,11 @@
         svg {
             width: 140px;
             height: auto;
-            fill: $pageBlackColour;
+            fill: none;
+            animation: fill-animation 0s 2s forwards;
             cursor: pointer;
+
+            @include fill-animation();
 
             path { stroke: $pageBlackColour; }
         }

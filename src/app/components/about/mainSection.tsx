@@ -1,12 +1,12 @@
 'use client'
 
-import React, { lazy, Suspense } from 'react';
+import React, { Suspense, lazy } from 'react';
 import styles from '../../styles/about/mainSection.module.scss';
 
 import LadiesPhoto from '../../../../public/assets/images/about/LadiesPhotographyAbout.webp';
 
-import { AnimatedComponent } from '../animations/animatedComponent';
 import { useLanguage } from '@/app/contexts/languageContext';
+import { AnimatedComponent } from '../animations/animatedComponent';
 
 const Image = lazy(() => import('next/image'))
 
@@ -28,18 +28,18 @@ export const MainSectionAbout = () => {
             </div>
 
             <div className={styles.rightSide}>
-                <AnimatedComponent opacity={0} transitionDuration={2}>
-                    <Suspense fallback={<div className={styles.loading} />}>
+                <Suspense fallback={<div className={styles.loader}><span /></div>}>
+                    <AnimatedComponent opacity={0} transitionDuration={2}>
                         <Image
                             src={LadiesPhoto}
                             alt='Fotografia das membras do Lony'
-                            width={0}
-                            height={0}
-                            sizes='(max-width: 1000px) 90vw, 48vw'
+                            width={600}
+                            height={400}
+                            sizes='(max-width: 1000px) 90vw, 46.5vw'
                             priority
-                        /> 
-                    </Suspense>
-                </AnimatedComponent>
+                        />
+                    </AnimatedComponent>
+                </Suspense>
             </div>
         </section>
     )

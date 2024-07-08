@@ -1,11 +1,16 @@
 import Link from "next/link"
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useCallback } from "react"
 import gsap from "gsap";
 
 export const LonyLogoHeader = () => {
   const pathsRef = useRef<(SVGPathElement | null)[]>([]);
+  const observerRef = useRef<IntersectionObserver | null>(null); 
 
-  useEffect(() => {
+  const setPathRef = useCallback((index: number) => (el: SVGPathElement | null) => {
+    pathsRef.current[index] = el
+  }, [])
+
+  const animatePaths = useCallback(() => {
     pathsRef.current.forEach((path, index) => {
       if (path) {
         const length = path.getTotalLength();
@@ -35,9 +40,30 @@ export const LonyLogoHeader = () => {
     })
   }, [])
 
-  const setPathRef = (index: number) => (el: SVGPathElement | null) => {
-    pathsRef.current[index] = el
-  }
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animatePaths();
+          observer.disconnect();
+        }
+      })
+    }, { threshold: 0.1 });
+
+    pathsRef.current.forEach(path => {
+      if (path) {
+        observer.observe(path);
+      }
+    })
+
+    observerRef.current = observer;
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    }
+  }, [animatePaths]);
 
   return (
     <Link href="/home" aria-label="Ir para a tela inicial">

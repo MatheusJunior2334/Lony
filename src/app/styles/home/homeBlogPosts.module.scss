@@ -1,8 +1,17 @@
 @import '../../page.module.scss';
 
-.loading {
-    @include load-spin-style();
+.loader {
+    aspect-ratio: 350 / 230;
+
     background-color: $pageBlackColour;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+
+    span { @include load-spin-style(); }
 }
 
 #homeBlogPosts {
@@ -36,6 +45,7 @@
             .imagePlace {
                 width: 100%;
                 height: auto;
+                min-height: 180px;
                 object-fit: cover;
                 border-top-left-radius: inherit;
                 border-top-right-radius: inherit;
@@ -86,6 +96,7 @@
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
                     -webkit-line-clamp: 2;
+                    line-clamp: 2;
                     overflow: hidden;
                 }
 

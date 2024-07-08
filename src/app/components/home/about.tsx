@@ -3,10 +3,11 @@ import React, { lazy, Suspense } from 'react';
 import styles from '../../styles/home/about.module.scss'
 
 import LadiesPhoto from '../../../../public/assets/images/home/LadiesPhotography.webp';
-import { AnimatedComponent } from '../animations/animatedComponent';
 import { LadiesAboutLogo } from '../../../../public/assets/images/LadiesAboutLogo';
 import { ButtonPrimary } from '../common/buttonPrimary';
 import { useLanguage } from '@/app/contexts/languageContext';
+import dynamic from 'next/dynamic';
+import { AnimatedComponent } from '../animations/animatedComponent';
 
 const Image = lazy(() => import('next/image'));
 
@@ -16,18 +17,18 @@ export const AboutSection = () => {
     return(
         <section id={styles.aboutSection}>
             <div className={styles.leftSide}>
-                <AnimatedComponent opacity={0} transitionDuration={2}>
-                    <Suspense fallback={<div className={styles.loading} />}>
+                <Suspense fallback={<div className={styles.loader}><span /></div>}>
+                    <AnimatedComponent opacity={0} transitionDuration={2}>
                         <Image
                             src={LadiesPhoto}
                             alt='Fotografia das membras do Lony'
-                            width={0}
-                            height={0}
-                            sizes='(max-width: 1000px) 90vw, 48vw'
-                            loading='lazy'
+                            width={600}
+                            height={400}
+                            sizes='(max-width: 1000px) 90vw, 46.5vw'
+                            priority
                         />
-                    </Suspense>
-                </AnimatedComponent>
+                    </AnimatedComponent>
+                </Suspense>
             </div>
 
             <div className={styles.rightSide}>

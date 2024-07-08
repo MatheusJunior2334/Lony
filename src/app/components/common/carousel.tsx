@@ -98,49 +98,50 @@ const Carousel: React.FC = () => {
 
     return (
         <div id={styles.carousel}>
-            <Suspense fallback={<div className={styles.loading} />}>
-                <figure className={styles.imageWrapper}>
-                    {images.map((image, index) => (
-                        <div
-                            key={index}
-                            className={`${styles.image} ${index === currentImageIndex ? styles.active : ''}`}
-                            style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
-                        >
+            <figure className={styles.imageWrapper}>
+                {images.map((image, index) => (
+                    <div
+                        key={index}
+                        className={`${styles.image} ${index === currentImageIndex ? styles.active : ''}`}
+                        style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+                    >
+                        <Suspense fallback={<div className={styles.loader}><span /></div>}>
                             <Image
                                 src={image}
                                 alt={girlNames[index]}
                                 title={girlNames[index]}
-                                width={0}
-                                height={0}
+                                width={480}
+                                height={534.43}
                                 sizes="(max-width: 768px) 90vw, (max-width: 1000px) 370px, (max-width: 1280px) 400px, 480px"
-                                priority
+                                priority={index === 0}
+                                loading={index === 0 ? 'eager' : 'lazy'}
                             />
-                        </div>
-                    ))}
-
-                    <button className={styles.leftBtn} onClick={goToPrevImage} aria-label="Voltar slide">
-                        <ArrowCarouselIcon />
-                    </button>
-
-                    <button className={styles.rightBtn} onClick={goToNextImage} aria-label="Próximo slide">
-                        <ArrowCarouselIcon />
-                    </button>
-
-                    <button className={styles.pauseBtn} onClick={handlePause} aria-label={isPaused ? 'Reproduzir carrossel' : 'Pausar carrosel'} aria-pressed={!isPaused}>
-                        {isPaused ? <PlayIcon /> : <PauseIcon />}
-                    </button>
-
-                    <div className={styles.dots}>
-                        {images.map((_, index) => (
-                            <span
-                                key={index}
-                                className={`${styles.dot} ${index === currentImageIndex ? styles.active : ''}`}
-                                onClick={() => handleDotClick(index)}
-                            />
-                        ))}
+                        </Suspense>
                     </div>
-                </figure>
-            </Suspense>
+                ))}
+
+                <button className={styles.leftBtn} onClick={goToPrevImage} aria-label="Voltar slide">
+                    <ArrowCarouselIcon />
+                </button>
+
+                <button className={styles.rightBtn} onClick={goToNextImage} aria-label="Próximo slide">
+                    <ArrowCarouselIcon />
+                </button>
+
+                <button className={styles.pauseBtn} onClick={handlePause} aria-label={isPaused ? 'Reproduzir carrossel' : 'Pausar carrosel'} aria-pressed={!isPaused}>
+                    {isPaused ? <PlayIcon /> : <PauseIcon />}
+                </button>
+
+                <div className={styles.dots}>
+                    {images.map((_, index) => (
+                        <span
+                            key={index}
+                            className={`${styles.dot} ${index === currentImageIndex ? styles.active : ''}`}
+                            onClick={() => handleDotClick(index)}
+                        />
+                    ))}
+                </div>
+            </figure>
         </div>
     )
 }

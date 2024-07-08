@@ -1,3 +1,5 @@
+@use 'headerMain.module' as hm;
+
 @import '../../page.module.scss';
 
 // Animações
@@ -82,9 +84,12 @@ $paddingNav: 8px;
                 svg {
                     width: 140px;
                     height: auto;
-                    fill: $pageBlackColour;
+                    fill: none;
+                    animation: fill-animation 0s 2s forwards;
                     cursor: pointer;
 
+                    @include hm.fill-animation();
+        
                     path { stroke: $pageBlackColour; }
                 }
             }

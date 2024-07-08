@@ -6,9 +6,20 @@ $imageCarouselWidth1000px: 370px;
 
 // Estilização Principal
 
-.loading {
-    @include load-background-style();
-    aspect-ratio: 960 / 1080;
+.loader {
+    aspect-ratio: 970 / 1080;
+    width: $imageCarouselDefaultWidth;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $pageBlackColour;
+
+    span {
+        @include load-spin-style();
+    }
 }
 
 #carousel {
@@ -27,6 +38,8 @@ $imageCarouselWidth1000px: 370px;
             transition: transform 0.5s ease;
             
             img {
+                aspect-ratio: 970 / 1080;
+
                 width: $imageCarouselDefaultWidth;
                 height: 100%;
                 object-fit: cover;
@@ -96,7 +109,7 @@ $imageCarouselWidth1000px: 370px;
 
         .imageWrapper {
             .image {
-                img { width: $imageCarouselWidthLaptop; }
+                img, .loader { width: $imageCarouselWidthLaptop; }
             }
         }
     }
@@ -108,7 +121,7 @@ $imageCarouselWidth1000px: 370px;
 
         .imageWrapper {
             .image {
-                img { width: $imageCarouselWidth1000px; }
+                img, .loader { width: $imageCarouselWidth1000px; }
             }
         }
     }
@@ -118,14 +131,16 @@ $imageCarouselWidth1000px: 370px;
     #carousel {
         width: 100%;
 
-        .loading { width: 90vw; }
-
         .imageWrapper {
+            width: 90vw;
+
             .image {
                 flex-shrink: 0;
-                width: 100%;
 
-                img { width: 100%; }
+                width: 100%;
+                background-color: #f0f;
+
+                img, .loader { width: 100%; }
             }
         }
     }

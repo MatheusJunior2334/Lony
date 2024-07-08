@@ -1,6 +1,5 @@
+import React from 'react';
 import styles from '../../styles/home/corePrinciples.module.scss';
-
-import { AnimatedComponent } from '../animations/animatedComponent';
 
 import lonyMission from '../../../../public/assets/images/home/LonyMembersMission.webp';
 import lonyVision from '../../../../public/assets/images/home/LonyMembersVision.webp';
@@ -12,9 +11,10 @@ import { InnovationIcon } from '../../../../public/assets/icons/innovationIcon';
 import { EmpowermentIcon } from '../../../../public/assets/icons/empowermentIcon';
 import { InclusionIcon } from '../../../../public/assets/icons/inclusionIcon';
 import { useLanguage } from '@/app/contexts/languageContext';
-import { lazy } from 'react';
+import dynamic from 'next/dynamic';
 
-const Image = lazy(() => import('next/image'));
+const Image = dynamic(() => import('next/image'), { ssr: false });
+const AnimatedComponent = dynamic(() => import('../animations/animatedComponent').then(mod => mod.AnimatedComponent), { ssr: false });
 
 interface ValueKeysContentProps {
     icon: React.ReactNode;
@@ -68,10 +68,10 @@ export const CorePrinciples = () => {
                     <Image
                         src={lonyMission}
                         alt='Equipe do Lony - Missão'
-                        width={0}
-                        height={0}
-                        sizes='(max-width: 1000px) 100vw, 38vw'
-                        loading='lazy'
+                        width={900}
+                        height={600}
+                        sizes='(max-width: 1000px) 100vw, (max-width: 1280px) 37.6vw, 38.4vw'
+                        priority
                     />
                 </AnimatedComponent>
             </div>
@@ -86,10 +86,10 @@ export const CorePrinciples = () => {
                     <Image
                         src={lonyVision}
                         alt='Equipe do Lony - Visão'
-                        width={0}
-                        height={0}
-                        sizes='(max-width: 1000px) 100vw, 38vw'
-                        loading='lazy'
+                        width={900}
+                        height={600}
+                        sizes='(max-width: 1000px) 100vw, (max-width: 1280px) 37.6vw, 38.4vw'
+                        priority
                     />
                 </AnimatedComponent>
             </div>
@@ -110,10 +110,10 @@ export const CorePrinciples = () => {
                     <Image
                         src={lonyValueKeys}
                         alt='Equipe do Lony - Valores'
-                        width={0}
-                        height={0}
-                        sizes='(max-width: 1000px) 100vw, (max-width: 1280px) 39.5vw, 35.5vw'
-                        loading='lazy'
+                        width={900}
+                        height={600}
+                        sizes='(max-width: 1000px) 100vw, (max-width: 1280px) 40vw, 36vw'
+                        priority
                     />
                 </AnimatedComponent>
                 

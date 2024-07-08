@@ -46,15 +46,17 @@ const PostsDesign = ({
 
     return (
         <article>
-            <Image
-                src={thumbnail}
-                alt={postTitle}
-                width={0}
-                height={0}
-                sizes='(max-width: 768px) 340px, (max-width: 1000px) 330px, (min-width: 1280px) 290px, 350px'
-                className={styles.imagePlace}
-                loading='lazy'
-            />
+            <Suspense fallback={<div className={styles.loader}><span /></div>}>
+                <Image
+                    src={thumbnail}
+                    alt={postTitle}
+                    width={350}
+                    height={180}
+                    sizes='(max-width: 768px) 340px, (max-width: 1000px) 330px, (min-width: 1280px) 290px, 350px'
+                    className={styles.imagePlace}
+                    loading='lazy'
+                />
+            </Suspense>
             <div className={styles.postInfo}>
                 <em>{translations['home.homeBlogPosts.article.by']} {creator}</em>
                 <time className={styles.postDate} dateTime={`${postYear}-${postMonth}`}>
@@ -126,9 +128,7 @@ export const HomeBlogPosts = () => {
             <h2>{translations['home.homeBlogPosts.ourPostsTitle']}</h2>
 
             <div className={styles.blogPosts}>
-                <Suspense fallback={<div className={styles.loading} /> }>
-                    <PostsList />
-                </Suspense>
+                <PostsList />
             </div>
         </section>
     )

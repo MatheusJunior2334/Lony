@@ -2,11 +2,24 @@
 
 //Estilização principal
 
-.loader { @include load-spin-style(); }
+.loader {
+    aspect-ratio: 500 / 722;
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $pageWhiteColour;
+
+    span { @include load-spin-style(); background-color: $pageBlackColour; }
+}
 
 #ourWorkSection {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     width: 100%;
     height: auto;

@@ -26,9 +26,7 @@ export const OurWorkSection = () => {
         <section id={styles.ourWorkSection}>
             <h2>{translations['home.ourWorks.designsTitle']}</h2>
             <div className={styles.container}>
-                <Suspense fallback={<div className={styles.loader} />}>
-                    <DesignImages images={[ClothingSketch3, ClothingSketch2, ClothingSketch1, ClothingDrafts, ClothingSketch4, ClothingSketch5]} />
-                </Suspense>
+                <DesignImages images={[ClothingSketch3, ClothingSketch2, ClothingSketch1, ClothingDrafts, ClothingSketch4, ClothingSketch5]} />
             </div>
         </section>
     )
@@ -64,14 +62,19 @@ const DesignImages = ({ images } : DesignImagesProps) => {
             <div className={styles.images}>
                 {firstImages.map((image, index) => (
                     <div key={index} className={`${styles[`image${index + 1}`]} ${styles.imagesDiv}`} onClick={() => handleImageClick(index)}>
-                        <Image
-                            src={image}
-                            alt={`Desenho ${index + 1}`}
-                            width={0}
-                            height={0}
-                            sizes="(max-width: 1000px) 58vw, 28vw"
-                            priority
-                        />
+                        <Suspense fallback={<div className={styles.loader}><span /></div>}>
+                            <Image
+                                src={image}
+                                alt={`Desenho ${index + 1}`}
+                                width={500}
+                                height={722}
+                                sizes={index > 1 ?
+                                    "(max-width: 480px) 55vw, (max-width: 1000px) 57vw, (max-width: 1280px) 27vw, 27.5vw" :
+                                    "(max-width: 1000px) 27.7vw, (max-width: 1280px) 13.8vw, 13.2vw"
+                                }
+                                priority
+                            />
+                        </Suspense>
                         
                         <div className={styles.seeImageIconDiv}>
                             <SeeImageIcon />
@@ -82,14 +85,19 @@ const DesignImages = ({ images } : DesignImagesProps) => {
             <div className={styles.images}>
                 {secondImages.map((image, index) => (
                     <div key={index + 3} className={`${styles[`image${index + 4}`]} ${styles.imagesDiv}`} onClick={() => handleImageClick(index + 3)}>
-                        <Image
-                            src={image}
-                            alt={`Desenho ${index + 4}`}
-                            width={0}
-                            height={0}
-                            sizes="(max-width: 1000px) 55vw, (max-width: 1280px) 28vw, 30vw"
-                            priority
-                        />
+                        <Suspense fallback={<div className={styles.loader}><span /></div>}>
+                            <Image
+                                src={image}
+                                alt={`Desenho ${index + 4}`}
+                                width={500}
+                                height={722}
+                                sizes={index < 1 ?
+                                    "(max-width: 480px) 55vw, (max-width: 1000px) 57vw, (max-width: 1280px) 27vw, 27.5vw" :
+                                    "(max-width: 1000px) 27.7vw, (max-width: 1280px) 13.8vw, 13.2vw"
+                                }
+                                priority
+                            />
+                        </Suspense>
                         
                         <div className={styles.seeImageIconDiv}>
                             <SeeImageIcon />

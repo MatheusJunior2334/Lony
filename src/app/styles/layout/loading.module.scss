@@ -32,10 +32,11 @@ $wave-amplitude: 14px;
     
     cursor: progress;
 
-    img {
+    video {
         max-width: 400px;
         width: 90%;
         height: auto;
+        max-height: 85vh;
     }
 
     p {

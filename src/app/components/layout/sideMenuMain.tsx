@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from '../../styles/layout/sideMenuMain.module.scss';
@@ -14,6 +14,8 @@ import { AboutUsIcon } from '../../../../public/assets/icons/aboutUsIcon';
 import { LonyLogoHeader } from '../../../../public/assets/images/LonyLogoHeader';
 
 import SideMenuWoman from '../../../../public/assets/images/home/SideMenuWoman.webp';
+
+const Image = dynamic(() => import('next/image'), { ssr: false });
 
 interface SideMenuProps {
     closeMenu: () => void;
@@ -81,8 +83,8 @@ export const SideMenuMain: React.FC<SideMenuProps> = ({ closeMenu, translateStyl
                         <Image
                             src={SideMenuWoman}
                             alt='Desenho de Mulher em pé'
-                            width={0}
-                            height={0}
+                            width={192.8}
+                            height={400}
                             sizes='(max-width: 768px) 40vw, 168px'
                             loading='lazy'
                         />

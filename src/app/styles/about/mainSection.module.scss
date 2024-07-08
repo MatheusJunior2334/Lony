@@ -1,8 +1,15 @@
 @import '../../page.module.scss';
 
-.loading {
-    @include load-spin-style();
+.loader {
+    aspect-ratio: 600 / 400;
+    width: 90%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: $pageBlackColour;
+
+    span { @include load-spin-style(); }
 }
 
 #mainSectionAbout {
@@ -99,7 +106,9 @@
             padding: 16px 0 0 0;
 
             div {
-                img { width: 100%; }
+                width: 100%;
+                
+                img, .loader { width: 100%; }
             }
         }
     }
