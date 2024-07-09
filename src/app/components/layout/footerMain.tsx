@@ -48,7 +48,7 @@ export const FooterMain = () => {
                             src={LonyLogo}
                             alt='Logo do Lony'
                             width={250}
-                            height={166.99}
+                            height={167.31}
                             sizes='(max-width: 1280px) 240px, 250px'
                             loading='lazy'
                         />

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
+import NextTopLoader from "nextjs-toploader";
 
 const nunito = Nunito({ subsets: ["latin"], style: "normal", weight: ['400', '500'] });
 
@@ -22,7 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt">
-      <body className={nunito.className}>{children}</body>
+      <body className={nunito.className}>
+        <NextTopLoader color="#111" />
+        {children}
+      </body>
     </html>
   );
 }

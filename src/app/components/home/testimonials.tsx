@@ -1,9 +1,11 @@
 'use client'
 
-import React, { Suspense } from 'react';
+import React from 'react';
 import Image, { StaticImageData } from 'next/image';
-import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/swiper-bundle.css';
 import styles from '../../styles/home/testimonials.module.scss';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { useLanguage } from '@/app/contexts/languageContext';
 
 import { InvertedCommasIcon } from '../../../../public/assets/icons/invertedCommasIcon';
@@ -29,15 +31,13 @@ const TestimonialDesign = ({ userText, userImage, userName }: TestimonialDesignP
             </div>
             <div className={styles.userInfo}>
                 <figure>
-                    <Suspense fallback={<div className={styles.loading} />}>
-                        <Image
-                            src={userImage || UserDefaultImage}
-                            alt={`Imagem de ${userName}`}
-                            width={70}
-                            height={70}
-                            
-                        />
-                    </Suspense>
+                    <Image
+                        src={userImage || UserDefaultImage}
+                        alt={`Imagem de ${userName}`}
+                        width={70}
+                        height={70}
+                        loading='lazy'
+                    />
                     <figcaption>{userName}</figcaption>
                 </figure>
             </div>

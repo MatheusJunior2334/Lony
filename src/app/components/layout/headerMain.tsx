@@ -1,17 +1,14 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
 
 import styles from '../../styles/layout/headerMain.module.scss';
+
+import { SideMenuMain } from './sideMenuMain';
 import { LonyLogoHeader } from '../../../../public/assets/images/LonyLogoHeader';
 import { BurgerMenuIcon } from '../../../../public/assets/icons/burgerMenuIcon';
 
 import { useLanguage } from '@/app/contexts/languageContext';
-
-const SideMenuMain = dynamic(() => import('./sideMenuMain').then(mod => mod.SideMenuMain), {
-    ssr: false
-})
 
 export const HeaderMain = () => {
     const [addClassMenu, setAddClassMenu] = useState<boolean>(false);

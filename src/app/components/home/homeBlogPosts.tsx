@@ -1,3 +1,5 @@
+'use client'
+
 import React, { lazy, Suspense } from 'react';
 import { StaticImageData } from 'next/image';
 import styles from '../../styles/home/homeBlogPosts.module.scss';

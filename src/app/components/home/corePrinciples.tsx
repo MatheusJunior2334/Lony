@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import Image from 'next/image';
 import styles from '../../styles/home/corePrinciples.module.scss';
@@ -72,7 +74,7 @@ export const CorePrinciples = () => {
                         alt='Equipe do Lony - Missão'
                         width={900}
                         height={600}
-                        sizes='(max-width: 1000px) 100vw, (max-width: 1280px) 37.6vw, 37.95vw'
+                        sizes='(max-width: 1000px) 100vw, (max-width: 1280px) 37.6vw, 38.4vw'
                         loading='lazy'
                     />
                 </AnimatedComponent>
@@ -90,7 +92,7 @@ export const CorePrinciples = () => {
                         alt='Equipe do Lony - Visão'
                         width={900}
                         height={600}
-                        sizes='(max-width: 1000px) 100vw, (max-width: 1280px) 37.6vw, 37.95vw'
+                        sizes='(max-width: 1000px) 100vw, (max-width: 1280px) 37.6vw, 38.4vw'
                         loading='lazy'
                     />
                 </AnimatedComponent>
@@ -114,7 +116,7 @@ export const CorePrinciples = () => {
                         alt='Equipe do Lony - Valores'
                         width={900}
                         height={600}
-                        sizes='(max-width: 1000px) 100vw, (max-width: 1280px) 40vw, 35.5vw'
+                        sizes='(max-width: 1000px) 100vw, (max-width: 1280px) 40vw, 36vw'
                         loading='lazy'
                     />
                 </AnimatedComponent>

@@ -1,13 +1,5 @@
 @import '../../page.module.scss';
 
-.loading {
-    @include load-background-style();
-
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-}
-
 #testimonials {
     position: relative;
     margin: $marginSection 0;

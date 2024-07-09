@@ -138,9 +138,8 @@ $imageCarouselWidth1000px: 370px;
                 flex-shrink: 0;
 
                 width: 100%;
-                background-color: #f0f;
 
-                .loader { width: 100%; }
+                img, .loader { width: 100%; height: 100%; }
             }
         }
     }

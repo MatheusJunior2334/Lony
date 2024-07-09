@@ -1,10 +1,10 @@
 'use client'
 
-import React, { useState, Suspense } from "react";
+import React, { useState } from "react";
 import Image, { StaticImageData } from "next/image";
+import dynamic from "next/dynamic";
 
 import { SeeImageIcon } from "../../../../public/assets/icons/seeImageIcon";
-import { OurWorkModal } from "./ourWorkModal";
 import styles from '../../styles/home/ourWork.module.scss';
 
 import ClothingSketch1 from '../../../../public/assets/images/home/ClothingSketch1.webp';
@@ -16,6 +16,10 @@ import ClothingSketch5 from '../../../../public/assets/images/home/ClothingSketc
 import ClothingDrafts from '../../../../public/assets/images/home/ClothingDrafts.webp';
 
 import { useLanguage } from '@/app/contexts/languageContext';
+
+const OurWorkModal = dynamic(() => import("./ourWorkModal").then(mod => mod.OurWorkModal), {
+    ssr: false
+});
 
 export const OurWorkSection = () => {
     const { translations } = useLanguage();
@@ -60,19 +64,17 @@ const DesignImages = ({ images } : DesignImagesProps) => {
             <div className={styles.images}>
                 {firstImages.map((image, index) => (
                     <div key={index} className={`${styles[`image${index + 1}`]} ${styles.imagesDiv}`} onClick={() => handleImageClick(index)}>
-                        <Suspense fallback={<div className={styles.loader}><span /></div>}>
-                            <Image
-                                src={image}
-                                alt={`Desenho ${index + 1}`}
-                                width={500}
-                                height={722}
-                                sizes={index > 1 ?
-                                    "(max-width: 480px) 55vw, (max-width: 1000px) 57vw, (max-width: 1280px) 27vw, 27.5vw" :
-                                    "(max-width: 1000px) 27.7vw, (max-width: 1280px) 13.8vw, 13.2vw"
-                                }
-                                priority
-                            />
-                        </Suspense>
+                        <Image
+                            src={image}
+                            alt={`Desenho ${index + 1}`}
+                            width={500}
+                            height={722}
+                            sizes={index > 1 ?
+                                "(max-width: 480px) 55vw, (max-width: 1000px) 57vw, (max-width: 1280px) 27vw, 27.5vw" :
+                                "(max-width: 1000px) 27.7vw, (max-width: 1280px) 13.8vw, 13.2vw"
+                            }
+                            priority
+                        />
                         
                         <div className={styles.seeImageIconDiv}>
                             <SeeImageIcon />
@@ -83,19 +85,17 @@ const DesignImages = ({ images } : DesignImagesProps) => {
             <div className={styles.images}>
                 {secondImages.map((image, index) => (
                     <div key={index + 3} className={`${styles[`image${index + 4}`]} ${styles.imagesDiv}`} onClick={() => handleImageClick(index + 3)}>
-                        <Suspense fallback={<div className={styles.loader}><span /></div>}>
-                            <Image
-                                src={image}
-                                alt={`Desenho ${index + 4}`}
-                                width={500}
-                                height={722}
-                                sizes={index < 1 ?
-                                    "(max-width: 480px) 55vw, (max-width: 1000px) 57vw, (max-width: 1280px) 27vw, 27.5vw" :
-                                    "(max-width: 1000px) 27.7vw, (max-width: 1280px) 13.8vw, 13.2vw"
-                                }
-                                priority
-                            />
-                        </Suspense>
+                        <Image
+                            src={image}
+                            alt={`Desenho ${index + 4}`}
+                            width={500}
+                            height={722}
+                            sizes={index < 1 ?
+                                "(max-width: 480px) 55vw, (max-width: 1000px) 57vw, (max-width: 1280px) 27vw, 27.5vw" :
+                                "(max-width: 1000px) 27.7vw, (max-width: 1280px) 13.8vw, 13.2vw"
+                            }
+                            priority
+                        />
                         
                         <div className={styles.seeImageIconDiv}>
                             <SeeImageIcon />

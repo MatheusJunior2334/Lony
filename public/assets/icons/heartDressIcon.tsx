@@ -1,7 +1,7 @@
 export const HeartDressIcon = () => {
     return (
-        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="100" height="100" fill="url(#dressIcon)"/>
+        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="50" height="50" fill="url(#dressIcon)"/>
             <defs>
                 <pattern id="dressIcon" patternContentUnits="objectBoundingBox" width="1" height="1">
                     <use href="#image0_427_18" transform="scale(0.00195312)"/>
