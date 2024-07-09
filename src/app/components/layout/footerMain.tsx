@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import styles from '../../styles/layout/footerMain.module.scss';
 
 import { usePathname } from 'next/navigation';
@@ -10,10 +11,11 @@ import { useLanguage } from '@/app/contexts/languageContext';
 import LonyLogo from '../../../../public/assets/images/LonyFooterLogo.webp';
 
 import { ArrowIcon } from '../../../../public/assets/icons/arrowIcon';
-import { FaInstagram } from "react-icons/fa";
-import { SiLinktree } from 'react-icons/si';
-import { BsLinkedin } from 'react-icons/bs';
-import { IoLogoTiktok } from 'react-icons/io5';
+
+const FaInstagram = dynamic(() => import('react-icons/fa').then((mod) => mod.FaInstagram), { ssr: false });
+const SiLinktree = dynamic(() => import('react-icons/si').then((mod) => mod.SiLinktree), { ssr: false });
+const BsLinkedin = dynamic(() => import('react-icons/bs').then((mod) => mod.BsLinkedin), { ssr: false });
+const IoLogoTiktok = dynamic(() => import('react-icons/io5').then((mod) => mod.IoLogoTiktok), { ssr: false });
 
 export const FooterMain = () => {
     const { translations } = useLanguage();
@@ -47,8 +49,8 @@ export const FooterMain = () => {
                         <Image
                             src={LonyLogo}
                             alt='Logo do Lony'
-                            width={0}
-                            height={0}
+                            width={250}
+                            height={166.99}
                             sizes='(max-width: 1280px) 240px, 250px'
                             loading='lazy'
                         />

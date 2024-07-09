@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+
+import styles from '../../styles/layout/sideMenuMain.module.scss';
 import { usePathname } from 'next/navigation';
 
 import { useLanguage } from '../../../app/contexts/languageContext';
 import { XIcon } from '../../../../public/assets/icons/xIcon';
-import { LanguagesSwitch } from '../common/languagesSwitch';
 
 import { HomeIcon } from '../../../../public/assets/icons/homeIcon';
 import { OurWorkIcon } from '../../../../public/assets/icons/ourWorkIcon';
@@ -14,9 +15,10 @@ import { LonyLogoHeader } from '../../../../public/assets/images/LonyLogoHeader'
 
 import SideMenuWoman from '../../../../public/assets/images/home/SideMenuWoman.webp';
 
-const DynamicStyles = async () => ((await import ('../../styles/layout/sideMenuMain.module.scss')).default);
 const Image = dynamic(() => import('next/image'), { ssr: false });
-
+const LanguagesSwitch = dynamic(() => import('../common/languagesSwitch').then(mod => mod.LanguagesSwitch), {
+    ssr: false
+})
 
 interface SideMenuProps {
     closeMenu: () => void;
@@ -35,18 +37,8 @@ const lineItemsContent: LineItem[] = [
 ]
 
 export const SideMenuMain: React.FC<SideMenuProps> = ({ closeMenu, translateStyle }) => {
-    const [styles, setStyles] = useState<any>(null);
-
     const path = usePathname();
     const { translations } = useLanguage();
-
-    useEffect(() => {
-        if (translateStyle) {
-            DynamicStyles().then((module) => {
-                setStyles(module);
-            })
-        }
-    },[translateStyle])
 
     const getText = (key: string) => {
         switch (key) {
@@ -59,10 +51,6 @@ export const SideMenuMain: React.FC<SideMenuProps> = ({ closeMenu, translateStyl
             default:
                 return '';
         }
-    }
-
-    if (!styles) {
-        return null;
     }
 
     return(

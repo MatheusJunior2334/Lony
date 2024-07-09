@@ -25,7 +25,7 @@ export const AboutSection = () => {
                             width={600}
                             height={400}
                             sizes='(max-width: 1000px) 90vw, 46.5vw'
-                            priority
+                            loading='lazy'
                         />
                     </AnimatedComponent>
                 </Suspense>
