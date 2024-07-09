@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic';
 import styles from './styles/layout/loading.module.scss';
 
 export default function LoadingPage() {

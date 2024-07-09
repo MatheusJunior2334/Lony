@@ -1,11 +1,11 @@
-import Image from "next/image";
-import Head from "next/head";
 import React, { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import styles from '../../styles/common/carousel.module.scss';
 
 import { ArrowCarouselIcon } from "../../../../public/assets/icons/arrowCarouselIcon";
 import { PauseIcon } from "../../../../public/assets/icons/pauseIcon";
 import { PlayIcon } from "../../../../public/assets/icons/playIcon";
+
+const Image = lazy(() => import('next/image'));
 
 const images = [
     '/assets/images/home/BiankaPrimary.webp',
@@ -98,10 +98,6 @@ const Carousel: React.FC = () => {
 
     return (
         <>
-            <Head>
-                <link rel="preload" href={images[0]} as="image" />
-            </Head>
-
             <div id={styles.carousel}>
                 <figure className={styles.imageWrapper}>
                     {images.map((image, index) => (
