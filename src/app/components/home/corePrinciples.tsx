@@ -13,8 +13,13 @@ import { InclusionIcon } from '../../../../public/assets/icons/inclusionIcon';
 import { useLanguage } from '@/app/contexts/languageContext';
 import dynamic from 'next/dynamic';
 
-const Image = dynamic(() => import('next/image'), { ssr: false });
-const AnimatedComponent = dynamic(() => import('../animations/animatedComponent').then(mod => mod.AnimatedComponent), { ssr: false });
+const Image = dynamic(() => import('next/image'), { 
+    ssr: false
+});
+
+const AnimatedComponent = dynamic(() => import('../animations/animatedComponent').then(mod => mod.AnimatedComponent), {
+    ssr: false
+});
 
 interface ValueKeysContentProps {
     icon: React.ReactNode;
@@ -70,8 +75,8 @@ export const CorePrinciples = () => {
                         alt='Equipe do Lony - Missão'
                         width={900}
                         height={600}
-                        sizes='(max-width: 1000px) 100vw, (max-width: 1280px) 37.6vw, 38.4vw'
-                        priority
+                        sizes='(max-width: 1000px) 100vw, (max-width: 1280px) 37.6vw, 37.95vw'
+                        loading='lazy'
                     />
                 </AnimatedComponent>
             </div>
@@ -88,8 +93,8 @@ export const CorePrinciples = () => {
                         alt='Equipe do Lony - Visão'
                         width={900}
                         height={600}
-                        sizes='(max-width: 1000px) 100vw, (max-width: 1280px) 37.6vw, 38.4vw'
-                        priority
+                        sizes='(max-width: 1000px) 100vw, (max-width: 1280px) 37.6vw, 37.95vw'
+                        loading='lazy'
                     />
                 </AnimatedComponent>
             </div>
@@ -112,8 +117,8 @@ export const CorePrinciples = () => {
                         alt='Equipe do Lony - Valores'
                         width={900}
                         height={600}
-                        sizes='(max-width: 1000px) 100vw, (max-width: 1280px) 40vw, 36vw'
-                        priority
+                        sizes='(max-width: 1000px) 100vw, (max-width: 1280px) 40vw, 35.5vw'
+                        loading='lazy'
                     />
                 </AnimatedComponent>
                 

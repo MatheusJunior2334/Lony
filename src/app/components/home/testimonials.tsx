@@ -2,7 +2,6 @@
 
 import React, { lazy, Suspense } from 'react';
 import { StaticImageData } from 'next/image';
-import 'swiper/swiper-bundle.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styles from '../../styles/home/testimonials.module.scss';
 import { useLanguage } from '@/app/contexts/languageContext';
@@ -51,7 +50,7 @@ const TestimonialDesign = ({ userText, userImage, userName }: TestimonialDesignP
 }
 
 const TestimonialsList = () => {
-    const { translations } = useLanguage();
+    const { translations } = useLanguage();    
 
     const testimonialsInfo: TestimonialDesignProps[] = [
         { userText: translations['home.testimonials.matheusText'], userImage: MatheusImage, userName: 'Matheus Júnior' },

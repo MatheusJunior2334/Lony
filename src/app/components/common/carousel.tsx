@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React, { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import styles from '../../styles/common/carousel.module.scss';
 
@@ -97,52 +98,58 @@ const Carousel: React.FC = () => {
     }
 
     return (
-        <div id={styles.carousel}>
-            <figure className={styles.imageWrapper}>
-                {images.map((image, index) => (
-                    <div
-                        key={index}
-                        className={`${styles.image} ${index === currentImageIndex ? styles.active : ''}`}
-                        style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
-                    >
-                        <Suspense fallback={<div className={styles.loader}><span /></div>}>
-                            <Image
-                                src={image}
-                                alt={girlNames[index]}
-                                title={girlNames[index]}
-                                width={480}
-                                height={534.43}
-                                sizes="(max-width: 768px) 90vw, (max-width: 1000px) 370px, (max-width: 1280px) 400px, 480px"
-                                priority={index === 0}
-                                loading={index === 0 ? 'eager' : 'lazy'}
-                            />
-                        </Suspense>
-                    </div>
-                ))}
+        <>
+            <Head>
+                <link rel="preload" href={images[0]} as="image" />
+            </Head>
 
-                <button className={styles.leftBtn} onClick={goToPrevImage} aria-label="Voltar slide">
-                    <ArrowCarouselIcon />
-                </button>
-
-                <button className={styles.rightBtn} onClick={goToNextImage} aria-label="Próximo slide">
-                    <ArrowCarouselIcon />
-                </button>
-
-                <button className={styles.pauseBtn} onClick={handlePause} aria-label={isPaused ? 'Reproduzir carrossel' : 'Pausar carrosel'} aria-pressed={!isPaused}>
-                    {isPaused ? <PlayIcon /> : <PauseIcon />}
-                </button>
-
-                <div className={styles.dots}>
-                    {images.map((_, index) => (
-                        <span
+            <div id={styles.carousel}>
+                <figure className={styles.imageWrapper}>
+                    {images.map((image, index) => (
+                        <div
                             key={index}
-                            className={`${styles.dot} ${index === currentImageIndex ? styles.active : ''}`}
-                            onClick={() => handleDotClick(index)}
-                        />
+                            className={`${styles.image} ${index === currentImageIndex ? styles.active : ''}`}
+                            style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+                        >
+                            <Suspense fallback={<div className={styles.loader}><span /></div>}>
+                                <Image
+                                    src={image}
+                                    alt={girlNames[index]}
+                                    title={girlNames[index]}
+                                    width={480}
+                                    height={534.43}
+                                    sizes="(max-width: 768px) 90vw, (max-width: 1000px) 370px, (max-width: 1280px) 400px, 480px"
+                                    priority={index === 0}
+                                    loading={index === 0 ? 'eager' : 'lazy'}
+                                />
+                            </Suspense>
+                        </div>
                     ))}
-                </div>
-            </figure>
-        </div>
+
+                    <button className={styles.leftBtn} onClick={goToPrevImage} aria-label="Voltar slide">
+                        <ArrowCarouselIcon />
+                    </button>
+
+                    <button className={styles.rightBtn} onClick={goToNextImage} aria-label="Próximo slide">
+                        <ArrowCarouselIcon />
+                    </button>
+
+                    <button className={styles.pauseBtn} onClick={handlePause} aria-label={isPaused ? 'Reproduzir carrossel' : 'Pausar carrosel'} aria-pressed={!isPaused}>
+                        {isPaused ? <PlayIcon /> : <PauseIcon />}
+                    </button>
+
+                    <div className={styles.dots}>
+                        {images.map((_, index) => (
+                            <span
+                                key={index}
+                                className={`${styles.dot} ${index === currentImageIndex ? styles.active : ''}`}
+                                onClick={() => handleDotClick(index)}
+                            />
+                        ))}
+                    </div>
+                </figure>
+            </div>
+        </>
     )
 }
 

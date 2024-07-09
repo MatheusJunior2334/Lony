@@ -1,15 +1,15 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css'
-import 'swiper/css/navigation'
+import 'swiper/css';
 import { Navigation } from 'swiper/modules';
-import styles from '../../styles/home/ourWorkModal.module.scss';
 
 import { useLanguage } from '@/app/contexts/languageContext';
 
 import { ArrowCarouselIcon } from '../../../../public/assets/icons/arrowCarouselIcon';
 import { XIcon } from '../../../../public/assets/icons/xIcon';
+
+const DynamicStyles = async () => (await import('../../styles/home/ourWorkModal.module.scss')).default;
 
 interface OurWorkModalProps {
     images: StaticImageData[];
@@ -23,6 +23,15 @@ export const OurWorkModal = ({ images, addClass, selectedImageIndex, setSelected
     const { translations } = useLanguage();
     const swiperRef = useRef<any>(null);
     const [isNavigating, setIsNavigating] = useState<boolean>(false);
+    const [styles, setStyles] = useState<any>(null);
+
+    useEffect(() => {
+        if (addClass) {
+            DynamicStyles().then((module) => {
+                setStyles(module);
+            })
+        }
+    }, [addClass])
  
     const handleSlideChange = (swiper: any) => {
         setSelectedImageIndex(swiper.activeIndex);
@@ -49,6 +58,10 @@ export const OurWorkModal = ({ images, addClass, selectedImageIndex, setSelected
     const handleTransitionEnd = () => {
         setIsNavigating(false);
     };
+
+    if (!styles) {
+        return null;
+    }
 
     return (
         <>

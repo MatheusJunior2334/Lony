@@ -40,7 +40,7 @@ $imageCarouselWidth1000px: 370px;
             img {
                 aspect-ratio: 970 / 1080;
 
-                width: $imageCarouselDefaultWidth;
+                width: auto;
                 height: 100%;
                 object-fit: cover;
             }
@@ -109,7 +109,7 @@ $imageCarouselWidth1000px: 370px;
 
         .imageWrapper {
             .image {
-                img, .loader { width: $imageCarouselWidthLaptop; }
+                .loader { width: $imageCarouselWidthLaptop; }
             }
         }
     }
@@ -121,7 +121,7 @@ $imageCarouselWidth1000px: 370px;
 
         .imageWrapper {
             .image {
-                img, .loader { width: $imageCarouselWidth1000px; }
+                .loader { width: $imageCarouselWidth1000px; }
             }
         }
     }
@@ -140,7 +140,7 @@ $imageCarouselWidth1000px: 370px;
                 width: 100%;
                 background-color: #f0f;
 
-                img, .loader { width: 100%; }
+                .loader { width: 100%; }
             }
         }
     }
