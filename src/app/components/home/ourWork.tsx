@@ -1,7 +1,7 @@
 'use client'
 
-import React, { lazy, useState, Suspense } from "react";
-import { StaticImageData } from "next/image";
+import React, { useState, Suspense } from "react";
+import Image, { StaticImageData } from "next/image";
 
 import { SeeImageIcon } from "../../../../public/assets/icons/seeImageIcon";
 import { OurWorkModal } from "./ourWorkModal";
@@ -16,8 +16,6 @@ import ClothingSketch5 from '../../../../public/assets/images/home/ClothingSketc
 import ClothingDrafts from '../../../../public/assets/images/home/ClothingDrafts.webp';
 
 import { useLanguage } from '@/app/contexts/languageContext';
-
-const Image = lazy(() => import('next/image'));
 
 export const OurWorkSection = () => {
     const { translations } = useLanguage();

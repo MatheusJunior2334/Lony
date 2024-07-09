@@ -1,7 +1,7 @@
 'use client'
 
-import React, { lazy, Suspense } from 'react';
-import { StaticImageData } from 'next/image';
+import React, { Suspense } from 'react';
+import Image, { StaticImageData } from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styles from '../../styles/home/testimonials.module.scss';
 import { useLanguage } from '@/app/contexts/languageContext';
@@ -11,8 +11,6 @@ import { DragIcon } from '../../../../public/assets/icons/dragIcon';
 
 import UserDefaultImage from '../../../../public/assets/images/testimonials/UserDefaultImage.webp';
 import MatheusImage from '../../../../public/assets/images/testimonials/DunbanImage.webp';
-
-const Image = lazy(() => import('next/image'));
 
 interface TestimonialDesignProps {
     userText: string;
@@ -37,7 +35,7 @@ const TestimonialDesign = ({ userText, userImage, userName }: TestimonialDesignP
                             alt={`Imagem de ${userName}`}
                             width={70}
                             height={70}
-                            loading='lazy'
+                            
                         />
                     </Suspense>
                     <figcaption>{userName}</figcaption>

@@ -1,4 +1,5 @@
-import React, { lazy, Suspense } from 'react';
+import React, { Suspense } from 'react';
+import Image from 'next/image';
 
 import styles from '../../styles/home/about.module.scss'
 
@@ -6,10 +7,7 @@ import LadiesPhoto from '../../../../public/assets/images/home/LadiesPhotography
 import { LadiesAboutLogo } from '../../../../public/assets/images/LadiesAboutLogo';
 import { ButtonPrimary } from '../common/buttonPrimary';
 import { useLanguage } from '@/app/contexts/languageContext';
-import dynamic from 'next/dynamic';
 import { AnimatedComponent } from '../animations/animatedComponent';
-
-const Image = lazy(() => import('next/image'));
 
 export const AboutSection = () => {
     const { translations } = useLanguage();

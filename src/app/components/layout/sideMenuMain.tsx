@@ -13,12 +13,10 @@ import { OurWorkIcon } from '../../../../public/assets/icons/ourWorkIcon';
 import { AboutUsIcon } from '../../../../public/assets/icons/aboutUsIcon';
 import { LonyLogoHeader } from '../../../../public/assets/images/LonyLogoHeader';
 
+import { LanguagesSwitch } from '../common/languagesSwitch';
 import SideMenuWoman from '../../../../public/assets/images/home/SideMenuWoman.webp';
 
 const Image = dynamic(() => import('next/image'), { ssr: false });
-const LanguagesSwitch = dynamic(() => import('../common/languagesSwitch').then(mod => mod.LanguagesSwitch), {
-    ssr: false
-})
 
 interface SideMenuProps {
     closeMenu: () => void;

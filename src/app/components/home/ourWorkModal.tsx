@@ -88,7 +88,7 @@ export const OurWorkModal = ({ images, addClass, selectedImageIndex, setSelected
                                         alt={`Imagem ${index + 1}`}
                                         width={500}
                                         height={722}
-                                        priority
+                                        loading='lazy'
                                     />
                                 </div>
                             </SwiperSlide>

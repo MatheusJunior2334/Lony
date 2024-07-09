@@ -1,14 +1,13 @@
 'use client'
 
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense } from 'react';
+import Image from 'next/image';
 import styles from '../../styles/about/mainSection.module.scss';
 
 import LadiesPhoto from '../../../../public/assets/images/about/LadiesPhotographyAbout.webp';
 
 import { useLanguage } from '@/app/contexts/languageContext';
 import { AnimatedComponent } from '../animations/animatedComponent';
-
-const Image = lazy(() => import('next/image'))
 
 export const MainSectionAbout = () => {
     const { translations } = useLanguage();

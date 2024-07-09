@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
+import Image from "next/image";
+import React, { useState, useEffect, useRef, useCallback, Suspense } from "react";
 import styles from '../../styles/common/carousel.module.scss';
 
 import { ArrowCarouselIcon } from "../../../../public/assets/icons/arrowCarouselIcon";
 import { PauseIcon } from "../../../../public/assets/icons/pauseIcon";
 import { PlayIcon } from "../../../../public/assets/icons/playIcon";
-
-const Image = lazy(() => import('next/image'));
 
 const images = [
     '/assets/images/home/BiankaPrimary.webp',

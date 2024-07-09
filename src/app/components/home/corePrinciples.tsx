@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import styles from '../../styles/home/corePrinciples.module.scss';
 
 import lonyMission from '../../../../public/assets/images/home/LonyMembersMission.webp';
@@ -12,10 +13,6 @@ import { EmpowermentIcon } from '../../../../public/assets/icons/empowermentIcon
 import { InclusionIcon } from '../../../../public/assets/icons/inclusionIcon';
 import { useLanguage } from '@/app/contexts/languageContext';
 import dynamic from 'next/dynamic';
-
-const Image = dynamic(() => import('next/image'), { 
-    ssr: false
-});
 
 const AnimatedComponent = dynamic(() => import('../animations/animatedComponent').then(mod => mod.AnimatedComponent), {
     ssr: false
