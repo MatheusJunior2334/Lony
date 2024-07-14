@@ -10,13 +10,11 @@ import { HeartDressIcon } from '../../../../public/assets/icons/heartDressIcon';
 import seatedWoman from '../../../../public/assets/images/home/SeatedWoman.webp';
 
 import { useLanguage } from '@/app/contexts/languageContext';
-import useWindowSize from '@/app/hooks/useWindowSize';
 
 import { AnimatedComponent } from '../animations/animatedComponent';
 
 export const MainSection = () => {
     const { translations } = useLanguage();
-    const { width } = useWindowSize();
 
     return (
         <section id={styles.mainSection}>
@@ -48,7 +46,7 @@ export const MainSection = () => {
                 </div>
             </div>
             <div className={styles.rightSide}>
-                <AnimatedComponent transitionDuration={width > 768 ? 2 : 1} opacity={0}>
+                <AnimatedComponent transitionDuration={2} opacity={0}>
                     <Carousel />
                 </AnimatedComponent>
             </div>

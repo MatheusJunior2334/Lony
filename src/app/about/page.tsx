@@ -16,7 +16,7 @@ const AnaloguePhotography = dynamic(() => import("../components/about/analoguePh
 export const metadata: Metadata = {
     title: 'About',
     icons: {
-        icon: '/favicon.ico'
+        icon: '/icon.ico'
     }
 }
 

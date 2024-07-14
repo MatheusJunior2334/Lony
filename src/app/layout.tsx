@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   },
   description: "Embrião de marca de moda do Brasil. Garotas iniciantes no ramo da moda que visam criar a sua própria marca com seus próprios produtos.",
   icons: {
-    icon: '/favicon.ico'
+    icon: '/icon.ico'
   },
 };
 
