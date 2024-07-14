@@ -9,19 +9,9 @@
     to { transform: translateX(0); }
 }
 
-@keyframes slide-in-devices {
-    from { transform: translateY(-100%); }
-    to { transform: translateY(0); }
-}
-
 @keyframes slide-out-default {
     from { transform: translateX(0); }
     to { transform: translateX(-100%); }
-}
-
-@keyframes slide-out-devices {
-    from { transform: translateY(0); }
-    to { transform: translateY(-100%); }
 }
 
 @keyframes enterBackground {
@@ -57,7 +47,7 @@ $paddingNav: 8px;
 
         .exitButtonDiv {
             position: fixed;
-            width: 450px;
+            width: inherit;
             height: 84px;
 
             display: flex;
@@ -198,10 +188,9 @@ $paddingNav: 8px;
 @media #{$tablet} {
     #sideMenu {
         .leftSide {
-            width: 100%;
+            width: 300px;
 
             .exitButtonDiv {
-                width: 100%;
                 height: 75px;
                 flex-direction: row-reverse;
 
@@ -216,19 +205,23 @@ $paddingNav: 8px;
                 .pagePaths { padding: 0px; }
 
                 .sideMenuWoman {
-                    img { width: 40%; }
+                    img { width: 115px; }
                 }
             }
         }
+    }
+}
 
-        .rightSide { display: none; }
+@media #{$mobile} {
+    #sideMenu {
+        .leftSide {
+            width: 275px;
 
-        .open {
-            &.leftSide { animation: slide-in-devices 0.3s ease-in-out; }
-        }
-    
-        .close {
-            &.leftSide { animation: slide-out-devices 0.3s ease-in-out forwards; }
+            .navBar {
+                .sideMenuWoman {
+                    img { width: 108px; }
+                }
+            }
         }
     }
 }

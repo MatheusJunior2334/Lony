@@ -14,7 +14,10 @@ const AnaloguePhotography = dynamic(() => import("../components/about/analoguePh
 })
 
 export const metadata: Metadata = {
-    title: 'About'
+    title: 'About',
+    icons: {
+        icon: '/favicon.ico'
+    }
 }
 
 export default function AboutPage() {

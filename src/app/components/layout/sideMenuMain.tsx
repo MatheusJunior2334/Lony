@@ -86,7 +86,7 @@ export const SideMenuMain: React.FC<SideMenuProps> = ({ closeMenu, translateStyl
                             alt='Desenho de Mulher em pé'
                             width={192.8}
                             height={400}
-                            sizes='(max-width: 768px) 40vw, 168px'
+                            sizes='(max-width: 480px) 108px, (max-width: 768px) 115px, 168px'
                             loading='lazy'
                         />
                     </div>

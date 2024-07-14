@@ -131,5 +131,11 @@
         height: 96%;
         left: 2%;
         top: 2%;
+
+        .modalContent {
+            .exitButton {
+                left: calc(100% - 48px);
+            }
+        }
     }
 }
