@@ -1,17 +1,13 @@
-import dynamic from "next/dynamic";
 import { Metadata } from "next";
 import { LanguageProvider } from "@/app/contexts/languageContext";
 import { MainLayout } from "../layout/mainLayout";
 
+import { TopBackgroundSection } from "../components/about/topBackgroundSection";
 import { MainSectionAbout } from "../components/about/mainSection";
+import { AnaloguePhotography } from "../components/about/analoguePhotography";
+
 import { ProjectMembers } from "../components/about/projectMembers";
 
-const TopBackgroundSection = dynamic(() => import("../components/about/topBackgroundSection").then(mod => mod.TopBackgroundSection), {
-    ssr: true
-})
-const AnaloguePhotography = dynamic(() => import("../components/about/analoguePhotography").then(mod => mod.AnaloguePhotography), { 
-    ssr: false 
-})
 
 export const metadata: Metadata = {
     title: 'About',
