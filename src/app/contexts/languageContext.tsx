@@ -71,7 +71,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
 
     return (
         <LanguageContext.Provider value={{ language, translations, changeLanguage, isLanguageConfirmed, confirmLanguage, handleChangeLanguage }}>
-            {isLoading ? null : children}
+            {isLoading ? <LoadingPage /> : children}
         </LanguageContext.Provider>
     )
 }
