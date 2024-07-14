@@ -24,7 +24,6 @@ export default function RootLayout({
   return (
     <html lang="pt">
       <body className={nunito.className}>
-        <NextTopLoader color="#111" />
         {children}
       </body>
     </html>
