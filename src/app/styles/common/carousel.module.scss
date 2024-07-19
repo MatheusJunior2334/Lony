@@ -41,6 +41,7 @@ $imageCarouselWidth1000px: 370px;
                 aspect-ratio: 970 / 1080;
 
                 width: auto;
+                min-width: $imageCarouselDefaultWidth;
                 height: 100%;
                 object-fit: cover;
             }
@@ -109,6 +110,8 @@ $imageCarouselWidth1000px: 370px;
 
         .imageWrapper {
             .image {
+                img { min-width: $imageCarouselWidthLaptop; }
+
                 .loader { width: $imageCarouselWidthLaptop; }
             }
         }
@@ -121,6 +124,8 @@ $imageCarouselWidth1000px: 370px;
 
         .imageWrapper {
             .image {
+                img { min-width: $imageCarouselWidth1000px; }
+
                 .loader { width: $imageCarouselWidth1000px; }
             }
         }

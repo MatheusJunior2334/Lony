@@ -1,0 +1,25 @@
+@import '../../page.module.scss';
+
+.lony {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    svg {
+        width: 140px;
+        height: auto;
+        fill: none;
+
+        path { stroke: $pageBlackColour; }
+    }
+}
+
+.ladies {
+    @include text-primary();
+    font-family: adelia;
+    color: $pageWhiteColour;
+
+    position: absolute;
+    right: 10px;
+    bottom: 12px;
+}

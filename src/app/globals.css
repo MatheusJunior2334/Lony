@@ -1,3 +1,9 @@
+@font-face {
+  font-family: adelia;
+  src: url('../../public/assets/fonts/adelia.otf');
+  font-display: swap;
+}
+
 * {
   margin: 0;
   border: 0;
