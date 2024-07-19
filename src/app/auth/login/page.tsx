@@ -7,7 +7,10 @@ import { LonyLogoHeader } from '../../../../public/assets/images/LonyLogoHeader'
 
 
 export const metadata: Metadata = {
-    title: 'Login'
+    title: 'Login',
+    icons: {
+        icon: '/icon.ico'
+    }
 }
 
 export default function LoginPage() {

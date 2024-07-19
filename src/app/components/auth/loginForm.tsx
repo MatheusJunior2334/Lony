@@ -25,7 +25,7 @@ export const LoginForm = () => {
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
         if (mockLogin(email, password)) {
-            router.push('/shop');
+            router.push('/home');
         } else {
             setError('E-mail ou senha inválidos. \n Por favor, tente novamente.')
         }
@@ -80,13 +80,14 @@ export const LoginForm = () => {
                                     autoComplete="current-password"
                                     required
                                 />
-                                <span
+                                <button
+                                    type="button"
                                     className={styles.passwordToggleIcon}
                                     onClick={togglePasswordVisibility}
                                     aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
                                 >
                                     {showPassword ? <IoEyeOutline /> : <IoEyeOffOutline />}
-                                </span>
+                                </button>
                             </div>
                         </div>
 

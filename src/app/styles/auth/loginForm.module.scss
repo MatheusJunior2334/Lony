@@ -143,7 +143,8 @@
                 a {
                     font-size: 16px;
                     text-decoration: none;
-                    color: #25AAE1;
+                    color: #229ED3;
+                    font-weight: 500;
 
                     &:last-child {
                         margin-left: 4px;
@@ -265,14 +266,7 @@
             }
         }
 
-        .formRight {
-            display: none;
-            aspect-ratio: 640 / 620;
-
-            border-top-right-radius: 0;
-            border-bottom-right-radius: inherit;
-            border-bottom-left-radius: inherit;
-        }
+        .formRight { display: none; }
     }
 }
 
@@ -281,9 +275,7 @@
         width: 95%;
 
         .formLeft {
-            form {
-                width: 98%;
-            }
+            form { width: 98%; }
         }
     }
 }
