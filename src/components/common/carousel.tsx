@@ -29,6 +29,11 @@ const Carousel: React.FC = () => {
     const intervalRef = useRef<number | null>(null);
     const isTransitioningRef = useRef<boolean>(false);
 
+    const resetCarouselTimer = () => {
+        stopCarousel();
+        startCarousel();
+    }
+
     const startCarousel = useCallback(() => {
         if (intervalRef.current === null) {
             intervalRef.current = window.setInterval(() => {
@@ -60,7 +65,7 @@ const Carousel: React.FC = () => {
 
             resetCarouselTimer();
         }
-    }, [])
+    }, [resetCarouselTimer])
 
     const goToPrevImage = useCallback(() => {
         if (!isTransitioningRef.current) {
@@ -72,7 +77,7 @@ const Carousel: React.FC = () => {
 
             resetCarouselTimer();
         }
-    }, [])
+    }, [resetCarouselTimer])
 
     const handleDotClick = useCallback((index: number) => {
         if (!isTransitioningRef.current) {
@@ -84,16 +89,11 @@ const Carousel: React.FC = () => {
 
             resetCarouselTimer();
         }
-    }, [])
+    }, [resetCarouselTimer])
 
     const handlePause = useCallback(() => {
         setisPaused((prev) => !prev);
     }, [])
-
-    const resetCarouselTimer = () => {
-        stopCarousel();
-        startCarousel();
-    }
 
     return (
         <div id={styles.carousel}>

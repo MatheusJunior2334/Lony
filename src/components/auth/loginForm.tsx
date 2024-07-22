@@ -35,7 +35,7 @@ export const LoginForm = () => {
         if (error) {
             setError(null)
         }
-    }, [email, password])
+    }, [email, password, error])
 
     const togglePasswordVisibility = () => 
         setShowPassword(!showPassword);

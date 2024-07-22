@@ -49,7 +49,7 @@ const Members = ({ dayImage, nightImage, name }: MembersProps) => {
 
     useEffect(() => {
         setImageSrc(getImageForTimeOfDay(dayImage, nightImage));
-    }, [])
+    }, [dayImage, nightImage])
 
     return (
         <figure>
