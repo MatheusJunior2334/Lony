@@ -1,5 +1,5 @@
-import styles from '../../styles/auth/registerPage.module.scss';
-import { LoginRegisterLayout } from "@/app/layout/loginRegisterLayout";
+import styles from '../../../styles/auth/registerPage.module.scss';
+import { LoginRegisterLayout } from "@/layout/loginRegisterLayout";
 
 import { LonyLogoHeader } from '../../../../public/assets/images/LonyLogoHeader';
 

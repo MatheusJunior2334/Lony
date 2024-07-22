@@ -1,0 +1,34 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+#scrollToTopButton {
+    position: fixed;
+    width: 45px;
+    height: 45px;
+
+    right: 18px;
+    bottom: 18px;
+    padding: 0;
+    background-color: transparent;
+    transform: translateY(100px);
+    transition: transform 0.5s;
+
+    z-index: 9;
+    cursor: pointer;
+
+    svg {
+        width: 100%;
+        height: 100%;
+        background-color: $pageWhiteColour;
+        border-radius: 50%;
+    }
+
+    &:hover {
+        svg {
+            fill: $pageWhiteColour;;
+            background-color: $pageBlackColour;
+        }
+    }
+
+    &.show { transform: translateY(0px); }
+}

@@ -1,0 +1,47 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+// Animações
+@keyframes spinRound {
+    to { transform: rotate(360deg); }
+}
+
+// Estilização principal
+
+.googleBtn {
+    all: unset;
+    @include input-style();
+    width: 100%;
+    height: 46px;
+    background-color: $pageWhiteColour;
+    cursor: pointer;
+
+    span {
+        height: 100%;
+        font-size: 20px;
+        color: $pageBlackColour;
+        text-transform: uppercase;
+        font-weight: 600;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        svg {
+            width: auto;
+            height: 100%;
+            transition: transform 1s ease-out;
+
+            &.spinIcon {
+                height: 80%;
+                animation: spinRound 0.8s infinite linear;
+            }
+        }
+    }
+
+    &:hover:not(:disabled) span svg {
+        transform: rotate(360deg);
+    }
+
+    &:disabled { filter: brightness(50%) }
+}

@@ -1,15 +1,15 @@
 import dynamic from "next/dynamic";
 import { Metadata } from "next";
-import { LanguageProvider } from "@/app/contexts/languageContext";
-import { MainLayout } from "../layout/mainLayout";
+import { LanguageProvider } from "@/contexts/languageContext";
+import { MainLayout } from "@/layout/mainLayout";
 
-import { MainSectionAbout } from "../components/about/mainSection";
-import { ProjectMembers } from "../components/about/projectMembers";
+import { MainSectionAbout } from "@/components/about/mainSection";
+import { ProjectMembers } from "@/components/about/projectMembers";
 
-const TopBackgroundSection = dynamic(() => import("../components/about/topBackgroundSection").then(mod => mod.TopBackgroundSection), {
+const TopBackgroundSection = dynamic(() => import("@/components/about/topBackgroundSection").then(mod => mod.TopBackgroundSection), {
     ssr: true
 })
-const AnaloguePhotography = dynamic(() => import("../components/about/analoguePhotography").then(mod => mod.AnaloguePhotography), { 
+const AnaloguePhotography = dynamic(() => import("@/components/about/analoguePhotography").then(mod => mod.AnaloguePhotography), { 
     ssr: false 
 })
 

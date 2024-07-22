@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
-import "./globals.css";
+import "./globals.scss";
 import NextTopLoader from "nextjs-toploader";
 
 const nunito = Nunito({ subsets: ["latin"], style: "normal", weight: ['400', '500'] });

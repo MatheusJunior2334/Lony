@@ -1,5 +1,5 @@
 import Link from "next/link"
-import styles from './styles/layout/loading.module.scss'
+import styles from '../styles/layout/not-found.module.scss';
 
 export default function Error404() {
     return (
