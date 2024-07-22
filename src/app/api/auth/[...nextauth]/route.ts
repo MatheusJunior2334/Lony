@@ -1,24 +1,7 @@
-import NextAuth, { NextAuthOptions, Session, User } from 'next-auth';
-import { JWT as NextAuthJWT } from 'next-auth/jwt';
+import NextAuth, { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { prisma } from '@/lib/prisma';
-
-declare module 'next-auth' {
-  interface Session {
-    user: {
-      id: string;
-      username: string;
-    };
-  }
-}
-
-declare module 'next-auth/jwt' {
-  interface JWT {
-    id: string;
-    username: string;
-  }
-}
 
 const authOptions: NextAuthOptions = {
   providers: [
@@ -29,20 +12,20 @@ const authOptions: NextAuthOptions = {
   ],
   adapter: PrismaAdapter(prisma),
   session: {
-    strategy: 'jwt' as 'jwt', // Ensure correct typing for session strategy
+    strategy: 'jwt',
   },
   callbacks: {
-    async session({ session, token }: { session: Session; token: NextAuthJWT }) {
+    async session({ session, token, user }) {
       if (session.user) {
-        session.user.id = token.id;
-        session.user.username = token.username;
+        session.user.id = token.id as string;
+        session.user.username = token.username as string;
       }
       return session;
     },
-    async jwt({ token, user }: { token: NextAuthJWT; user?: User }) {
+    async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
-        token.username = user.username as string;
+        token.username = user.username;
       }
       return token;
     },
