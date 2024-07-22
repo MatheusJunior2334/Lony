@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import { authOptions } from "../api/auth/[...nextauth]/route"
+import { authOptions } from "@/lib/authOptions";
 import { getServerSession } from "next-auth"
 
 import { ShopLayout } from "@/layout/shopLayout"

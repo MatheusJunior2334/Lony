@@ -29,11 +29,6 @@ const Carousel: React.FC = () => {
     const intervalRef = useRef<number | null>(null);
     const isTransitioningRef = useRef<boolean>(false);
 
-    const resetCarouselTimer = () => {
-        stopCarousel();
-        startCarousel();
-    }
-
     const startCarousel = useCallback(() => {
         if (intervalRef.current === null) {
             intervalRef.current = window.setInterval(() => {
@@ -48,6 +43,11 @@ const Carousel: React.FC = () => {
             intervalRef.current = null;
         }
     }, [])
+
+    const resetCarouselTimer = useCallback(() => {
+        stopCarousel();
+        startCarousel();
+    }, [stopCarousel, startCarousel])
 
     useEffect(() => {
         startCarousel();
