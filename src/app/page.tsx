@@ -10,8 +10,8 @@ export default function Home() {
   useEffect(() => {
     if (path === '/') {
       router.push('/home')
-    } else if (path === '/about') {
-      router.push('/about');
+    } else if (path === '/sobre') {
+      router.push('/sobre');
     }
   }, [path, router])
 }

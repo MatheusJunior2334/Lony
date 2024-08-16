@@ -32,10 +32,7 @@
         .aboutTitle {
             display: block;
 
-            h2 {
-                @include title-primary();
-                text-align: left;
-            }
+            h2 { text-align: left; }
 
             hr { @include hr-styles($pageBlackColour); }
         }
@@ -54,8 +51,6 @@
             @include gap-text-measures();
             display: flex;
             flex-direction: column;
-
-            p { @include text-primary(); }
         }
     }
 

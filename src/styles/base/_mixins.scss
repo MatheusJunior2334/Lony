@@ -188,6 +188,8 @@
 
     padding: 0 10px;
 
+    transition: box-shadow 0.1s;
+
     &:focus {
         outline: 1px solid $pageBlackColour;
         box-shadow: 0px 0px 0px 2px $pageWhiteColour;

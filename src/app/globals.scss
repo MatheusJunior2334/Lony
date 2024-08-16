@@ -1,3 +1,6 @@
+@import '../styles/base/mixins';
+@import '../styles/base/variables';
+
 @font-face {
   font-family: adelia;
   src: url('../../public/assets/fonts/adelia.otf');
@@ -10,3 +13,10 @@
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
+
+
+// Estilizações padrões
+
+h2 { @include title-primary(); }
+
+p { @include text-primary(); }

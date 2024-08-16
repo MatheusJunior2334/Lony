@@ -41,7 +41,7 @@ export const MainSection = () => {
                             loading='lazy'
                             className={styles.seatedWomanImage}
                         />
-                        <ButtonPrimary pageUrl='/shop' text={`${translations['home.mainSection.seeOurWork']}`} />
+                        <ButtonPrimary pageUrl='/loja' text={`${translations['home.mainSection.seeOurWork']}`} />
                     </div>
                 </div>
             </div>

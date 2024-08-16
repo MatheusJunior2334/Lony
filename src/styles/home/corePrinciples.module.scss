@@ -16,7 +16,6 @@
         align-items: center;
 
         h2 {
-            @include title-primary();
             color: $pageWhiteColour;
             text-align: center;
         }
@@ -35,9 +34,7 @@
             flex-direction: column;
             justify-content: center;
 
-            p {
-                @include text-primary();
-    
+            p {    
                 span {
                     text-transform: uppercase;
                     font-weight: 600;
@@ -132,7 +129,6 @@
             padding: 4px;
 
             p {
-                @include text-primary();
                 color: $pageWhiteColour;
 
                 span {

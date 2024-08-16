@@ -5,10 +5,7 @@
     position: relative;
     margin: $marginSection 0;
 
-    h2 {
-        @include title-primary();
-        text-align: center;
-    }
+    h2 { text-align: center; }
 
     .swiperContainer {
         width: 100%;

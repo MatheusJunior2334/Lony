@@ -51,7 +51,6 @@
         align-items: flex-start;
 
         h2 {
-            @include title-primary();
             text-align: left;
         }
 
@@ -69,8 +68,6 @@
             @include gap-text-measures();
             display: flex;
             flex-direction: column;
-
-            p { @include text-primary(); }
         }
     }
 }

@@ -41,7 +41,7 @@ export const AboutSection = () => {
                     <p>{translations['home.about.aboutSecondLine']}</p>
                 </div>
 
-                <ButtonPrimary pageUrl='/about' text={`${translations['home.about.learnMore']}`} />
+                <ButtonPrimary pageUrl='/sobre' text={`${translations['home.about.learnMore']}`} />
             </div>
         </section>
     )

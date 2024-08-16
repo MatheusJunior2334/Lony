@@ -34,7 +34,6 @@
     row-gap: 20px;
 
     h2 {
-        @include title-primary();
         color: $pageWhiteColour;
         font-size: 40px;
         text-align: center;

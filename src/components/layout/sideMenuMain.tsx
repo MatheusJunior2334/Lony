@@ -30,8 +30,8 @@ interface LineItem {
 
 const lineItemsContent: LineItem[] = [
     { pagePath: '/home', icon: <HomeIcon />, textKey: 'home' },
-    { pagePath: '/', icon: <OurWorkIcon />, textKey: 'works' },
-    { pagePath: '/about', icon: <AboutUsIcon />, textKey: 'about' },
+    { pagePath: '/loja', icon: <OurWorkIcon />, textKey: 'works' },
+    { pagePath: '/sobre', icon: <AboutUsIcon />, textKey: 'about' },
 ]
 
 export const SideMenuMain: React.FC<SideMenuProps> = ({ closeMenu, translateStyle }) => {

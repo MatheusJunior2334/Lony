@@ -1,14 +1,14 @@
-@import '../base/variables';
-@import '../base/mixins';
+@import '../../styles/base/variables';
+@import '../../styles/base/mixins';
 
-.loginPage {
+.registerPage {
     fieldset {
         width: 100%;
         
         display: flex;
         flex-direction: column;
         align-items: center;
-        row-gap: 14px;
+        row-gap: 8px;
 
         legend {
             font-size: 38px;
@@ -60,7 +60,13 @@
             p {
                 text-align: left;
                 text-transform: none;
+              
             }
+        }
+
+        .nameLastName {
+            display: flex;
+            column-gap: 12px;
         }
 
         a {
@@ -96,7 +102,7 @@
 }
 
 .backgroundImage {
-    background-image: url('../../../public/assets/images/auth/LoginImage.webp');
+    background-image: url('../../../public/assets/images/auth/RegisterImage.jpg');
 
     .errorDivRight {
         height: 100%;
@@ -106,8 +112,8 @@
         justify-content: center;
         align-items: center;
 
-        border-top-right-radius: inherit;
-        border-bottom-right-radius: inherit;
+        border-top-left-radius: inherit;
+        border-bottom-left-radius: inherit;
 
         p {
             font-size: 24px; 
@@ -120,10 +126,11 @@
     }
 }
 
+
 // Responsividade
 
 @media #{$laptop} {
-    .loginPage {
+    .registerPage {
         fieldset {
             legend { font-size: 34px; }
         }
@@ -131,27 +138,23 @@
 }
 
 @media (max-width: 1000px) {
-    .loginPage {
+    .registerPage {
         fieldset {
-            row-gap: 10px;
-
             legend { font-size: 32px; }
         }
     }
 }
 
 @media #{$tablet} {
-    .loginPage {
-        fieldset { row-gap: 14px; }
+    .registerPage {
+        fieldset { row-gap: 12px; }
     }
 }
 
 @media #{$mobile} {
-    .loginPage {
+    .registerPage {
         fieldset {
-            .googleFaceBtn {
-                column-gap: 8px;
-            }
+            .googleFaceBtn, .nameLastName { column-gap: 8px; }
         }
     }
 }

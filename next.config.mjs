@@ -9,6 +9,22 @@ const nextConfig = {
                 port: ''
             }
         ]
+    },
+    async rewrites() {
+        return [
+            {
+                source: '/sobre',
+                destination: '/about'
+            },
+            {
+                source: '/auth/registrar',
+                destination: '/auth/register'
+            },
+            {
+                source: '/loja',
+                destination: '/shop'
+            }
+        ]
     }
 };
 

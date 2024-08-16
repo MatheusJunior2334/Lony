@@ -11,18 +11,18 @@ import DefaultUserImage from '../../../public/assets/images/testimonials/UserDef
 
 const ShopLonyPage = async () => {
     const session = await getServerSession(authOptions);
-    console.log(session?.user);
-
+    console.log("Session user:", session?.user)
+    
     return (
         <ShopLayout>
             {session?.user ? (
                 <div>
                     <h2>
-                        Loja Lony - Seja bem vindo(a) {session?.user.username || session?.user.name}!
+                        Loja Lony - Seja bem vindo(a) {session?.user.name || session?.user.lastName}!
                     </h2>
                     <Image
-                        src={session?.user.image || DefaultUserImage}
-                        alt={session?.user.name || ''}
+                        src={session.user.image || DefaultUserImage}
+                        alt={session.user.name || 'Profile Image'}
                         width={100}
                         height={100}
                         quality={100}
@@ -31,12 +31,14 @@ const ShopLonyPage = async () => {
                     <p>A página está em desenvolvimento</p>
                     <LogoutBtn />
                 </div>
-            ) :
-            <>
-                <h2>Página em desenvolvimento</h2>
-                <h2>Por favor, faça login para ver a página</h2>
-                <Link href='/auth/login' >Ir para tela de login</Link>
-            </>}
+            ) : (
+                <>
+                    <h2>Página em desenvolvimento</h2>
+                    <h2>Por favor, faça login para ver a página</h2>
+                    <p>Usuário: {session ? session.user.toString() : 'Erro'}</p>
+                    <Link href='/auth/login' >Ir para tela de login</Link>
+                </> 
+            )}
         </ShopLayout>
     )
 }

@@ -29,11 +29,11 @@ export const FooterMain = () => {
         footerOurWorks = true;
         footerAbout = true;
         activeClass = styles.pageHomeClass;
-    } else if (path === '/works') {
+    } else if (path === '/loja') {
         footerHome = true;
         footerAbout = true;
         activeClass = styles.pageWorksClass;
-    } else if (path === '/about') {
+    } else if (path === '/sobre') {
         footerHome = true;
         footerOurWorks = true;
         activeClass = styles.pageAboutClass;
@@ -69,7 +69,7 @@ export const FooterMain = () => {
 
                     {footerOurWorks && (
                         <div className={styles.footerOurWorksDiv}>
-                            <Link href='/home'>
+                            <Link href='/loja'>
                                 <div className={styles.topArrow}>
                                     <h3>{translations['home.footer.ourWorksTitle']}</h3>
                                     <ArrowIcon />
@@ -82,7 +82,7 @@ export const FooterMain = () => {
 
                     {footerAbout && (
                         <div className={styles.footerAboutDiv}>
-                            <Link href='/about'>
+                            <Link href='/sobre'>
                                 <div className={styles.topArrow}>
                                     <h3>{translations['home.footer.aboutTitle']}</h3>
                                     <ArrowIcon />
