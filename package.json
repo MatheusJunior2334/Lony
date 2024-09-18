@@ -17,7 +17,7 @@
     "bcrypt": "^5.1.1",
     "framer-motion": "^11.1.7",
     "gsap": "^3.12.5",
-    "next": "^14.2.5",
+    "next": "^14.2.12",
     "next-auth": "^4.24.7",
     "nextjs-toploader": "^1.6.12",
     "prisma": "^5.17.0",
