@@ -1,0 +1,116 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+
+.carouselContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: $marginSection 0;
+
+    .leftBtn, .rightBtn {
+        position: absolute;
+
+        width: 30px;
+        height: 30px;
+
+        display: flex;
+
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 50%;
+
+        z-index: 2;
+  
+        svg { width: 100%; height: 100%; }
+
+        &.leftBtn { left: 4px; svg { transform: rotate(-90deg); } }
+
+        &.rightBtn { right: 4px; svg { transform: rotate(90deg); } }
+    }
+
+    .carouselSwiper {
+        width: calc(100% - 60px);
+
+        // &:hover .categoryBtn:not(:hover) {
+        //     opacity: 0.7;
+        // }
+
+        .carouselSlide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .categoryBtn {
+                width: 165px;
+                height: 165px;
+    
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border-radius: 20px;
+                row-gap: 10px;
+                margin: 14px 0px;
+    
+                transition: transform 0.3s ease, opacity 0.3s ease;
+                cursor: pointer;
+    
+                img {
+                    width: 110px;
+                    height: auto;
+    
+                    background-color: $pageWhiteColour;
+                    border-radius: 50%;
+                }
+    
+                span {
+                    font-size: 20px;
+                    color: $pageWhiteColour;
+                }
+    
+                &:hover { transform: scale(1.05); }
+            }
+        }
+    }
+}
+
+// Responsividade
+
+@media #{$tablet} {
+    .carouselContainer {
+        .carouselSwiper {
+            width: calc(100% - 40px);
+
+            .carouselSlide {
+                .categoryBtn {
+                    width: 140px;
+                    height: 140px;
+                    row-gap: 6px;
+
+                    img { width: 90px; }
+
+                    &:hover { transform: none; }
+                }
+            }
+        }
+    }
+}
+
+@media #{$mobile} {
+    .carouselContainer {
+        .carouselSwiper {
+            .carouselSlide {
+                .categoryBtn {
+                    aspect-ratio: 4 / 4;
+
+                    width: 96%;
+                    height: auto;
+
+                    img { width: 70%; }
+                }
+            }
+        }
+    }
+}

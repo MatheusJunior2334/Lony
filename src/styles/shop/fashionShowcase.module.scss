@@ -1,0 +1,42 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+#fashionShowcase {
+    padding: $marginSection 4%;
+
+    h2 {
+        @include title-primary();
+        text-transform: uppercase;
+        text-align: center;
+        padding-bottom: $marginSection;
+    }
+
+    .fashionGrid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-flow: dense;
+        column-gap: 6%;
+        row-gap: 30px;
+    }
+}
+
+// Responsividade
+
+@media #{$tablet} {
+    #fashionShowcase {
+        .fashionGrid {
+            row-gap: 20px;
+            column-gap: 4%;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media #{$mobile} {
+    #fashionShowcase {
+        .fashionGrid {
+            row-gap: 10px;
+            column-gap: 10px;
+        }
+    }
+}

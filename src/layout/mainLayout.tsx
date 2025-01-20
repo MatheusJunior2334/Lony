@@ -7,6 +7,7 @@ export const MainLayout = ({ children }: Readonly<{ children: React.ReactNode }>
         <>
             <HeaderMain />
             <main>{children}</main>
+            <hr style={{ height: '30px', backgroundColor: '#111' }} />
             <FooterMain />
 
             <ScrollToTopButton />

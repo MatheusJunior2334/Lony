@@ -1,0 +1,54 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+.galleryItem {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+
+    display: flex;
+
+    cursor: pointer;
+
+    &.horizontal { grid-column: span 2; }
+
+    &.vertical { grid-column: span 1; }
+
+    img { width: 100%; height: auto; object-fit: cover; }
+
+    .clothingType {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        background-color: rgba($pageBlackColour, 0.6);
+
+        left: 0;
+        bottom: 0;
+
+        padding: 10px 20px;
+        
+        span { color: $pageWhiteColour; font-size: 22px; }
+    }
+}
+
+// Responsividade
+
+@media #{$tablet} {
+    .galleryItem {
+        .clothingType {
+            padding: 10px;
+
+            span { font-size: 20px; }
+        }
+    }
+}
+
+@media #{$mobile} {
+    .galleryItem {
+        .clothingType {
+            padding: 8px;
+
+            span { font-size: 18px; }
+        }
+    }
+}

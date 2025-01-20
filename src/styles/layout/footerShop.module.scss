@@ -1,0 +1,245 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+#footerShop {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+
+    nav {
+        .topFooter {
+            padding: 0px 40px;
+            border-top: 20px solid $pageBlackColour;
+            border-bottom: 20px solid $pageBlackColour;
+          
+            .footerLogoMedia {
+                display: flex;
+                justify-content: space-between;
+    
+                .socialMedia {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: center;
+    
+                    h3 {
+                        font-size: 24px;
+                        color: $pageBlackColour;
+                    }
+    
+                    div {
+                        width: 100%;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        column-gap: 14px;
+                        margin-top: 14px;
+    
+                        a {
+                            width: 40px;
+                            height: 40px;
+                            transition: transform 0.2s ease-in-out;
+                            opacity: 1;
+    
+                            svg {
+                                width: 100%;
+                                height: 100%;
+                                fill: $pageWhiteColour;
+                                background-color: $pageBlackColour;
+                                padding: 1px;
+                                border-radius: 4px;
+                            }
+    
+                            &:nth-of-type(3) {
+                                svg {
+                                    fill: $pageBlackColour;
+                                    background-color: transparent;
+                                    padding: 0px;
+                                }
+                            }
+    
+                            &:nth-of-type(4) {
+                                svg { padding: 2px; }
+                            }
+    
+                            &:hover { transform: scale(1.05); }
+                        }
+                    }
+                }
+            }
+            
+        }
+    
+        .midFooter {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            grid-row-gap: 20px;
+            grid-auto-flow: dense;
+            padding: 20px 0;
+
+            .about, .help, .account {
+                grid-row: span 2;
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+                row-gap: 8px;
+
+                border-left: 1px solid #bababa;
+                padding-left: 30px;
+
+                h3 {
+                    font-size: 20px;
+                    color: $pageBlackColour;
+                }
+    
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 1px;
+
+                    list-style: none;
+                    padding: 0;
+    
+                    li {
+                        a {
+                            text-decoration: none;
+                            color: $pageBlackColour;
+                            font-size: 18px;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+        .bottomFooter {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 40px;
+            background-color: $pageBlackColour;
+    
+            h4 {
+                font-weight: normal;
+                font-size: 14px;
+                text-align: center;
+                color: $pageWhiteColour;
+            }
+
+            div {
+                display: flex;
+                column-gap: 20px;
+
+                a {
+                    font-weight: normal;
+                    font-size: 14px;
+                    text-decoration: none;
+                    color: $pageWhiteColour;
+
+                    &:hover { text-decoration: underline; }
+                }
+            }
+        }
+    }
+}
+
+// Responsividade
+
+@media (max-width: 1000px) {
+    #footerShop {
+        nav {
+            .midFooter {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .bottomFooter {
+                padding: 20px;
+
+                h4 { text-align: left; }
+
+                div { column-gap: 10px; }
+            }
+        }
+    }
+}
+
+@media #{$tablet} {
+    #footerShop {
+        nav {
+            .topFooter {
+                padding: 0 20px;
+
+                .footerLogoMedia {
+                    img { width: 220px; height: auto; }
+
+                    .socialMedia {
+                        div {
+                            a {
+                                width: 34px;
+                                height: 34px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .midFooter {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+
+                .about, .help, .account {
+                    grid-row: span 1;
+                }
+            }
+
+            .bottomFooter {
+                flex-direction: column;
+                row-gap: 20px;
+
+                h4 { text-align: center; }
+
+                div {
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}
+
+@media #{$mobile} {
+    #footerShop {
+        nav {
+            .topFooter {
+                .footerLogoMedia {
+                    flex-direction: column;
+                    align-items: center;
+
+                    padding: 20px 0;
+
+                    .socialMedia {
+                        h3 { display: none; }
+                    }
+                }
+            }
+
+            .midFooter {
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-rows: auto;
+                justify-items: center;
+
+                div {
+                    width: 300px;
+                    border: none;
+                    margin: auto 0;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}

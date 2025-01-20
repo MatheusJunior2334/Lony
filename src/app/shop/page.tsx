@@ -1,45 +1,41 @@
-import Image from "next/image"
-
 import { authOptions } from "@/lib/authOptions";
 import { getServerSession } from "next-auth"
 
 import { ShopLayout } from "@/layout/shopLayout"
-import { LogoutBtn } from "@/components/shop/logoutBtn"
-import Link from "next/link"
 
-import DefaultUserImage from '../../../public/assets/images/testimonials/UserDefaultImage.webp';
+import { MainCarouselShop } from "@/components/shop/mainCarouselShop";
+import { MainCategoriesShop } from "@/components/shop/mainCategoriesShop";
+import { FashionShowcase } from "@/components/shop/fashionShowcase";
+import { OurWorkSection } from "@/components/home/ourWork";
+import { LanguageProvider } from "@/contexts/languageContext";
+
+const slides = [
+    { id: 1, image: '/assets/images/shop/CarouselImage1.png', background: '/assets/images/shop/backgroundExample.jpg' },
+    { id: 2, image: '/assets/images/shop/CarouselImage2.png', background: '/assets/images/shop/backgroundExample2.jpg' },
+    { id: 3, image: '/assets/images/shop/CarouselImage3.png', background: '/assets/images/shop/backgroundExample.jpg' },
+]
+
+const images: { image: string; clothingType: string; orientation: "vertical" | "horizontal" }[] = [
+    { image: '/assets/images/shop/VestimentaAzul.png', clothingType: 'Vestimenta Azul', orientation: 'vertical' },
+    { image: '/assets/images/shop/JaquetaJeans.png', clothingType: 'Jaqueta Jeans', orientation: 'vertical' },
+    { image: '/assets/images/shop/VestimentaPreta2.png', clothingType: 'Vestimenta Preta', orientation: 'vertical' },
+    { image: '/assets/images/shop/ImagemMaior.png', clothingType: 'A definir...', orientation: 'horizontal' },
+    { image: '/assets/images/shop/VestimentaPreta.png', clothingType: 'Vestimenta Preta', orientation: 'vertical' },
+]
 
 const ShopLonyPage = async () => {
     const session = await getServerSession(authOptions);
     console.log("Session user:", session?.user)
     
     return (
-        <ShopLayout>
-            {session?.user ? (
-                <div>
-                    <h2>
-                        Loja Lony - Seja bem vindo(a) {session?.user.name || session?.user.lastName}!
-                    </h2>
-                    <Image
-                        src={session.user.image || DefaultUserImage}
-                        alt={session.user.name || 'Profile Image'}
-                        width={100}
-                        height={100}
-                        quality={100}
-                        priority
-                    />
-                    <p>A página está em desenvolvimento</p>
-                    <LogoutBtn />
-                </div>
-            ) : (
-                <>
-                    <h2>Página em desenvolvimento</h2>
-                    <h2>Por favor, faça login para ver a página</h2>
-                    <p>Usuário: {session ? session.user.toString() : 'Erro'}</p>
-                    <Link href='/auth/login' >Ir para tela de login</Link>
-                </> 
-            )}
-        </ShopLayout>
+        <LanguageProvider>
+            <ShopLayout>
+                <MainCarouselShop data={slides} />
+                <MainCategoriesShop />
+                <FashionShowcase images={images} /> 
+                <OurWorkSection />
+            </ShopLayout>
+        </LanguageProvider>
     )
 }
 

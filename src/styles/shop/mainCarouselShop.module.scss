@@ -1,0 +1,142 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+.carouselWrapper {
+  position: relative;
+
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  overflow: hidden;
+  padding: 110px 0 $marginSection 0;
+
+  .ladiesOfNY {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    font-family: adelia;
+    font-size: 20px;
+    padding: 8px 30px 0px 30px;
+  }
+
+  .carouselContent {
+    position: relative;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .carouselItem {
+      aspect-ratio: 958 / 600;
+
+      width: 56%;
+      height: auto;
+      border-radius: 20px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      transition: filter ease 0.5s;
+
+      img { width: 100%; height: auto; border-radius: inherit; }
+
+      .loadingDiv { @include load-background-style(); height: 100%; border-radius: inherit; }
+    }
+
+    .sideItems {
+      position: absolute;
+      cursor: pointer;
+      filter: brightness(40%);
+
+      &:hover {
+        filter: brightness(100%);
+      }
+    }
+  }
+
+  .backgroundImage {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 40px);
+    top: 0;
+    transition: background-image 0.5s ease-in;
+    background-repeat: repeat;
+    background-size: contain;
+    background-position: center;
+    opacity: 0.08;
+    z-index: -1;
+  }
+
+  .leftBtn, .rightBtn { display: none; }
+
+  .dotsWrapper {
+    position: absolute;
+    width: auto;
+    height: 40px;
+    bottom: 0;
+    right: 4%;
+
+    column-gap: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: $pageBlackColour;
+      opacity: 0.3;
+      cursor: pointer;
+
+      &.activeDot { opacity: 1; }
+    }
+  }
+}
+
+@media #{$tablet} {
+  .carouselWrapper {
+    padding: 127.6px 0 $marginSection 0;
+
+    .ladiesOfNY { display: none; }
+
+    .carouselContent {
+      .carouselItem {
+        width: 100%;
+        border-radius: 0;
+      }
+    }
+
+    .backgroundImage { display: none; }
+
+    .leftBtn, .rightBtn {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 6;
+
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+
+      svg { width: 100%; height: 100%; }
+
+      &.leftBtn { left: 4px; svg { transform: rotate(-90deg); } }
+
+      &.rightBtn { right: 4px; svg { transform: rotate(90deg); } }
+    }
+
+    .dotsWrapper { height: auto; z-index: 6; right: 50%; transform: translateX(50%); }
+  }
+}
