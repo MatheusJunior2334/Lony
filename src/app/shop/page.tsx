@@ -24,8 +24,8 @@ const images: { image: string; clothingType: string; orientation: "vertical" | "
 ]
 
 const ShopLonyPage = async () => {
-    const session = await getServerSession(authOptions);
-    console.log("Session user:", session?.user)
+    // const session = await getServerSession(authOptions);
+    // console.log("Session user:", session?.user)
     
     return (
         <LanguageProvider>
