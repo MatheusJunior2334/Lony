@@ -26,7 +26,7 @@ export const AboutBlogSection = () => {
                 </div>
 
                 <div className={styles.infoText}>
-                    <p>"Lony", pronunciado "Luni", é o resultado de um sonho compartilhado por Ester, Bianka, Larissa, Estefany, Bruna e Isabela. Somos um grupo de garotas apaixonadas pela moda, unidas por um propósito ousado: criar nossa própria marca e conquistar o coração do Brasil.</p>
+                    <p>&quot;Lony&quot;, pronunciado &quot;Luni&quot;, é o resultado de um sonho compartilhado por Ester, Bianka, Larissa, Estefany, Bruna e Isabela. Somos um grupo de garotas apaixonadas pela moda, unidas por um propósito ousado: criar nossa própria marca e conquistar o coração do Brasil.</p>
                 </div>
 
                 <ButtonPrimary pageUrl='/sobre' text={'Saiba Mais'} />

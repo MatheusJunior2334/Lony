@@ -8,7 +8,7 @@ import BlogCard from './blogCard';
 export const LatestPostsSection = () => {
     return (
         <section id={styles.latestPostsSection}>
-            <h3>"Somos um grupo de garotas comprometidas com a moda e o bem-estar"</h3>
+            <h3>&quot;Somos um grupo de garotas comprometidas com a moda e o bem-estar&quot;</h3>
 
             <HighHeelIcon />
 
