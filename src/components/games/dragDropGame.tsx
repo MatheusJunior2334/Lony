@@ -84,8 +84,6 @@ export default function DragDropGame({ title, instructions, categories, items }:
         initializeGame()
     }, [])
 
-    console.log(words)
-
     return (
         <DndProvider backend={HTML5Backend}>
             <div className={styles.container}>
