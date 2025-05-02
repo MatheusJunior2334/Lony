@@ -1,0 +1,107 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+#footerBlog {
+    position: relative;
+
+    margin-top: $marginSection;
+    background: linear-gradient(90deg,rgba(51, 51, 51, 1) 0%, rgba(110, 110, 110, 1) 100%);
+
+    border-top-right-radius: 20px;
+
+    padding: 40px 2.5% 20px 2.5%;
+    clip-path: polygon(0 7.5%, 100% 0%, 100% 100%, 0% 100%);
+
+    display: grid;
+    grid-template-areas: "lony media" "rights media";
+    grid-template-columns: 70% 30%;
+    grid-row-gap: 24px;
+
+    align-items: center;
+
+    .lonyBlog {
+        grid-area: lony;
+
+        h3 { font-size: 22px; color: $pageWhiteColour; font-weight: bold; }
+    }
+
+    .pageRights {
+        grid-area: rights;
+
+        h4 { font-family: inherit; font-size: 18px; color: $pageWhiteColour; font-weight: normal; }
+    }
+
+    .socialMedia {
+        grid-area: media;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        
+        nav {
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h3 { font-size: 20px; color: $pageWhiteColour; font-weight: bold; }
+
+            .socialIcons {
+                display: flex;
+                align-items: center;
+                column-gap: 4px;
+    
+                a {
+                    width: 30px; height: 30px;
+                    transition: transform 0.3s ease;
+    
+                    svg { width: 100%; height: 100%; fill: $pageWhiteColour; }
+
+                    &:hover { transform: scale(1.1); }
+                }
+            }
+        }
+    }
+}
+
+// Responsividade
+
+@media #{$tablet} {
+    #footerBlog {
+        grid-template-areas: "lony" "media" "rights";
+        grid-template-columns: 100%;
+
+        .lonyBlog { h3 { text-align: center; } }
+
+        .pageRights {
+            h4 { font-size: 16px; text-align: center; }
+        }
+
+        .socialMedia {
+            align-items: center;
+
+            nav {
+                align-items: center;
+                row-gap: 4px;
+
+                h3 { display: none; }
+
+                .socialIcons {
+                    a { width: 34px; height: 34px; }
+                }
+            }
+        }
+    }
+}
+
+@media #{$mobile} {
+    #footerBlog {
+        .lonyBlog { h3 { font-size: 18px; } }
+
+        .pageRights {
+            h4 { font-size: 14px; }
+        }
+    }
+}

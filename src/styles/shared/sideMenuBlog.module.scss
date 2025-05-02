@@ -1,4 +1,4 @@
-@use 'headerMain.module' as hm;
+@use 'headerBlog.module' as hm;
 
 @import '../base/variables';
 @import '../base/mixins';
@@ -41,10 +41,12 @@ $paddingNav: 8px;
     top: 0;
 
     .leftSide {
-        width: 450px;
+        width: 380px;
         height: auto;
         background-color: rgb(255, 255, 255);
         z-index: 2;
+
+        border-bottom-right-radius: 20px;
 
         .exitButtonDiv {
             position: fixed;
@@ -103,7 +105,7 @@ $paddingNav: 8px;
             overflow-y: auto;
 
             .pagePaths {
-                height: auto;
+                height: calc(100% - 48px);
                 padding: 8px 0 0 2px;
                 list-style: none;
 
@@ -115,6 +117,8 @@ $paddingNav: 8px;
                 li {
                     @include side-menu-text();
                     width: 100%;
+
+                    &:last-child { margin-top: auto; border: 1px solid rgba($pageBlackColour, 0.6) }
                     
                     &.activeLine {
                         background-color: rgb(33 33 33 / 0.1);
@@ -126,7 +130,7 @@ $paddingNav: 8px;
                         }
                     }
 
-                    a {
+                    button {
                         display: flex;
                         align-items: flex-end;
                         padding: 4px 8px;
@@ -136,15 +140,26 @@ $paddingNav: 8px;
                 }
             }
 
-            .sideMenuWoman {
+            .socialMedia {
                 width: 100%;
-                display: flex;
-                justify-content: center;
 
-                img {
-                    width: 168px;
-                    height: 100%;
-                    transform: rotateY(180deg);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                column-gap: 4px;
+                padding: 0 2.5%;
+    
+                a {
+                    width: 40px; height: 40px;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: transform 0.3s ease;
+    
+                    svg { width: 80%; height: 80%; fill: $pageBlackColour; }
+
+                    &:hover { transform: scale(1.1); }
                 }
             }
         }
@@ -195,7 +210,7 @@ $paddingNav: 8px;
                 height: 75px;
                 flex-direction: row-reverse;
 
-                button { margin-right: 24px; }
+                button { margin-right: 2.5%; }
 
                 span { display: none; }
             }
@@ -204,10 +219,6 @@ $paddingNav: 8px;
                 margin-top: 75px;
 
                 .pagePaths { padding: 0px; }
-
-                .sideMenuWoman {
-                    img { width: 115px; }
-                }
             }
         }
     }
@@ -215,14 +226,6 @@ $paddingNav: 8px;
 
 @media #{$mobile} {
     #sideMenu {
-        .leftSide {
-            width: 275px;
-
-            .navBar {
-                .sideMenuWoman {
-                    img { width: 108px; }
-                }
-            }
-        }
+        .leftSide { width: 275px; }
     }
 }

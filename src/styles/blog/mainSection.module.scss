@@ -1,0 +1,113 @@
+@import '../base/mixins';
+@import '../base/variables';
+
+#mainBlogSection {
+    position: relative;
+    width: 100%;
+
+    margin: 104px 0 $marginSection 0;
+    padding: 0 2.5%;
+
+    .imageDiv {
+        aspect-ratio: 3048 / 1244;
+        position: relative;
+
+        width: 100%;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(180deg, rgba(68, 68, 68, 0.2) 0%, rgba(17, 17, 17, 0.85) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .imageScrollContainer {
+            position: relative;
+
+            width: 100%;
+            height: 100%;
+
+            -webkit-overflow-scrolling: touch;
+            z-index: 1;
+
+            .blogImage {
+                position: absolute;
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+        }
+
+        .blogTitle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+        
+            padding: 20px 0 0 0;
+            z-index: 3;
+
+            h2 { font-family: goldlines; color: $pageWhiteColour; }
+
+            img.logoBlogImage { width: 250px; height: auto; filter: invert(1); }
+        }
+    }
+}
+
+// Responsividade
+
+@media #{$laptop} {
+    #mainBlogSection {
+        .imageDiv {
+            .blogTitle {
+                img.logoBlogImage { width: 180px; }
+            }
+        }
+    }
+}
+
+@media #{$tablet} {
+    #mainBlogSection {
+        margin: 95px 0 $marginSection 0;
+
+        .imageDiv {
+            aspect-ratio: 1524 / 1244;
+
+            .imageScrollContainer {
+                overflow-x: auto;
+                overflow-y: hidden;
+
+                .blogImage { width: 200%; }
+
+                &::-webkit-scrollbar { display: none; }
+            }
+        }
+    }
+}
+
+@media #{$mobile} {
+    #mainBlogSection {
+        .imageDiv {
+            aspect-ratio: 1016 / 1244;
+
+            .imageScrollContainer {
+                .blogImage { width: 300%; }
+            }
+
+            .blogTitle {
+                img.logoBlogImage { width: 160px; }
+            }
+        }
+    }
+}

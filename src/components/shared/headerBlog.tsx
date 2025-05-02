@@ -2,21 +2,20 @@
 
 import React, { useEffect, useState } from 'react';
 
-import styles from '../../styles/layout/headerMain.module.scss';
+import styles from '../../styles/shared/headerBlog.module.scss';
 
-import { SideMenuMain } from './sideMenuMain';
+import { SideMenuBlog } from './sideMenuBlog';
 import { LonyLogoHeader } from '../../../public/assets/images/LonyLogoHeader';
 import { BurgerMenuIcon } from '../../../public/assets/icons/burgerMenuIcon';
 
-import { useLanguage } from '@/contexts/languageContext';
+import { FaInstagram, FaPinterestP, FaTiktok, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 
-export const HeaderMain = () => {
+export const HeaderBlog = () => {
     const [addClassMenu, setAddClassMenu] = useState<boolean>(false);
     const [visibleMenu, setVisibleMenu] = useState<boolean>(false);
 
     const [isHeaderHidden, setIsHeaderHidden] = useState<boolean>(false);
     const [lastScrollY, setLastScrollY] = useState<number>(0);
-    const { translations } = useLanguage();
 
     const openMenu = () => {
         setAddClassMenu(true);
@@ -64,15 +63,23 @@ export const HeaderMain = () => {
         }
     }, [lastScrollY])
 
-    return (
-        <header id={styles.header} className={isHeaderHidden ? styles.hidden : ''}>
 
-            { visibleMenu ? <SideMenuMain closeMenu={closeMenu} translateStyle={addClassMenu} /> : null }
+    const handleNewsletterClick = () => {
+        const newsletterSection = document.getElementById('newsletterSectionId');
+        if (newsletterSection) {
+            newsletterSection.scrollIntoView({ behavior: 'smooth' })
+        }
+    }
+
+    return (
+        <header id={styles.headerBlog} className={isHeaderHidden ? styles.hidden : ''}>
+
+            { visibleMenu ? <SideMenuBlog closeMenu={closeMenu} translateStyle={addClassMenu} /> : null }
 
             <div className={styles.leftHeader}>
                 <button className={styles.burgerMenu} onClick={openMenu} aria-label='Abrir menu lateral'>
                     <BurgerMenuIcon />
-                    <span>{translations['header.menu']}</span>
+                    <span>MENU</span>
                 </button>
             </div>
 
@@ -80,7 +87,15 @@ export const HeaderMain = () => {
                 <LonyLogoHeader />
             </div>
 
-            <div className={styles.rightHeader}></div>
+            <div className={styles.rightHeader}>
+                <button onClick={handleNewsletterClick} aria-label='Ir até a seção de Newsletter'>NEWSLETTER</button>
+                <div className={styles.socialMedia}>
+                    <a href="https://instagram.com/ladies.of.newyork/" target="_blank" rel="noopener noreferrer" title='Instagram'><FaInstagram /></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" title='Pinterest'><FaPinterestP /></a>
+                    <a href="https://www.tiktok.com/@ladies.of.new.york" target="_blank" rel="noopener noreferrer" title='TikTok'><FaTiktok /></a>
+                    <a href="https://www.linkedin.com/company/lony-ladies-of-new-york" target="_blank" rel="noopener noreferrer" title='LinkedIn'><FaLinkedinIn /></a>
+                </div>
+            </div>
         </header>
     )
 }

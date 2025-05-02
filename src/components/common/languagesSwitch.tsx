@@ -1,4 +1,4 @@
-import styles from '../../styles/layout/languagesSwitch.module.scss';
+import styles from '../../styles/shared/languagesSwitch.module.scss';
 
 import { BrazilFlag } from '../../../public/assets/icons/brazilFlag';
 import { UKFlag } from '../../../public/assets/icons/ukFlag';

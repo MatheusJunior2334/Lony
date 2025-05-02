@@ -94,16 +94,12 @@
                             border-radius: 4px;
                         }
 
-                        &:nth-of-type(3) {
+                        &:nth-of-type(4) {
                             svg {
                                 fill: $pageBlackColour;
                                 background-color: transparent;
                                 padding: 0px;
                             }
-                        }
-
-                        &:nth-of-type(4) {
-                            svg { padding: 2px; }
                         }
 
                         &:hover { transform: scale(1.05); }

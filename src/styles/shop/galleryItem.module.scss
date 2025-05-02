@@ -20,14 +20,15 @@
         position: absolute;
         width: 100%;
         height: auto;
-        background-color: rgba($pageBlackColour, 0.6);
+        background-color: rgba($pageBlackColour, 0.9);
 
         left: 0;
         bottom: 0;
 
-        padding: 10px 20px;
-        
-        span { color: $pageWhiteColour; font-size: 22px; }
+        text-align: center;
+        padding: 8px 0;
+
+        span { color: $pageWhiteColour; font-size: 24px; }
     }
 }
 
@@ -36,8 +37,6 @@
 @media #{$tablet} {
     .galleryItem {
         .clothingType {
-            padding: 10px;
-
             span { font-size: 20px; }
         }
     }
@@ -46,8 +45,6 @@
 @media #{$mobile} {
     .galleryItem {
         .clothingType {
-            padding: 8px;
-
             span { font-size: 18px; }
         }
     }

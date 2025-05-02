@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../../styles/layout/footerShop.module.scss';
+import styles from '../../styles/shared/footerShop.module.scss';
 
 import LonyLogo from '../../../public/assets/images/LonyFooterLogo.webp';
 

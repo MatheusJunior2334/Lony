@@ -16,8 +16,8 @@ const slides = [
 ]
 
 const images: { image: string; clothingType: string; orientation: "vertical" | "horizontal" }[] = [
-    { image: '/assets/images/shop/VestimentaAzul.png', clothingType: 'Vestimenta Azul', orientation: 'vertical' },
-    { image: '/assets/images/shop/JaquetaJeans.png', clothingType: 'Jaqueta Jeans', orientation: 'vertical' },
+    { image: '/assets/images/shop/VestimentaAzul.png', clothingType: 'Vestidos', orientation: 'vertical' },
+    { image: '/assets/images/shop/JaquetaJeans.png', clothingType: 'Jaquetas Jeans', orientation: 'vertical' },
     { image: '/assets/images/shop/VestimentaPreta2.png', clothingType: 'Vestimenta Preta', orientation: 'vertical' },
     { image: '/assets/images/shop/ImagemMaior.png', clothingType: 'A definir...', orientation: 'horizontal' },
     { image: '/assets/images/shop/VestimentaPreta.png', clothingType: 'Vestimenta Preta', orientation: 'vertical' },

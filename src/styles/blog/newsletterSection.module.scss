@@ -1,0 +1,101 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+
+.newsletterSection {
+    @include scroll-margin-top();
+
+    position: relative;
+    display: flex;
+
+    background: linear-gradient(90deg,rgba(51, 51, 51, 1) 0%, rgba(170, 170, 170, 1) 100%);
+
+    .leftSide, .rightSide {
+        width: 50%;
+
+        span { font-size: 18px; text-transform: uppercase; color: $pageWhiteColour; }
+
+        h2 { color: $pageWhiteColour; padding: 20px 0; text-transform: uppercase }
+
+        p { color: $pageWhiteColour; }
+
+        form {
+            width: 100%;
+            height: 50px;
+            padding: 0 14px;
+            background-color: $pageWhiteColour;
+            border-radius: 8px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            input {
+                @include text-primary();
+                
+                width: calc(100% - 50px);
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &::placeholder { color: $pageBlackColour; }
+
+                &:focus { outline: none; }
+            }
+
+            button {
+                width: 50px;
+                height: 100%;
+
+                display: flex;
+                align-items: center;
+
+                background: none;
+                border-radius: 50%;
+
+                transition: background-color 0.3s ease;
+                cursor: pointer;
+
+                svg { width: 100%;  height: auto; }
+
+                &:hover { background-color: rgba($pageBlackColour, 0.1); }
+            }
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .leftSide {
+        padding: 2%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
+
+// Responsividade
+
+@media (max-width: 1000px) {
+    .newsletterSection {
+        padding: 24px 0;
+
+        .leftSide {
+            width: 100%;
+
+            span { font-size: 14px; }
+
+            h2 { padding: 14px 0; }
+
+            p { padding: 14px 0 10px 0; }
+
+        }
+
+        .rightSide { display: none; }
+    }
+}

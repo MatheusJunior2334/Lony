@@ -1,5 +1,5 @@
-import { HeaderShop } from "@/components/layout/headerShop"
-import { FooterShop } from "@/components/layout/footerShop"
+import { HeaderShop } from "@/components/shared/headerShop"
+import { FooterShop } from "@/components/shared/footerShop"
 import { ScrollToTopButton } from "@/components/common/scrollToTopButton"
 
 export const ShopLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {

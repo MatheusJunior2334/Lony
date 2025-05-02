@@ -1,0 +1,204 @@
+@use 'headerMain.module' as hm;
+
+@import '../base/variables';
+@import '../base/mixins';
+
+// Animações
+
+@keyframes slide-in-default {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slide-out-default {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+@keyframes enterBackground {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes exitBackground {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+// Variáveis
+$paddingNav: 8px;
+
+// Estilização Principal
+
+#sideMenu {
+    position: absolute;
+    width: 100%;
+    height: 100dvh;
+    z-index: 12;
+
+    display: flex;
+    left: 0;
+    top: 0;
+
+    .leftSide {
+        width: 450px;
+        height: auto;
+        background-color: rgb(255, 255, 255);
+        z-index: 2;
+
+        .exitButtonDiv {
+            position: fixed;
+            width: inherit;
+            height: 84px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 1px 1px 2px rgba($pageBlackColour, 0.31);
+
+            button {
+                @include close-menu-button();
+                width: 40px;
+                height: 40px;
+                background-color: $pageBlackColour;
+                margin-left: $paddingNav;
+            }
+
+            div {
+                background: none;
+                padding: 0;
+
+                display: flex;
+                align-items: center;
+                height: 100%;
+
+                svg {
+                    width: 140px;
+                    height: auto;
+                    fill: none;
+                    animation: fill-animation 0s 2s forwards;
+                    cursor: pointer;
+
+                    @include hm.fill-animation();
+        
+                    path { stroke: $pageBlackColour; }
+                }
+            }
+
+            span {
+                width: 40px;
+                margin-right: $paddingNav;
+            }
+        }
+
+        .navBar {
+            height: calc(100% - 84px);
+            margin-top: 84px;
+            padding: $paddingNav;
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            overflow-y: auto;
+
+            .pagePaths {
+                height: auto;
+                padding: 8px 0 0 2px;
+                list-style: none;
+
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                row-gap: 4px;
+                
+                li {
+                    @include side-menu-text();
+                    width: 100%;
+                    
+                    &.activeLine {
+                        background-color: rgb(33 33 33 / 0.1);
+                        font-weight: 600;
+
+                        svg {
+                            fill: $pageBlackColour;
+                            stroke: none;
+                        }
+                    }
+
+                    button {
+                        display: flex;
+                        align-items: flex-end;
+                        padding: 4px 8px;
+                        text-decoration: none;
+                        color: inherit;
+                    }
+                }
+            }
+        }
+    }
+
+    .rightSide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(4px);
+        background-color: rgba($pageBlackColour, 0.5);
+        right: 0;
+        top: 0;
+        z-index: 1;
+    }
+
+    .open {
+        &.leftSide { animation: slide-in-default 0.3s ease-in-out; }
+
+        &.rightSide { animation: enterBackground 0.3s forwards ease-in-out; }
+    }
+
+    .close {
+        &.leftSide { animation: slide-out-default 0.3s ease-in-out forwards; }
+
+        &.rightSide { animation: exitBackground 0.3s forwards ease-in-out; }
+    }
+}
+
+
+// Responsividade
+
+@media (max-width: 1000px) {
+    #sideMenu {
+        .rightSide {
+            backdrop-filter: none;
+            background-color: rgba($pageBlackColour, 0.8);
+        }
+    }
+}
+
+@media #{$tablet} {
+    #sideMenu {
+        .leftSide {
+            width: 300px;
+
+            .exitButtonDiv {
+                height: 75px;
+                flex-direction: row-reverse;
+
+                button { margin-right: 24px; }
+
+                span { display: none; }
+            }
+
+            .navBar {
+                margin-top: 75px;
+
+                .pagePaths { padding: 0px; }
+            }
+        }
+    }
+}
+
+@media #{$mobile} {
+    #sideMenu {
+        .leftSide { width: 275px; }
+    }
+}

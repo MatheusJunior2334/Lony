@@ -9,7 +9,17 @@ export const ScrollToTopButton = () => {
 
     useEffect(() => {
         const toggleVisibility = () => {
-            if (window.pageYOffset > 300) {
+            const scrollTop = window.scrollY;
+            const windowHeight = window.innerHeight;
+
+            const fullHeight = Math.max(
+                document.body.scrollHeight,
+                document.documentElement.scrollHeight
+            );
+
+            const isBottom = scrollTop + windowHeight >= fullHeight;
+
+            if (scrollTop > 300 && !isBottom) {
                 setIsVisible(true);
             } else {
                 setIsVisible(false);

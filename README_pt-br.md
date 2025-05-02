@@ -22,7 +22,7 @@ O Lony (Ladies of New York) é um projeto sobre moda feminina com o objetivo ini
 
 Nesse projeto, você pode acessar suas informações, seus designs e um pouco da visão e do objetivo da marca Lony, que pretende se tornar uma das melhores produtoras de estilos de moda do mercado.
 
-Esse projeto foi desenvolvido em `Next.js` versão `14.2.5` usando o modo de renderização `App Router`.
+Esse projeto foi desenvolvido em `Next.js` versão `15.3.1` usando o modo de renderização `App Router`.
 
 [![project][PROJECT__BADGE]][PROJECT__URL]
 

@@ -12,6 +12,8 @@ export default function Home() {
       router.push('/home')
     } else if (path === '/sobre') {
       router.push('/sobre');
+    } else if (path === 'blog') {
+      router.push('/blog')
     }
   }, [path, router])
 }

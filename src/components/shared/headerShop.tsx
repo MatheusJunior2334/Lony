@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 
 import { LonyLogoHeader } from '../../../public/assets/images/LonyLogoHeader';
-import styles from '../../styles/layout/headerShop.module.scss';
+import styles from '../../styles/shared/headerShop.module.scss';
 
 import { BurgerMenuIcon } from '../../../public/assets/icons/burgerMenuIcon';
 import { ProfileDefaultIcon } from '../../../public/assets/icons/profileDefaultIcon';
