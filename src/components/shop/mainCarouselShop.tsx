@@ -46,7 +46,7 @@ export const MainCarouselShop: React.FC<CarouselProps> = ({ data }) => {
   useEffect(() => {
     startAutoSlide();
     return stopAutoSlide;
-  }, []);
+  }, [startAutoSlide]);
 
   const handleDotClick = (index: number) => {
     setIndexes({
