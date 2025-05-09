@@ -108,6 +108,8 @@
                 transition: transform 0.3s ease;
 
                 svg { width: 100%; height: 100%; fill: $pageBlackColour; }
+
+                &:hover { transform: scale(1.1); }
             }
         }
     }

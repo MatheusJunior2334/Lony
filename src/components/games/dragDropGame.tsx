@@ -88,43 +88,44 @@ export default function DragDropGame({ title, instructions, categories, items }:
         <DndProvider backend={HTML5Backend}>
             <div className={styles.container}>
                 <h2>{title}</h2>
-                <p>{instructions}</p>
+
+                {instructions.map((instruction, index) => (
+                    <p key={index}>{instruction}</p>
+                ))}
 
                 <CategoryColumn
-                    title="Não categorizado"
+                    title="Palavras"
                     words={unassignedWords}
                     onDrop={handleDrop}
                     onMove={moveWord}
                     category={null}
                 />
 
-                <div>
-                    {categories.map((category) => {
-                        const categoryWords = words.filter(w => w.category === category)
-                        return (
-                            <CategoryColumn
-                                key={category}
-                                title={category}
-                                words={categoryWords}
-                                onDrop={handleDrop}
-                                onMove={moveWord}
-                                category={category}
-                                completed={completed}
-                            />
-                        )
-                    })}
-                </div>
+                {categories.map((category) => {
+                    const categoryWords = words.filter(w => w.category === category)
+                    return (
+                        <CategoryColumn
+                            key={category}
+                            title={category}
+                            words={categoryWords}
+                            onDrop={handleDrop}
+                            onMove={moveWord}
+                            category={category}
+                            completed={completed}
+                        />
+                    )
+                })}
                 
 
                 {!completed ? (
-                    <button onClick={checkAnswers}>Finalizar</button>
+                    <button className={styles.confirmBtn} onClick={checkAnswers}>Finalizar</button>
                 ) : (
                     <>
                         <div>
                             <p>✅ Acertos: {result.correct}</p>
                             <p>❌ Erros: {result.incorrect}</p>
                         </div>
-                        <button onClick={initializeGame}>Reiniciar</button>
+                        <button className={styles.confirmBtn} onClick={initializeGame}>Reiniciar</button>
                     </>
                 )}
             </div>
@@ -141,7 +142,7 @@ function CategoryColumn({ title, words, onDrop, onMove, category, completed }: a
     })
 
     return (
-        <div ref={dropRef as unknown as React.Ref<HTMLDivElement>}>
+        <div className={styles.categoryColumn} ref={dropRef as unknown as React.Ref<HTMLDivElement>}>
             <h3>{title}</h3>
             {words.map((word: any, index: number) => (
                 <WordItem

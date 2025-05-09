@@ -1,50 +1,62 @@
-.wordItem {
-    cursor: grab;
-    transition: all 0.3s ease;
-    padding: 0.5rem 1rem;
-    border: 2px solid transparent;
-    border-radius: 8px;
-    background: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  
-    &:active {
-      cursor: grabbing;
-    }
-  
-    &.correct {
-      border-color: green;
-      background-color: #e6f9e6;
-    }
-  
-    &.incorrect {
-      border-color: red;
-      background-color: #ffe6e6;
-    }
-  
-    &.dragging {
-      opacity: 0.7;
-      transform: scale(1.05);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
+@import '../base/variables';
+@import '../base/mixins';
+
+.container {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 18px;
+  margin-top: $marginSection;
+
+  h2 { @include blog-subtitle-text(); margin-bottom: -12px; }
+
+  .confirmBtn {
+    font-size: 22px;
+    font-family: inherit;
+    color: $pageWhiteColour;
+    background-color: $pageBlackColour;
+    transition: background-color 0.3s;
+
+    padding: 8px 24px;
+    border-radius: 40px;
+    cursor: pointer;
+
+    &:hover { background-color: rgba($pageBlackColour, 0.7); }
   }
-  
+
   .categoryColumn {
-    padding: 1rem;
+    padding: 12px;
     border: 2px dashed #ccc;
-    margin-bottom: 2rem;
+    margin-bottom: 8px;
     min-height: 120px;
     background-color: #f9f9f9;
     border-radius: 12px;
-  }
-  
-  .categoriesRow {
+
     display: flex;
-    gap: 1rem;
+    width: 100%;
+    gap: 12px;
     flex-wrap: wrap;
+
+    h3 { @include text-primary(); width: 100%; }
+
+    .wordItem {
+      cursor: grab;
+      transition: all 0.3s ease;
+      padding: 6px 12px;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      background-color: $pageWhiteColour;
+      box-shadow: 0 2px 5px rgba($pageBlackColour, 0.1);
+
+      &:active { cursor: grabbing; }
+
+      &.correct { border-color: green; background-color: #e6f9e6; }
+    
+      &.incorrect { border-color: red; background-color: #ffe6e6; }
+    
+      &.dragging { opacity: 0.7; transform: scale(1.05); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); }
+    }
   }
-  
-  .results {
-    margin-top: 1rem;
-    font-weight: bold;
-  }
-  
+}

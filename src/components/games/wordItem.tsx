@@ -1,5 +1,10 @@
 import { useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
+import styles from '../../styles/games/dragDropGame.module.scss';
+
+function clsx(...classes: (string | false | null | undefined)[]) {
+    return classes.filter(Boolean).join(' ');
+}
 
 type Word = {
     id: number;
@@ -26,7 +31,9 @@ export default function WordItem({
     onDropCategory,
     onReturn,
     isDraggable = false,
-    category = null
+    category = null,
+    completed,
+    isCorrect
 }: WordItemProps) {
     const ref = useRef<HTMLDivElement>(null);
 
@@ -69,6 +76,11 @@ export default function WordItem({
             ref={ref}
             data-handler-id={handleId}
             style={{ opacity: `${isDragging ? '0.3' : '1'}` }}
+            className={clsx(
+                styles.wordItem,
+                isDragging && styles.dragging,
+                completed && (isCorrect ? styles.correct : styles.incorrect)
+            )}
         >
             {word.name}
         </div>

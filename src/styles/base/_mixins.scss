@@ -67,6 +67,14 @@
     @media #{$laptop} { font-size: 16px; }
 }
 
+@mixin blog-subtitle-text() {
+    font-size: 32px;
+
+    @media #{$tablet} { font-size: 28px; }
+
+    @media #{$mobile} { font-size: 26px; }
+}
+
 @mixin testimonials-user-name() {
     font-size: 16px;
     font-family: inherit;

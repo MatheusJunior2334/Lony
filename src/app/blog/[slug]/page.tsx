@@ -2,6 +2,7 @@ import { blogPosts } from "@/data/blogPosts";
 import BlogPost from "@/components/blog/blogPost";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import { BlogLayout } from "@/layout/blogLayout";
 
 type Params = Promise<{ slug: string }>
 
@@ -23,5 +24,9 @@ export default async function BlogPostPage({ params }: { params: Params }){
 
     if (!post) return notFound();
 
-    return <BlogPost post={post} />
+    return (
+        <BlogLayout>
+            <BlogPost post={post} />
+        </BlogLayout>
+    )
 }

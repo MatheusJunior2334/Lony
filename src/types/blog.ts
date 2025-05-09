@@ -1,5 +1,17 @@
 import { DragDropGameProps } from "./dragDrop";
 
+export interface BlogContentDiv {
+    subtitle: string;
+    image?: string;
+    imageAlt?: string;
+    imageSource?: string;
+    imageSourceLink?: string;
+    paragraphsBefore?: string[];
+    paragraphsAfter?: string[];
+    listTitle?: string;
+    listItems?: string[];
+}
+
 export interface BlogPost {
     slug: string;
     title: string;
@@ -9,6 +21,8 @@ export interface BlogPost {
     author: string;
     theme: string;
     coverImage: string;
-    content: (string | { image: string; alt: string })[];
+    coverImageSource?: string;
+    coverImageSourceLink?: string;
+    content: BlogContentDiv[];
     game?: DragDropGameProps;
 }

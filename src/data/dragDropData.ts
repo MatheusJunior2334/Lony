@@ -2,7 +2,7 @@ import { DragDropGameProps } from "@/types/dragDrop"
 
 export const dragDropGames: Record<string, DragDropGameProps> = {
     "moda-sustentavel": {
-        title: "Classifique os itens do armário",
+        title: "🎮 Pronto para jogar?",
         instructions: "Arraste os itens para a categoria correta",
         categories: ["Sustentável", "Poluente"],
         items: [

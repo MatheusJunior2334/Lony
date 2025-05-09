@@ -6,7 +6,7 @@ export interface Item {
 
 export interface DragDropGameProps {
     title: string;
-    instructions: string;
+    instructions: string[];
     categories: string[];
     items: Item[];
 }
