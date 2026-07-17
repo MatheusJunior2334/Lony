@@ -6,7 +6,7 @@ import { ShopLayout } from "@/layout/shopLayout"
 import { MainCarouselShop } from "@/components/shop/mainCarouselShop";
 import { MainCategoriesShop } from "@/components/shop/mainCategoriesShop";
 import { FashionShowcase } from "@/components/shop/fashionShowcase";
-import { OurWorkSection } from "@/components/home/ourWork";
+import { SeasonalShowcase } from "@/components/shop/seasonalShowcase";
 import { LanguageProvider } from "@/contexts/languageContext";
 
 const slides = [
@@ -33,7 +33,7 @@ const ShopLonyPage = async () => {
                 <MainCarouselShop data={slides} />
                 <MainCategoriesShop />
                 <FashionShowcase images={images} /> 
-                <OurWorkSection />
+                <SeasonalShowcase />
             </ShopLayout>
         </LanguageProvider>
     )

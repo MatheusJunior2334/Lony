@@ -46,7 +46,7 @@
             flex-direction: column;
             justify-content: space-between;
 
-            h3 { font-size: 20px; color: $pageWhiteColour; font-weight: bold; }
+            h3 { font-size: 20px; color: $pageWhiteColour; font-weight: bold; text-transform: uppercase; }
 
             .socialIcons {
                 display: flex;
@@ -54,7 +54,7 @@
                 column-gap: 4px;
     
                 a {
-                    width: 30px; height: 30px;
+                    width: 34px; height: 34px;
                     transition: transform 0.3s ease;
     
                     svg { width: 100%; height: 100%; fill: $pageWhiteColour; }
@@ -87,10 +87,6 @@
                 row-gap: 4px;
 
                 h3 { display: none; }
-
-                .socialIcons {
-                    a { width: 34px; height: 34px; }
-                }
             }
         }
     }

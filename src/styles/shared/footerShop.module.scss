@@ -23,45 +23,21 @@
                     align-items: flex-start;
                     justify-content: center;
     
-                    h3 {
-                        font-size: 24px;
-                        color: $pageBlackColour;
-                    }
+                    h3 { font-size: 22px; color: $pageBlackColour; font-weight: bold; text-transform: uppercase; }
     
                     div {
                         width: 100%;
                         display: flex;
                         justify-content: flex-start;
                         align-items: flex-start;
-                        column-gap: 14px;
+                        column-gap: 8px;
                         margin-top: 14px;
     
                         a {
-                            width: 40px;
-                            height: 40px;
-                            transition: transform 0.2s ease-in-out;
-                            opacity: 1;
+                            width: 38px; height: 38px;
+                            transition: transform 0.3s ease;
     
-                            svg {
-                                width: 100%;
-                                height: 100%;
-                                fill: $pageWhiteColour;
-                                background-color: $pageBlackColour;
-                                padding: 1px;
-                                border-radius: 4px;
-                            }
-    
-                            &:nth-of-type(3) {
-                                svg {
-                                    fill: $pageBlackColour;
-                                    background-color: transparent;
-                                    padding: 0px;
-                                }
-                            }
-    
-                            &:nth-of-type(4) {
-                                svg { padding: 2px; }
-                            }
+                            svg { width: 100%; height: 100%; fill: $pageBlackColour; }
     
                             &:hover { transform: scale(1.05); }
                         }
@@ -180,10 +156,7 @@
 
                     .socialMedia {
                         div {
-                            a {
-                                width: 34px;
-                                height: 34px;
-                            }
+                            a { width: 34px; height: 34px; }
                         }
                     }
                 }

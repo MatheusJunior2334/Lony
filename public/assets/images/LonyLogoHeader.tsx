@@ -3,7 +3,11 @@
 import Link from "next/link"
 import React, { useEffect, useRef, useCallback } from "react"
 
-export const LonyLogoHeader = () => {
+interface LonyLogoHeaderProps {
+  className?: string;
+}
+
+export const LonyLogoHeader = ({ className }: LonyLogoHeaderProps) => {
   const pathsRef = useRef<(SVGPathElement | null)[]>([]);
   const observerRef = useRef<IntersectionObserver | null>(null); 
 
@@ -69,8 +73,8 @@ export const LonyLogoHeader = () => {
   }, [animatePaths]);
 
   return (
-    <Link href="/home" aria-label="Ir para a tela inicial">
-      <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="469.000000pt" height="220.000000pt" viewBox="0 0 469.000000 220.000000" preserveAspectRatio="xMidYMid meet">
+    <Link href="/home" aria-label="Ir para a tela inicial" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <svg className={className} version="1.0" xmlns="http://www.w3.org/2000/svg" width="469.000000pt" height="220.000000pt" viewBox="0 0 469.000000 220.000000" preserveAspectRatio="xMidYMid meet">
         <g transform="translate(0.000000,220.000000) scale(0.100000,-0.100000)" stroke="none">
           <path ref={setPathRef(0)} d="M2195 2108 c-22 -11 -107 -88 -190 -172 l-150 -151 -75 37 c-97 47 -263 102 -369 122 -96 18 -299 21 -387 5 -153 -27 -293 -94 -363 -174 -57 -65
           -76 -118 -76 -215 0 -76 3 -91 30 -139 52 -94 150 -160 302 -203 65 -19 104 -22 228 -23 83 0 169 3 193 8 23 4 42 4 42 -1 0 -11 -237 -252 -291 -295 l-46

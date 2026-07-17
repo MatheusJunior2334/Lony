@@ -2,7 +2,7 @@
 @import '../base/mixins';
 
 #fashionShowcase {
-    padding: $marginSection 4%;
+    padding: $marginSection 5%;
 
     h2 {
         @include title-primary();
@@ -17,6 +17,7 @@
         grid-auto-flow: dense;
         column-gap: 6%;
         row-gap: 30px;
+        
     }
 }
 

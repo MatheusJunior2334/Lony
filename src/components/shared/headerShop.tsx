@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { LonyLogoHeader } from '../../../public/assets/images/LonyLogoHeader';
 import styles from '../../styles/shared/headerShop.module.scss';
 
+import { SideMenuShop } from './sideMenuShop';
 import { BurgerMenuIcon } from '../../../public/assets/icons/burgerMenuIcon';
 import { ProfileDefaultIcon } from '../../../public/assets/icons/profileDefaultIcon';
 import { FavoritesIcon } from '../../../public/assets/icons/favoritesIcon';
@@ -25,16 +26,30 @@ const SearchComponent = () => {
                     onBlur={() => setAddClass(false)}
                 />
             </div>
-            <span>Shop</span>
+            <span>Loja</span>
         </form>
     )
 }
 
 export const HeaderShop = () => {
+    const [addClassMenu, setAddClassMenu] = useState<boolean>(false);
     const [visibleMenu, setVisibleMenu] = useState<boolean>(false);
 
     const [isHeaderHidden, setIsHeaderHidden] = useState<boolean>(false);
     const [lastScrollY, setLastScrollY] = useState<number>(0);
+
+    const openMenu = () => {
+        setAddClassMenu(true);
+        setVisibleMenu(true);
+    }
+
+    const closeMenu = () => {
+        setAddClassMenu(false);
+
+        setTimeout(() => {
+            setVisibleMenu(false)
+        }, 300)
+    }
 
     useEffect(() => {
         const body = document.body;
@@ -54,7 +69,7 @@ export const HeaderShop = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > lastScrollY && window.scrollY > 200) {
+            if (window.scrollY > lastScrollY && window.scrollY > 135) {
                 setIsHeaderHidden(true);
             } else {
                 setIsHeaderHidden(false);
@@ -71,37 +86,32 @@ export const HeaderShop = () => {
 
     return (
         <header id={styles.headerShop} className={isHeaderHidden ? styles.headerHidden : ''}>
-            <div className={styles.topSide}>
-                <div className={styles.leftHeader}>
-                    <SearchComponent />
-                    <button className={styles.burgerMenu}><BurgerMenuIcon /></button>
-                </div>
-                <div className={styles.midHeader}>
-                    <LonyLogoHeader />
-                </div>
-                <div className={styles.rightHeader}>
-                    <ul>
-                        <li className={styles.burgerMenu}><button><BurgerMenuIcon /></button></li>
-                        <li title='Meu perfil'><button><ProfileDefaultIcon /></button></li>
-                        <li title='Favoritos'><button><FavoritesIcon /></button></li>
-                        <li title='Minhas compras' className={styles.bagIcon}><button><BagIcon /></button></li>
-                    </ul>
-                </div>
-            </div>
-            <nav className={styles.bottomSide}>
-                <ul>
-                    <li>Ofertas</li>
-                    <li>Novidades</li>
-                    <li>Moda feminina</li>
-                    <li>Calçados</li>
-                    <li>Acessórios</li>
-                    <li>Moda Íntima</li>
-                    <li>Casa</li>
-                    <li>Esportivo</li>
+
+            { visibleMenu ? <SideMenuShop closeMenu={closeMenu} translateStyle={addClassMenu} /> : null }
+
+            <div className={styles.headerContent}>
+                <LonyLogoHeader className={styles.lonyLogo} />
+                <SearchComponent />
+                <button className={styles.burgerMenu}><BurgerMenuIcon /></button>
+                <ul className={styles.userActions}>
+                    <li title='Meu perfil'><button><ProfileDefaultIcon /></button></li>
+                    <li title='Favoritos'><button><FavoritesIcon /></button></li>
+                    <li title='Minhas compras' className={styles.bagIcon}><button onClick={openMenu}><BagIcon /></button></li>
                 </ul>
 
-                <SearchComponent />
-            </nav>
+                <nav className={styles.categoriesMenu}>
+                    <ul>
+                        <li>Ofertas</li>
+                        <li>Novidades</li>
+                        <li>Moda feminina</li>
+                        <li>Calçados</li>
+                        <li>Acessórios</li>
+                        <li>Moda Íntima</li>
+                        <li>Casa</li>
+                        <li>Esportivo</li>
+                    </ul>
+                </nav>
+            </div>
         </header>
     )
 }

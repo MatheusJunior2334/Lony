@@ -6,10 +6,7 @@ import styles from '../../styles/shared/footerShop.module.scss';
 
 import LonyLogo from '../../../public/assets/images/LonyFooterLogo.webp';
 
-import { FaInstagram } from 'react-icons/fa';
-import { SiLinktree } from 'react-icons/si';
-import { BsLinkedin } from 'react-icons/bs';
-import { IoLogoTiktok } from 'react-icons/io5';
+import { FaInstagram, FaPinterestP, FaTiktok, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 
 export const FooterShop = () => {
     return (
@@ -29,10 +26,11 @@ export const FooterShop = () => {
                         <div className={styles.socialMedia}>
                             <h3>Siga o Lony</h3>
                             <div>
-                                <a href="https://instagram.com/ladies.of.newyork/" target="_blank" rel="noopener noreferrer" title='Instagram'><FaInstagram /></a>
-                                <a href="#" target="_blank" rel="noopener noreferrer" title='Linktree'><SiLinktree /></a>
-                                <a href="https://www.linkedin.com/company/lony-ladies-of-new-york" target="_blank" rel="noopener noreferrer" title='LinkedIn'><BsLinkedin /></a>
-                                <a href="https://www.tiktok.com/@ladies.of.new.york" target="_blank" rel="noopener noreferrer" title='TikTok'><IoLogoTiktok /></a>
+                               <a href="https://instagram.com/ladies.of.newyork/" target="_blank" rel="noopener noreferrer" title='Instagram'><FaInstagram /></a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" title='Pinterest'><FaPinterestP /></a>
+                                <a href="https://www.tiktok.com/@ladies.of.new.york" target="_blank" rel="noopener noreferrer" title='TikTok'><FaTiktok /></a>
+                                <a href="https://www.linkedin.com/company/lony-ladies-of-new-york" target="_blank" rel="noopener noreferrer" title='LinkedIn'><FaLinkedinIn /></a>
+                                <a href="https://www.youtube.com/@LadiesOfNewYork" target="_blank" rel="noopener noreferrer" title='Youtube'><FaYoutube /></a>
                             </div>
                         </div>
                     </div>

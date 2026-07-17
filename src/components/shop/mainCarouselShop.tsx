@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState, Suspense } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "../../styles/shop/mainCarouselShop.module.scss";
 import { ArrowCarouselIcon } from "../../../public/assets/icons/arrowCarouselIcon";
@@ -23,6 +23,7 @@ export const MainCarouselShop: React.FC<CarouselProps> = ({ data }) => {
     right: 1,
   });
   const [flowDirection, setFlowDirection] = useState(true);
+  const [zoomReadyIndex, setZoomReadyIndex] = useState<number | null>(null);
   const internalRef = useRef<NodeJS.Timeout | null>(null);
 
   const updateIndexes = (increment: number) => {
@@ -59,10 +60,18 @@ export const MainCarouselShop: React.FC<CarouselProps> = ({ data }) => {
   }
 
   const variants = {
-    center: { x: '0rem', opacity: 1, scale: 1, zIndex: 5, boxShadow: "0px 10px 10px)", transition: { type: "spring", duration: 1 } },
-    left: { x: "-50%", opacity: 1, scale: 0.6, zIndex: 4, transition: { type: "spring", duration: 1 } },
-    right: { x: "50%", opacity: 1, scale: 0.6, zIndex: 3, transition: { type: "spring", duration: 1 } },
-    hidden: { x: flowDirection ? "70%" : "-70%", scale: 0, opacity: 0 },
+    position: (pos: 'left' | 'center' | 'right') => {
+      switch (pos) {
+        case 'left':
+          return { x: "-50%", opacity: 1, scale: 0.6, zIndex: 4, transition: { type: "spring", duration: 1 } };
+        case 'center':
+          return { x: "0%", opacity: 1, scale: 1, zIndex: 5, boxShadow: "0px 6px 10px", transition: { type: "spring", duration: 1 } };
+        case 'right':
+          return { x: "50%", opacity: 1, scale: 0.6, zIndex: 4, transition: { type: "spring", duration: 1 } };
+        default:
+          return { x: "0%", opacity: 0, scale: 0, zIndex: 0 };
+      }
+    }
   };
 
   return (
@@ -72,33 +81,53 @@ export const MainCarouselShop: React.FC<CarouselProps> = ({ data }) => {
         <span>Shop</span>
       </div>
       <motion.div className={styles.carouselContent}>
-        <AnimatePresence initial={false}>
-          {(['left', 'center', 'right'] as const).map((pos) => (
+        {(['left', 'center', 'right'] as const).map((pos) => {
+          const isCenter = pos === 'center';
+          const currentIndex = indexes[pos];
+
+          const handleMouseEnter = () => {
+            if (isCenter) setZoomReadyIndex(currentIndex);
+            stopAutoSlide();
+          }
+
+          const handleMouseLeave = () => {
+            setZoomReadyIndex(null);
+            startAutoSlide();
+          }
+          
+          return (
             <motion.div
               key={indexes[pos]}
               variants={variants}
               initial={pos === 'center' ? (flowDirection ? 'right' : 'left') : 'hidden'}
-              animate={pos}
+              custom={pos}
+              animate='position'
               exit='hidden'
-              className={`${styles.carouselItem} ${pos !== 'center' && styles.sideItems}`}
+              className={`
+                ${styles.carouselItem}
+                ${isCenter ? styles.centerItem : styles.sideItems}
+                ${isCenter && zoomReadyIndex === currentIndex ? styles.zoomActive : ''}
+              `}
               onClick={pos === 'left' ? () => updateIndexes(-1) : pos === 'right' ? () => updateIndexes(1) : undefined}
-              onMouseEnter={stopAutoSlide}
-              onMouseLeave={startAutoSlide}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
-              <Suspense fallback={<div className={styles.loadingDiv} />}>
-                <Image
-                  src={data[indexes[pos]].image}
-                  alt={`Image ${data[indexes[pos]].id}`}
-                  width={958}
-                  height={600}
-                  sizes="(max-width: 768px) 100vw, 56vw"
-                  loading="lazy"
-                />
-              </Suspense>
+              <div className={styles.imageZoomWrapper}>
+                <Suspense fallback={<div className={styles.loadingDiv} />}>
+                  <Image
+                    src={data[indexes[pos]].image}
+                    alt={`Image ${data[indexes[pos]].id}`}
+                    width={958}
+                    height={600}
+                    sizes="(max-width: 768px) 100vw, 56vw"
+                    loading="lazy"
+                    className={styles.imageZoom}
+                  />
+                </Suspense>
+              </div>
             </motion.div>
-          ))}
-        </AnimatePresence>
-
+          )
+        })}
         <button
           className={styles.leftBtn}
           onClick={() => updateIndexes(-1)}
