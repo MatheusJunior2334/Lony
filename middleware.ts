@@ -19,5 +19,9 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/loja'],
+    matcher: [
+        '/perfil/:path*', // Página não criada
+        '/checkout/:path*', // Página não criada
+        '/minha-conta/:path*' // Página não criada
+    ],
 }
